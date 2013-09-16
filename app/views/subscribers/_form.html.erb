@@ -1,0 +1,19 @@
+<%= form_for subscriber, :remote => true do |f| %>
+	<ul>
+	    <% flash["sub_errors"].each do |error| %>
+	      <li style='color:red;'><%= error %></li>
+	    <% end if flash["sub_errors"].present? %>
+	</ul>
+	<h5>Newsletter</h5>
+	<label>Vel assumenda excepturi nostrum tenetur alias quibusdam maiores.</label>
+	<table width="15%" border="0" cellspacing="0" class="inp-text">
+	    <tr>
+	      <td><%= f.email_field :email ,:class=>"text", :placeholder=> 'email'%></td>
+	    </tr>
+	    <tr>
+	      <td class='btn-send'>
+        	<%= f.submit :value=>'Subscribe', :style=>'float:right'%>	
+		  </td>
+	    </tr>
+	</table>
+<% end %>

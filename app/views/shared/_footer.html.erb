@@ -1,0 +1,6 @@
+<div id="feed">
+	<%= render :partial =>'feedbacks/form', :locals=>{:feedback=>Feedback.new}%>
+</div>
+<div id='subs'>
+	<%= render :partial => 'subscribers/form', :locals=>{:subscriber=>Subscriber.new}%>
+</div>

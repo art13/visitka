@@ -1,0 +1,30 @@
+<%= form_for feedback, :remote => true do |f| %>
+	<ul>
+	    <% flash["fdbck_errors"].each do |error| %>
+	      <li style='color:red;'><%= error %></li>
+	    <% end if flash["fdbck_errors"].present? %>
+	</ul>
+	<label>Contact us</label>
+	<table width="50%" border="0" cellspacing="0" class="inp-text">
+	    <tr >
+	      <td><%= f.text_field :fio ,:class=>"text", :placeholder => 'your name'%></td>
+	    </tr>
+	    <tr>
+	      <td><%= f.email_field :email ,:class=>"text", :placeholder=> 'email'%></td>
+	    </tr>
+	    <tr>
+	      <td><%= f.text_area :message,:class=>"textarea", :placeholder=>'message'%></td>
+	    </tr>
+	    <tr>
+	    	<td>
+	    		<%=f.check_box :subscribe%> 
+              	Sign up for newsletter
+            </td>
+	    </tr>
+	    <tr>
+	      <td class='btn-send'>
+        	<%= f.submit :value=>'Send message', :style=>'float:right'%>	
+		  </td>
+	    </tr>
+	</table>
+<% end %>

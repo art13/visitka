@@ -1,0 +1,12 @@
+<%e=Expert.first%>
+<%=image_tag e.photo.url(:small)%>
+<br />
+<%= e.lastname%>
+<br />
+<%= e.firstname%>
+<br />
+<%= e.secondname%>
+<br />
+<%=mail_to e.email, e.email%>
+<br />
+<%= e.phone%>

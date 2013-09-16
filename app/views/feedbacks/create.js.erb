@@ -1,0 +1,5 @@
+<% if flash["fdbck_success"] %>
+<% flash.delete("fdbck_errors") if flash["fdbck_errors"].present? %>
+<% else %>
+  $('#feed').empty().append("<%= j(render :partial => 'feedbacks/form', :locals => {:feedback => @feedback})%>");
+<% end %>

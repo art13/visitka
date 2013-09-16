@@ -1,0 +1,2 @@
+class ChildrenPagesController < ApplicationController
+end

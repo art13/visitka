@@ -1,0 +1,6 @@
+<% if flash["subs_success"] %>
+<% flash.delete("subs_errors") if flash["subs_errors"].present? %>
+
+<% else %>
+  $('#subs').empty().append("<%= j(render :partial => 'subscribers/form', :locals => {:subscriber=> @subscriber})%>");
+<% end %>

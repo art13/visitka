@@ -1,0 +1,683 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        blank:  не может быть пустым
+    attributes:
+      lib_book:
+        title: Заголовок
+        content: Содержание
+        photo: Картинка
+      book:
+        book_file_name: Название книги
+        alter_name: название для публикации
+        created_at: Дата загрузки
+        lib_book: Библиотека
+      page: 
+        title: Заголовок
+        content: Содержание
+        photo:  Картинка
+      children_page:
+        title: Заголовок
+        content:  Содержание
+        photo:  Картинка
+        page_id: Страница первого уровня
+        page: Страница первого уровня
+      admin_user:
+        current_sign_in_at: "Текущий вход"
+        password: "Пароль"
+        password_confirmation: Подтверждение пароля
+        last_sign_in_at: "Последний вход"
+        sign_in_count: "Количество входов"
+      programs_feature:
+        title: Заголовок
+        description:  Описание
+        material_id:  Программа
+        material: Программа
+      client:
+        name: клиент
+        comment: отзывы
+        photo: лого/фото
+      release:
+        release_file_name: Имя файла
+        alter_name: Имя для публикации
+        created_at: Дата загрузки
+        material: Программа
+      material:
+        name: Имя программы
+        description: Описание
+        created_at: Дата создания 
+        updated_at: Редактировалась
+      subscribers:
+        email: Электронная почта   
+      expert:
+        lastname: Фамилия
+        firstname: Имя
+        secondname: Отчество
+        phone: Телефон
+        email: Электронная почта   
+    models:
+      lib_book:
+        one: Библиотека
+        many: Библиотеки
+        other: Библиотека
+        few: Библиотек
+      book:
+        one: Книга
+        many: Книги
+        other: Книга
+        few: Книг
+      page:
+        one: Страница
+        many: Страницы
+        other: Страница
+        few: Страница
+      children_page:
+        one: Страница
+        many: Страницы
+        other: Страница
+        few: Страница
+      programs_feature:
+        one: Особенности
+        many: Особенности
+        other: Особенности
+        few: Особенности
+      client:
+        one: Клиент
+        many: Клиенты
+        other: Клиент
+        few: Клиентов
+      release:
+        one: Файл
+        many: Файлы
+        other: Файл
+        few: Файлов
+      material:
+        one: Программа
+        many: Программы
+        other: Программа
+        few: Программ
+      subscriber:
+        one: Подписчик
+        many: Подписчики
+        other: Подписчик
+        few: Подписчиков
+      post:
+        one: Новость
+        many: Новости
+        other: Новость
+        few: Новостей
+      admin_user:
+        one: Администратор
+        many: Администраторы
+        other: администратор 
+        few: администраторов
+      expert:
+        one: Эксперт
+        many: Эксперты
+        other: Эксперт
+        few: Экспертов
+  librarys: Библиотеки
+  library: Библиотеки
+  books: Книги
+  m_pages: Страницы первого уровня
+  m_children_pages: Страницы второго уровня
+  informations: Информационный раздел
+  mans: Люди
+  features: Особенности
+  clients: Клиенты
+  releases: Файлы
+  release: Файл
+  download_materials: Программы
+  materials: Программы
+  e_books: Книги
+  subscribers: Подписчики
+  subscribe: Подписка на новости
+  email_f: электронной почте
+  experts: Эксперты
+  file_name_size: Максимум 100 символов        
+  file_pr: Прикреплённе файлы
+  ava_parent: Прикреплён к странице первого уровня
+  ava_child: Прикреплён к странице второго уровня
+  ava_name:  имени файла  
+  parent_f: родительской странице
+  menu_pages: Страницы
+  parent_pages: Первого уровня
+  post: Новости
+  name_f: Названию
+  children_pages: Второго уровня
+  parent_change: Выберите родительскую страницу
+  name_rate: Валюта
+  rates: Ставки
+  cost: Ставка годовых
+  cost_i: Введите ставку годовых(разделитель - запятая)
+  news: Новости
+  file: Прикрепление файла
+  signed_in: Вы успешно авторизовались
+  lastname: Фамилия
+  and: и
+  what_is_the: Сложите
+  lastname_f: фамилии
+  firstname: Имя
+  phone_f: номеру телефона
+  name_city_f: названию города
+  secondname: Отчество
+  requisitions: Заявки
+  town_f: городам
+  city: Город
+  question: Вопрос
+  fio: ФИО
+  feedbacks: Обратная связь
+  feedback: Обратная связь
+  permalink: Cсылка
+  name_city: Название города
+  citys: Города
+  name_place: Название
+  user: 'Пользователь'
+  admin_user: "Администратор"
+  admin_users: Администраторы
+  admin_details: "Данные администратора"
+  email: "Электронная почта"
+  current_sign_in_at: "Текущий вход"
+  password: "Пароль"
+  password_confirmation: Подтверждение пароля
+  last_sign_in_at: "Последний вход"
+  sign_in_count: "Количество входов"
+  contact: "Контакт"
+  contacts: Контакты
+  address: Адрес
+  metro: Станция Метро
+  photo: Изображение
+  reg_number: Регистрацинный номер
+  phone: Телефон
+  support_phone: Телефон поддержки
+  work_interval: Время работы
+  fio_director: ФИО Директора
+  email_director: Email директора
+  fio_buch: ФИО бухгалтера
+  email_buch: Email бухгалтера
+  group: Группа
+  group_f: Группа
+  name_place_f: названию
+  metro_f: станции метро
+  address_f: адресу
+  title: Заголовок
+  info: Текст 
+  image: Прикрепить изображение
+  section: Раздел 
+  pages: Страницы 
+  page: Страница
+  title_f: заголовку
+  section_f: Названию
+  created_at: Дата создания
+  created_at_f: дате создания
+  content: Содержание
+  news_single: Создание/Редактирование новости
+  section_change: Выберите раздел
+  section_title: Название
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    - 
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: ! '%d.%m.%Y'
+      long: ! '%d %B %Y'
+      short: ! '%d %b'
+    month_names:
+    - 
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: около %{count} часов
+        many: около %{count} часов
+        one: около %{count} часа
+        other: около %{count} часа
+      about_x_months:
+        few: около %{count} месяцев
+        many: около %{count} месяцев
+        one: около %{count} месяца
+        other: около %{count} месяца
+      about_x_years:
+        few: около %{count} лет
+        many: около %{count} лет
+        one: около %{count} года
+        other: около %{count} лет
+      almost_x_years:
+        one: почти 1 год
+        few: почти %{count} года
+        many: почти %{count} лет
+        other: почти %{count} лет
+      half_a_minute: меньше минуты
+      less_than_x_minutes:
+        few: меньше %{count} минут
+        many: меньше %{count} минут
+        one: меньше %{count} минуты
+        other: меньше %{count} минуты
+      less_than_x_seconds:
+        few: меньше %{count} секунд
+        many: меньше %{count} секунд
+        one: меньше %{count} секунды
+        other: меньше %{count} секунды
+      over_x_years:
+        few: больше %{count} лет
+        many: больше %{count} лет
+        one: больше %{count} года
+        other: больше %{count} лет
+      x_days:
+        few: ! '%{count} дня'
+        many: ! '%{count} дней'
+        one: ! '%{count} день'
+        other: ! '%{count} дня'
+      x_minutes:
+        few: ! '%{count} минуты'
+        many: ! '%{count} минут'
+        one: ! '%{count} минуту'
+        other: ! '%{count} минуты'
+      x_months:
+        few: ! '%{count} месяца'
+        many: ! '%{count} месяцев'
+        one: ! '%{count} месяц'
+        other: ! '%{count} месяца'
+      x_seconds:
+        few: ! '%{count} секунды'
+        many: ! '%{count} секунд'
+        one: ! '%{count} секунда'
+        other: ! '%{count} секунды'
+    prompts:
+      day: День
+      hour: Часов
+      minute: Минут
+      month: Месяц
+      second: Секунд
+      year: Год
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: нужно подтвердить
+      blank: не может быть пустым
+      confirmation: не совпадает с подтверждением
+      empty: не может быть пустым
+      equal_to: может иметь лишь значение, равное %{count}
+      even: может иметь лишь нечетное значение
+      exclusion: имеет зарезервированное значение
+      greater_than: может иметь значение большее %{count}
+      greater_than_or_equal_to: может иметь значение большее или равное %{count}
+      inclusion: имеет непредусмотренное значение
+      invalid: имеет неверное значение
+      less_than: может иметь значение меньшее чем %{count}
+      less_than_or_equal_to: может иметь значение меньшее или равное %{count}
+      not_a_number: не является числом
+      not_an_integer: не является целым числом
+      odd: может иметь лишь четное значение
+      record_invalid: ! 'Возникли ошибки: %{errors}'
+      taken: уже существует
+      too_long:
+        few: слишком большой длины (не может быть больше чем %{count} символа)
+        many: слишком большой длины (не может быть больше чем %{count} символов)
+        one: слишком большой длины (не может быть больше чем %{count} символ)
+        other: слишком большой длины (не может быть больше чем %{count} символа)
+      too_short:
+        few: недостаточной длины (не может быть меньше %{count} символов)
+        many: недостаточной длины (не может быть меньше %{count} символов)
+        one: недостаточной длины (не может быть меньше %{count} символа)
+        other: недостаточной длины (не может быть меньше %{count} символа)
+      wrong_length:
+        few: неверной длины (может быть длиной ровно %{count} символа)
+        many: неверной длины (может быть длиной ровно %{count} символов)
+        one: неверной длины (может быть длиной ровно %{count} символ)
+        other: неверной длины (может быть длиной ровно %{count} символа)
+    template:
+      body: ! 'Проблемы возникли со следующими полями:'
+      header:
+        few: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
+        many: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
+        one: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
+        other: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
+  helpers:
+    select:
+      prompt: ! 'Выберите: '
+    submit:
+      create: Создать %{model}
+      submit: Сохранить %{model}
+      update: Сохранить
+    commit:  
+       create: Создать %{model}
+       submit: Сохранить %{model}
+       update: Сохранить
+  number:
+    currency:
+      format:
+        delimiter: ! ' '
+        format: ! '%n %u'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: руб.
+    format:
+      delimiter: ! ' '
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            few: миллиардов
+            many: миллиардов
+            one: миллиард
+            other: миллиардов
+          million:
+            few: миллионов
+            many: миллионов
+            one: миллион
+            other: миллионов
+          quadrillion:
+            few: квадриллионов
+            many: квадриллионов
+            one: квадриллион
+            other: квадриллионов
+          thousand:
+            few: тысяч
+            many: тысяч
+            one: тысяча
+            other: тысяч
+          trillion:
+            few: триллионов
+            many: триллионов
+            one: триллион
+            other: триллионов
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            few: байта
+            many: байт
+            one: байт
+            other: байта
+          gb: ГБ
+          kb: КБ
+          mb: МБ
+          tb: ТБ
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ' и '
+      two_words_connector: ! ' и '
+      words_connector: ! ', '
+  time:
+    am: утра
+    formats:
+      default: ! '%a, %d %b %Y, %H:%M:%S %z'
+      long: ! '%d %B %Y, %H:%M'
+      short: ! '%d %b, %H:%M'
+    pm: вечера
+  active_admin:
+    Actions: Действия
+    name: "Имя"
+    pages: 'Создание страниц'
+    dashboard: "Панель управления"
+    admin_users: "Администраторы"
+    dashboard_welcome:
+      welcome: "Добро пожаловать в раздел администрирования сайтом"
+      call_to_action: ""
+    view: "Открыть"
+    edit: "Изменить"
+    delete: "Удалить"
+    delete_confirmation: "Вы уверены, что хотите удалить это?"
+    new_model: "Создать "
+    create_model: "Создать"
+    edit_model: "Изменить "
+    update_model: "Изменить "
+    delete_model: "Удалить "
+    details: "Подробнее "
+    cancel: "Отмена"
+    empty: "Пусто"
+    previous: "Пред."
+    next: "След."
+    download: "Загрузка:"
+    has_many_new: "Добавить"
+    has_many_delete: "Убрать"
+    has_many_remove: "Удалить"
+    filters:
+      buttons:
+        filter: "Фильтровать"
+        clear: "Очистить"
+      predicates:
+        contains: "Содержит"
+        equals: "="
+        starts_with: "Начинается с"
+        ends_with: "Заканчивается"
+        greater_than: "больше"
+        less_than: "меньше"
+    main_content: "Создайте %{model}#main_content для отображения содержимого."
+    logout: "Выйти"
+    powered_by: "Powered by %{active_admin} %{version}"
+    sidebars:
+      filters: "Фильтры"
+    pagination:
+      empty: "Ничего не найдено"
+      one: "Результат: <b>1</b> совпадение"
+      one_page: "Результат: <b>%{n}</b> совпадений"
+      multiple: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
+      entry:
+        one: "запись"
+        other: "записей"
+    any: "Любой"
+    blank_slate:
+      content: "Пока ничего нет "
+      link: "Создать"
+    batch_actions:
+      button_label: "Групповые операции"
+      delete_confirmation: "Вы уверены, что хотите удалить %{plural_model}? Вы не сможете это отменить."
+      succesfully_destroyed:
+        one: "Успешно удалено: 1 %{model}"
+        few: "Успешно удалено: %{count} %{plural_model}"
+        many: "Успешно удалено: %{count} %{plural_model}"
+        other: "Успешно удалено: %{count} %{plural_model}"
+      selection_toggle_explanation: "(Отметить всё / Снять выделение)"
+      link: "Создать"
+      action_label: "%{title} выбранное"
+      labels:
+        destroy: "Удалить"
+    comments:
+      resource_type: "Тип ресурса"
+      author_type: "Тип автора"
+      body: "Текст"
+      author: "Автор"
+      title: "Комментарий"
+      add: "Добавить Комментарий"
+      resource: "Ресурс"
+      no_comments_yet: "Пока нет комментариев."
+      title_content: "Комментарии (%{count})"
+      errors:
+        empty_text: "Комментарий не сохранен, текст не должен быть пустым."
+    devise:
+      login:
+        title: "Войти"
+        remember_me: "Запомнить меня"
+        submit: "Войти"
+      reset_password:
+        title: "Забыли пароль?"
+        submit: "Сбросить пароль"
+      change_password:
+        title: "Изменение пароля"
+        submit: "Изменение пароля"
+      unlock:
+        title: "Повторно отправить инструкции по разблокировке"
+        submit: "Повторно отправить инструкции по разблокировке"
+      links:
+        sign_in: "Войти"
+        forgot_your_password: "Забыли пароль?"
+        sign_in_with_omniauth_provider: "Войти с помощью %{provider}"
+    access_denied:
+      message: "Вы не авторизованы для выполнения данного действия."
+    index_list:
+      table: "Таблица"
+      block: "Список"
+      grid: "Сетка"
+      blog: "Блог"
+  formtastic:
+    wysihtml5:
+      command:
+        bold: "Жирный"
+        italic: "Курсив"
+        link: "Ссылка"
+        image: "Картинка"
+        ul: "Неупорядоченный список"
+        ol: "Упорядоченный список"
+        source: "Показать код"
+        underline: "Подчёркивание"
+        outdent: "Выступ"
+        indent: "Отступ"
+      block_style: "стиль блока"
+      blocks:
+        h1: "Заголовок 1"
+        h2: "Заголовок 2"
+        h3: "Заголовок 3"
+        h4: "Заголовок 4"
+        h5: "Заголовок 5"
+        h6: "Заголовок 6"
+        p: "Абзац"
+
+      dialog:
+        cancel: "Отмена"
+        ok: "OK"
+        image:
+          dialog_title: "Вставить новое изображение"
+          url_title: "Внешние изображения"
+          gallery_title: "Галерея"
+          upload_title: "Загрузить"
+          url: "URL:"
+          alignment: "Выравнивание:"
+          default: "Нет"
+          left: "Лево"
+          right: "Право"
+          scale: "Шкала:"
+          alt: "Альтернативный текст:"
+          title: "Поле заголовка"
+        link:
+          dialog_title: "Добавить ссылку"
+          url_title: "URL"
+          email_title: "Email"
+          anchor_title: "Прикрепить"
+          url: "URL:"
+          text: "Текст:"
+          rel: " Поле <code>rel</code>:"
+          title: "Поле <code>заголовка</code>:"
+          email: "Email:"
+          anchor: "Имя файла:"
+          blank: "Открыть ссылку в новом окне/вкладке"
+          your_text_here: "Ваш текст "
+  devise:
+    confirmations:
+      confirmed: "Ваш аккаунт был успешно подтвержден"
+      send_instructions: "Вы получите письмо с инструкциями о подтверждении данных, в течение нескольких минут."
+      send_paranoid_instructions: "Если ваш адрес электронной почты существует в нашей базе данных, Вы получите письмо с инструкциями о том, как подтвердить ваш аккаунт в течение нескольких минут."
+    failure:
+      already_authenticated: "Вы уже вошли в систему"
+      inactive: "Ваш аккаунт ещё не активирован"
+      invalid: "Неверный E-mail  или пароль."
+      invalid_token: "Недопустимый маркер аутентификации.."
+      locked: "Ваша учетная запись заблокирована."
+      not_found_in_database: "Неверное имя пользователя или пароль"
+      timeout: "Вы долго отсутствовали, пожалуйста, войдите в раз, чтобы продолжить"
+      unauthenticated: "Вы должны войти или зарегистрироваться, прежде чем продолжить."
+      unconfirmed: "Вы должны подтвердить свой аккаунт, прежде чем продолжить."
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкции подтверждение"
+      reset_password_instructions:
+        subject: "Инструкции для сброса пароля"
+      unlock_instructions:
+        subject: "Инструкции для разблокировки учётной записи"
+    omniauth_callbacks:
+      failure: "Ошибка авторизации %{kind} так как \"%{reason}\"."
+      success: "успешно прошел проверку подлинности %{kind} аккаунта."
+    passwords:
+      no_token: "Вы не можете получить доступ к этой странице без ссылки из письма с сбросом пароля. если вы перешли по ссылке из письма , пожалуйста убедитесь, что ссылка полная."
+      send_instructions: "Вы получите письмо с инструкциями о том, как сбросить пароль в течение нескольких минут."
+      send_paranoid_instructions: "Если ваш адрес электронной почты существует в нашей базе данных, Вы получите ссылку для восстановления пароля на ваш адрес электронной почты через несколько минут."
+      updated: "Ваш пароль был успешно изменён. Вы сейчас в системе."
+      updated_not_active: "Ваш пароль был успешно изменен."
+    registrations:
+      destroyed: "Пока! Ваш аккаунт был успешно отменен. Мы надеемся увидеть Вас снова скоро!."
+      signed_up: "Добро пожаловать вы успешно зарегистрировались. "
+      signed_up_but_inactive: "Вы успешно зарегистрировались Тем не менее, мы не могли авторизовать вас, потому что ваша учетная запись еще не активирована."
+      signed_up_but_locked: "Вы успешно зарегистрировались. Тем не менее, мы не могли авторизовать вас, потому что ваша учетная запись заблокирована."
+      signed_up_but_unconfirmed: "сообщение с ссылкой для подтверждения было отправлено на Ваш электронный адрес. Пожалуйста, перейдите по ссылке, для активации учетной записи"
+      update_needs_confirmation: "Вы обновили Ваш аккаунт успешно, но нам нужно, чтобы подтвердить свой новый адрес электронной почты, введите свой e-mail и перейдите по ссылке, чтобы завершить подтверждение вашего нового почтовойго адреса."
+      updated: "Вы  успешно обновили Ваш аккаунт."
+    sessions:
+      signed_in: "Вы успешно авторизовались."
+      signed_out: "Выход выполнен успешно."
+    unlocks:
+      send_instructions: "Вы получите письмо с инструкциями о том, как разблокировать ваш аккаунт в течение нескольких минут"
+      send_paranoid_instructions: "Если ваша учетная запись существует, вы получите письмо с инструкциями о том, как разблокировать его за несколько минут."
+      unlocked: "Ваш аккаунт успешно разблокирован. Пожалуйста, войдите в систему для продолжения."
+  errors:
+    messages:
+      already_confirmed: "адрес подтвержден, попробуйте войти"
+      confirmation_period_expired: "должно быть подтверждено в течение{%period}, пожалуйста, вы можете заказать новую"
+      expired: "истек, пожалуйста, вы можете заказать новую"
+      not_found: "не найден"
+      not_locked: "не заблокирован"
+      not_saved:
+        one: "1 ошибка запр %{resource} не сохранен:"
+        other: "%{count} ошибки из-за  %{resource} не сохранен:"           
