@@ -13,7 +13,7 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  
+  gem "jquery-ui-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -39,7 +39,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 gem 'activeadmin'
 gem 'paperclip', "~> 3.0"
-gem "jquery-ui-rails"
+
 gem 'chosen-rails'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly' 
 gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'  #rake activeadmin_wysihtml5:install:migrations
