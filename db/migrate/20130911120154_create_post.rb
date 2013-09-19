@@ -1,7 +1,9 @@
 class CreatePost < ActiveRecord::Migration
   def change
   	create_table :posts do |t|
-  		t.string :title
+  		t.string :title, :null=>false
+  		t.attachment :photo
+  		t.string :preview, :null=>false
   		t.text :content
   		t.timestamps
   	end

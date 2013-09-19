@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree ./libs
+//= require bootstrap
+//= require modal_window
+//= require spy
+//= require_self

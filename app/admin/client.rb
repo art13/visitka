@@ -5,12 +5,13 @@ ActiveAdmin.register Client do
 		selectable_column
 		column :name
 		column :comment
+		default_actions
 	end
 	form do |f|
 		f.inputs do 
 			f.input :name
 			f.input :photo, as: :file
-			f.input :comment, as: :wysihtml5
+			f.input :comment, :hint=>I18n.t('max_client_comment')
 
 		end
 		f.actions

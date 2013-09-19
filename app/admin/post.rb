@@ -5,21 +5,25 @@ ActiveAdmin.register Post do
 
 	index do 
 		selectable_column
-		column t('title'), :title
+		column :title
+		column :preview
 		column t('created_at'), :created_at 
 		default_actions
 	end
 	form do |f|
 		f.inputs t('news_single') do 
-			f.input :title, :label => I18n.t('title')
-			f.input :content,:label => I18n.t('content'),as: :wysihtml5 
-			f.input :photo, as: :file, :label => I18n.t('image')
+			f.input :title
+			f.input :preview, :hint=>I18n.t('max_client_comment')
+			f.input :photo, as: :file
+			f.input :content,as: :wysihtml5 
+		
 		end
 		f.actions
 	end
 	  show  :download_links => false do |admin_post|   
         attributes_table do
           row :title
+          row :preview
           row :content 
         end
       end

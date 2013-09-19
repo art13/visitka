@@ -3,7 +3,17 @@ ru:
     errors:
       messages:
         blank:  не может быть пустым
+        taken:  уже подписан 
     attributes:
+      feedback:
+        fio: Имя
+        message: Сообщение
+        email: email
+      post:
+        title: Заголовок
+        preview: Превью новости
+        photo: Картинка
+        content: Содержание
       lib_book:
         title: Заголовок
         content: Содержание
@@ -53,6 +63,8 @@ ru:
       expert:
         lastname: Фамилия
         firstname: Имя
+        load_photo: Фотография 
+        photo: Фотография
         secondname: Отчество
         phone: Телефон
         email: Электронная почта   
@@ -117,6 +129,8 @@ ru:
         many: Эксперты
         other: Эксперт
         few: Экспертов
+  load_photo: Фотография 
+  max_client_comment: Максимум 200 символов
   librarys: Библиотеки
   library: Библиотеки
   books: Книги
@@ -128,6 +142,7 @@ ru:
   clients: Клиенты
   releases: Файлы
   release: Файл
+  fio: Имя
   download_materials: Программы
   materials: Программы
   e_books: Книги

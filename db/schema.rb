@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20130913122817) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
-    t.text     "comment"
+    t.string   "comment"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -135,14 +135,15 @@ ActiveRecord::Schema.define(:version => 20130913122817) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.string   "title",              :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "preview",            :null => false
+    t.text     "content"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "programs_features", :force => true do |t|

@@ -1,4 +1,4 @@
 class Subscriber < ActiveRecord::Base
-	validates :email, :presence =>true
 	attr_accessible :email
+	validates :email, uniqueness: true , presence: true
 end

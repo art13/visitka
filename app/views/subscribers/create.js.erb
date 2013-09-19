@@ -1,6 +1,11 @@
-<% if flash["subs_success"] %>
-<% flash.delete("subs_errors") if flash["subs_errors"].present? %>
-
+<% if @flag %>
+//console.log( '1')
+//$().toastmessage('showSuccessToast', "Теперь вы подписаны на наши обновления");
+$('.subscr ').empty();//.append("<%= j(render :partial=>'subscribers/errors')%>")
+$('#newsletter-email').val('');
 <% else %>
-  $('#subs').empty().append("<%= j(render :partial => 'subscribers/form', :locals => {:subscriber=> @subscriber})%>");
+$('#news-letters').empty().append("<%= j(render :partial => 'subscribers/form', :locals => {:subscriber=> @subscriber})%>");
+$('.subscr ').empty().append("<%= j(render :partial=>'subscribers/errors')%>");
+
+//console.log('0' )
 <% end %>

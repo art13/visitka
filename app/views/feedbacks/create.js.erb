@@ -1,5 +1,9 @@
-<% if flash["fdbck_success"] %>
-<% flash.delete("fdbck_errors") if flash["fdbck_errors"].present? %>
+<% if @flag%>
+	$('.err_feed').empty();
+	$("#contact-name-surname").val('');
+	$('#contact-email').val('');
+	$('#contact-message').val('');
 <% else %>
-  $('#feed').empty().append("<%= j(render :partial => 'feedbacks/form', :locals => {:feedback => @feedback})%>");
+    $('.contact-feed').empty().append("<%= j(render :partial => 'feedbacks/form', :locals => {:feedback => @feedback})%>");
+    $('.err_feed').empty().append("<%= j(render :partial=>'feedbacks/errors')%>");
 <% end %>

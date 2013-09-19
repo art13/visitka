@@ -1,10 +1,11 @@
 class SubscribersController < ApplicationController
 	def create
+		@flag=false
 		@subscriber=Subscriber.new(params[:subscriber])
 		if !@subscriber.save
 				flash["sub_errors"] = @subscriber.errors.full_messages
 		else
-				flash["sub_success"] = "Subscriber was saved"
+				@flag=true
 		end
 		respond_to do |format|
 			format.js

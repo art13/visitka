@@ -6,6 +6,7 @@ class CreateExperts < ActiveRecord::Migration
  		t.string :secondname
  		t.string :email
  		t.string :phone
+ 		t.attachment :photo
  	end
  	
  end

@@ -2,9 +2,15 @@ Visitka::Application.routes.draw do
    root :to => "home#index"
    resources :experts, :only=>[:show, :index]
    resources :feedbacks
-   resources :materials
-   resources :clients
+   resources :materials, :only=>[:show, :index]
+   
+    match '/programms'=>'materials#index'
+    match '/programms/:name/:id'=>'materials#show'
+   resources :clients, :only=>[:show, :index]
    resources :programs_features
+   #resources :lib_books
+   match '/library/:title/:id' =>'lib_books#show'
+   resources :about, :only=>[:index]
    match '/news'=>'posts#index'
    match '/news/:id'=>'posts#show'
    resources :subscribers

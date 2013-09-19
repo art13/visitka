@@ -1,19 +1,16 @@
-<%= form_for subscriber, :remote => true do |f| %>
-	<ul>
-	    <% flash["sub_errors"].each do |error| %>
-	      <li style='color:red;'><%= error %></li>
-	    <% end if flash["sub_errors"].present? %>
-	</ul>
-	<h5>Newsletter</h5>
-	<label>Vel assumenda excepturi nostrum tenetur alias quibusdam maiores.</label>
-	<table width="15%" border="0" cellspacing="0" class="inp-text">
-	    <tr>
-	      <td><%= f.email_field :email ,:class=>"text", :placeholder=> 'email'%></td>
-	    </tr>
-	    <tr>
-	      <td class='btn-send'>
-        	<%= f.submit :value=>'Subscribe', :style=>'float:right'%>	
-		  </td>
-	    </tr>
-	</table>
+<%= form_for subscriber, :class=>'form-vertical',:id=>'newsletter-form',:remote => true do |f| %>
+		<div class='contro-group'>
+		<label for="contact-name-surname"></label>
+	     <%= f.email_field :email ,:class=>"span3", :id=>'newsletter-email', :placeholder=> 'email'%>
+
+	          <span class='help-inline subscr'>
+	          		<%= render :partial=>'subscribers/errors'%>
+	          	
+	    	  </span>
+	     </div>
+
+        	<%= f.submit :value=>'Подписаться', :class=>'btn btn-amall'%>	
+		 
+	  
+
 <% end %>
