@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require active_admin/application
 //= require_tree .
 //= require_self
