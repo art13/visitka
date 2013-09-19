@@ -120,7 +120,8 @@ ActiveRecord::Schema.define(:version => 20130913122817) do
 
   create_table "materials", :force => true do |t|
     t.string   "name",        :null => false
-    t.string   "description"
+    t.string   "preview"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

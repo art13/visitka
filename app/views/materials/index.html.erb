@@ -65,6 +65,7 @@
                             <%end%>
                             <div class="item active">
                               <%arr.each do |client|%>
+                                <%unless client.nil?%>
                                     <div class="span3">
                                       <figure class="hover-figcaption">
                                         <span>
@@ -74,9 +75,11 @@
                                           </div>
                                         </span>
                                       </figure>
-                                    </div>     
+                                    </div> 
+                                  <%end%>    
                               <%end%>
                             </div>  
+                              <%unless clients.empty?%>
                                 <div class="item">
                                     <%clients.each do |client|%>
                                       <div class="span3">
@@ -90,7 +93,8 @@
                                           </figure>
                                        </div>         
                                     <%end%> 
-                                  </div>         
+                                  </div>   
+                              <%end%>      
                     <%end%>
               </div>
             </div>
