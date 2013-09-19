@@ -1,3 +1,32 @@
-<%content_for :footer do %>
-<span></span>
-<%end%>
+<section class="section-content section-content-sidebar">
+    <div class="container">
+      <h2 class="section-title">
+        <%=@lib.title%>
+      </h2>
+      <div class="row">
+        <div class="span8">
+          <article>
+            <%= raw @lib.content%>
+          </article>
+        </div>
+        <div class="span3 offset1">
+          <aside>
+            <div class="widget">
+              <h5 class="widget-title">Материалы для скачивания</h5>
+              <div class="widget-content">
+                <ul class="unstyled">
+                    <%@lib.books.all.each do |prog|%>
+                        <li><%=link_to prog.alter_name, prog.book.url%></i>
+                    <%end %>
+                </ul>
+              </div>
+            </div>
+       
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%content_for :footer do %>
+    <span></span>
+  <%end%>
