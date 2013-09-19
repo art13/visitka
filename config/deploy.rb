@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-server "localhost", :web, :app, :db, primary: true
+server "88.198.107.86", :web, :app, :db, primary: true
 
 set :application, "visitka"
 set :user, "deployer"
