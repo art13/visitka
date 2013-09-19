@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery.ui.all
-//= require active_admin
+//= require active_admin/application
 //= require jquery_ujs
 //= require_tree ./libs
 //= require bootstrap
