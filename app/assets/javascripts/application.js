@@ -11,11 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.ui.all
-//= require active_admin/application
 //= require jquery_ujs
-//= require_tree ./libs
-//= require bootstrap
-//= require modal_window
-//= require spy
+//= require_tree .
 //= require_self
