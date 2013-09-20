@@ -129,6 +129,7 @@ ru:
         many: Эксперты
         other: Эксперт
         few: Экспертов
+  delete_photo: Удалить изображение
   load_photo: Фотография 
   max_client_comment: Максимум 200 символов
   librarys: Библиотеки
