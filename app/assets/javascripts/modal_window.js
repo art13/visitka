@@ -3,7 +3,7 @@
 	var settings = {
 				inEffect: 			{opacity: 'show'},	
 				inEffectDuration: 	600,				
-				stayTime: 			3000,				
+				stayTime: 			10000,				
 				text: 				'',					
 				sticky: 			false,				
 				type: 				'notice', 			
