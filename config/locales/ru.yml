@@ -10,11 +10,13 @@ ru:
         message: Сообщение
         email: email
       post:
+        delete_photo: Удалить изображение
         title: Заголовок
         preview: Превью новости
         photo: Картинка
         content: Содержание
       lib_book:
+        delete_photo: Удалить изображение
         title: Заголовок
         content: Содержание
         photo: Картинка
@@ -24,10 +26,12 @@ ru:
         created_at: Дата загрузки
         lib_book: Библиотека
       page: 
+        delete_photo: Удалить изображение
         title: Заголовок
         content: Содержание
         photo:  Картинка
       children_page:
+        delete_photo: Удалить изображение
         title: Заголовок
         content:  Содержание
         photo:  Картинка
@@ -45,6 +49,7 @@ ru:
         material_id:  Программа
         material: Программа
       client:
+        delete_photo: Удалить изображение
         name: клиент
         comment: отзывы
         photo: лого/фото
@@ -61,6 +66,7 @@ ru:
       subscribers:
         email: Электронная почта   
       expert:
+        delete_photo: Удалить изображение
         lastname: Фамилия
         firstname: Имя
         load_photo: Фотография 
@@ -129,6 +135,11 @@ ru:
         many: Эксперты
         other: Эксперт
         few: Экспертов
+      feedback:
+        one: Отзыв
+        many: Отзывы
+        other: Отзыв
+        few: Отзывов 
   delete_photo: Удалить изображение
   load_photo: Фотография 
   max_client_comment: Максимум 200 символов
