@@ -5,6 +5,7 @@ class FeedbacksController <ApplicationController
 		if !@feedback.save
 			flash["fdbck_errors"] = @feedback.errors.full_messages
 		else
+			FeedbackMailer.message_email(@feedback).deliver
 			@flag=true
 			flash["fdbck_success"] = "Feedback was saved"
 		end

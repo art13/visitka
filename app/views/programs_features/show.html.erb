@@ -37,14 +37,14 @@
                 <h3 class="section-title">
                   <%=first.title%>
                 </h3>
-                <p><%=first.description%></p>
+                <p><%= raw first.description%></p>
               </section>
                 <%@feats.each do |f|%>
                   <section class="section-content section-<%=f.id%>" id="section-<%=f.id%>">
                     <h3 class="section-title">
                       <%=f.title%>
                     </h3>
-                    <p><%=f.description%></p>
+                    <p><%=raw f.description%></p>
                   </section>
                 <% end %>
           </div>

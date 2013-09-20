@@ -46,6 +46,7 @@ gem 'devise'
 gem "kaminari", "~> 0.13.0"
 gem "cocaine"
 gem "geocoder"
+gem "mail"
 gem "jquery-ui-rails"
 group :development do
   gem 'better_errors'
