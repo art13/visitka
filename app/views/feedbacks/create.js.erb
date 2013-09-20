@@ -3,7 +3,7 @@
 	$("#contact-name-surname").val('');
 	$('#contact-email').val('');
 	$('#contact-message').val('');
-	//$().toastmessage('showSuccessToast', "Сообщение оправлено");
+	$().toastmessage('showSuccessToast', "Сообщение оправлено");
 <% else %>
     $('.contact-feed').empty().append("<%= j(render :partial => 'feedbacks/form', :locals => {:feedback => @feedback})%>");
     $('.err_feed').empty().append("<%= j(render :partial=>'feedbacks/errors')%>");

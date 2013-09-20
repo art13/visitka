@@ -13,6 +13,7 @@
  *= require jquery.ui.all
  *= require responsive
  *= require style-t1
+ *= require jquery.toastmessage
  *= require_tree ./font
 
  */
