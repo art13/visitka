@@ -10,6 +10,7 @@ ActiveAdmin.register Page do
 		f.inputs do
 			f.input :title
 			f.input :photo, as: :file
+			f.input :delete_photo, as: :boolean
 			f.input :content, as: :wysihtml5
 		end
 		f.actions

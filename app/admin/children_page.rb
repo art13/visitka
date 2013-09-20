@@ -13,6 +13,7 @@ ActiveAdmin.register ChildrenPage do
 			f.input :title
 			f.input :page, as: :select
 			f.input :photo, as: :file
+			f.input :delete_photo, as: :boolean
 			f.input :content, as: :wysihtml5
 		end
 		f.actions

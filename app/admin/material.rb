@@ -13,7 +13,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
  	form html: { multipart: true }do |f|
  		f.inputs t('materials') do
  			f.input :name
- 			f.input :preview
+ 			f.input :preview, :hint=>I18n.t('max_client_comment')
 			f.input :description,  as: :wysihtml5
 		end
 		f.inputs t('file') do

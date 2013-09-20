@@ -11,6 +11,7 @@ ActiveAdmin.register Client do
 		f.inputs do 
 			f.input :name
 			f.input :photo, as: :file
+			f.input :delete_photo, as: :boolean
 			f.input :comment, :hint=>I18n.t('max_client_comment')
 
 		end

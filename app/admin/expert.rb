@@ -18,6 +18,7 @@ ActiveAdmin.register Expert do
 			f.input :firstname,:label => I18n.t('firstname')
 			f.input :secondname, :label=>I18n.t('secondname')
 			f.input :photo, as: :file , :label=>I18n.t('load_photo')
+			f.input :delete_photo, as: :boolean
 			f.input :email, :label=>I18n.t('email')
 			f.input :phone, :label=>I18n.t('phone')
 		end

@@ -4,4 +4,6 @@ class Expert < ActiveRecord::Base
  							:small=>"64x67",
  							:medium=>"192x198"	
 						 }
+						 attr_accessor :delete_photo
+	before_validation { photo.clear if delete_photo == '1' }
 end

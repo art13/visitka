@@ -3,4 +3,6 @@ class LibBook < ActiveRecord::Base
 	attr_accessible :title, :content, :photo, :book, :books, :books_attributes
 	has_attached_file :photo
 	accepts_nested_attributes_for :books, :allow_destroy =>true
+	attr_accessor :delete_photo
+	before_validation { photo.clear if delete_photo == '1' }
 end

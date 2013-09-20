@@ -13,6 +13,7 @@ ActiveAdmin.register LibBook,  { :sort_order => :id_asc } do
  		f.inputs t('materials') do
  			f.input :title
  			f.input :photo, as: :file
+ 			f.input :delete_photo, as: :boolean
 			f.input :content,  as: :wysihtml5
 	
 		end
