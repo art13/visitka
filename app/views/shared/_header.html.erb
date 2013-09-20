@@ -7,13 +7,13 @@
           <a class="brand span3" href="index.html">
            
           </a>
-          <nav class="nav-collapse collapse">
-            <ul class="nav primary-nav pull-right">
-              <li class="active"><a href="/">Главная</a></li>
-              <li><a href="/about">О компании</a></li>
-              <li><%=link_to 'Новости', '/news'%></li>
-              <li><%= link_to 'Программы','/programms'%></li>
-              <li class="dropdown">
+          <nav class="nav-collapse collapse ">
+            <ul class="nav primary-nav pull-right menus">
+              <li class="active"id='home'><a href="/">Главная</a></li>
+              <li id='about'><a href="/about">О компании</a></li>
+              <li id='posts'><%=link_to 'Новости', '/news'%></li>
+              <li id='materials'><%= link_to 'Программы','/programms'%></li>
+              <li class="dropdown"id='lib_books'>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   Библиотеки
                   <b class="caret"></b>
@@ -25,25 +25,7 @@
                 </ul>
               </li>
               
-              <li><a href="/experts">Контакты</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  More
-                  <b class="caret"></b>
-                </a>
-
-                <ul class="dropdown-menu">
-                  <li><a href="feature-slider.html">Slider</a></li>
-                  <li><a href="feature-video.html">Video</a></li>
-                  <li><a href="feature-masonry-isotope.html">Masonry - Isotope</a></li>
-                  <li><a href="feature-gallery.html">Gallery</a></li>
-                  <li><a href="feature-pricing.html">Pricing</a></li>
-                  <li><a href="news.html">News</a></li>
-                  <li><a href="news-item.html">News item</a></li>
-                  <li><a href="feature-miscellanea.html">Miscellanea</a></li>
-                  <li><a href="colors.html">Colors</a></li>
-                </ul>
-              </li>
+              <li id='experts'><a href="/experts">Контакты</a></li>
             </ul>
           </nav>
         </div>

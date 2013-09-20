@@ -9,7 +9,9 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="home">
+<body class="<%=controller_name
+%>" >
+	
 <header class="navbar-fixed-top">
 <%= render :partial=>'shared/header'%>
 </header>

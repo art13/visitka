@@ -7,11 +7,19 @@
         </div>
         <div class="span5 _offset1">
           <div class="slogan">
-            <h1>Programm name</h1>
-            <p class="lead">Programm descrition</p>
-            <p>
-              <a class="btn btn-large btn-primary" href="/programs_features">Features</a>
-            </p>
+            <%if Material.first.nil?%>
+              <h1>Programm name</h1>
+              <p class="lead">Programm descrition</p>
+              <p>
+                <a class="btn btn-large btn-primary" href="/programs_features">Features</a>
+              </p>
+            <% else %>
+               <h1><%Material.first.name%></h1>
+              <p class="lead"><%Material.first.preview%></p>
+              <p>
+                <a class="btn btn-large btn-primary" href="/programs_features/1">Особенности</a>
+              </p>
+            <%end%>
           </div>
         </div>
       </div>
@@ -66,14 +74,16 @@
           <div class="row">
             <div class="carousel carousel-mini slide" data-pause="true" id="myCarouselNews">
               <div class="carousel-nav">
-                <div class="btn-group">
-                  <a class="btn btn-link btn-small" data-slide="prev" href="#myCarouselNews">
-                    <i class="icon-chevron-left"></i>
-                  </a>
-                  <a class="btn btn-link btn-small" data-slide="next" href="#myCarouselNews">
-                    <i class="icon-chevron-right"></i>
-                  </a>
-                </div>
+                <%if Post.all.size>3%>
+                    <div class="btn-group">
+                      <a class="btn btn-link btn-small" data-slide="prev" href="#myCarouselNews">
+                        <i class="icon-chevron-left"></i>
+                      </a>
+                      <a class="btn btn-link btn-small" data-slide="next" href="#myCarouselNews">
+                        <i class="icon-chevron-right"></i>
+                      </a>
+                    </div>  
+                <%end%>    
               </div>
               <div class="carousel-inner">
                
@@ -89,25 +99,27 @@
                     <%end%>
                     <div class='item active'>
                       <%active_news.each do |post|%>
-                        <div class="span3">
-                           <%if post.photo.url!="/photos/original/missing.png"%> 
-                          <figure>
-                            <a href="news/<%=post.id%>">
-                             <%= image_tag post.photo.url(:medium)%>
-                            </a>
-                          </figure>
+                          <%unless post.nil?%>
+                            <div class="span3">
+                               <%if post.photo.url!="/photos/original/missing.png"%> 
+                              <figure>
+                                <a href="news/<%=post.id%>">
+                                 <%= image_tag post.photo.url(:medium)%>
+                                </a>
+                              </figure>
+                              <%end%>
+                              <h4>
+                                <a href="news/<%=post.id%>"><%=post.title%></a>
+                              </h4>
+                              <p><%= post.preview%></p>
+                              <p>
+                                <a class="btn btn-small btn-primary" href="news/<%=post.id%>">
+                                  <i class="icon-search"></i>
+                                  Подробнее
+                                </a>
+                              </p>
+                            </div>
                           <%end%>
-                          <h4>
-                            <a href="news/<%=post.id%>"><%=post.title%></a>
-                          </h4>
-                          <p><%= post.preview%></p>
-                          <p>
-                            <a class="btn btn-small btn-primary" href="news/<%=post.id%>">
-                              <i class="icon-search"></i>
-                              Подробнее
-                            </a>
-                          </p>
-                        </div>
                       <%end%>
                     </div>
                     <div class='item'>
