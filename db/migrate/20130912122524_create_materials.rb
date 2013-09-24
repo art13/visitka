@@ -4,6 +4,7 @@ class CreateMaterials < ActiveRecord::Migration
   		t.string :name, :null=>false
   		t.string :preview
   		t.text :description
+  		t.text :features
   		t.timestamps
   	end
   end

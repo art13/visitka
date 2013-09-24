@@ -43,11 +43,6 @@ ru:
         password_confirmation: Подтверждение пароля
         last_sign_in_at: "Последний вход"
         sign_in_count: "Количество входов"
-      programs_feature:
-        title: Заголовок
-        description:  Описание
-        material_id:  Программа
-        material: Программа
       client:
         delete_photo: Удалить изображение
         name: клиент
@@ -59,6 +54,7 @@ ru:
         created_at: Дата загрузки
         material: Программа
       material:
+        features: Особенности
         name: Имя программы
         description: Описание
         created_at: Дата создания 
@@ -95,11 +91,6 @@ ru:
         many: Страницы
         other: Страница
         few: Страница
-      programs_feature:
-        one: Особенности
-        many: Особенности
-        other: Особенности
-        few: Особенности
       client:
         one: Клиент
         many: Клиенты

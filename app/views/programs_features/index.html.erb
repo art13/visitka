@@ -15,36 +15,36 @@
             <%first=first.first%>
             <li class="active"><a href="#section-<%=first.id%>">
               <i class="icon-angle-right pull-right"></i>
-              <%=first.title%>
+              <%=first.name%>
             </a></li>
             <%feats.each do |f|%>
                 <li><a href="#section-<%=f.id%>">
                   <i class="icon-angle-right pull-right"></i>
-                 <%=f.title%>
+                 <%=f.name%>
                 </a></li>
             <%end%>
           </ul>
         </div>
         <div class="span6 offset3">
           <h2 class="section-title">
-            Особенности Программы
+            Особенности Программ
             <small>
-              Почему она крутая
+              
             </small>
           </h2>
             <div >
               <section class="section-content section-<%=first.id%>" id="section-<%=first.id%>">
                 <h3 class="section-title">
-                  <%=first.title%>
+                  <%=first.name%>
                 </h3>
-                <p><%= raw first.description%></p>
+                <p><%= raw first.features%></p>
               </section>
                 <%@feats.each do |f|%>
                   <section class="section-content section-<%=f.id%>" id="section-<%=f.id%>">
                     <h3 class="section-title">
-                      <%=f.title%>
+                      <%=f.name%>
                     </h3>
-                    <p><%=raw f.description%></p>
+                    <p><%=raw f.features%></p>
                   </section>
                 <% end %>
           </div>
@@ -55,9 +55,8 @@
 <div class="post-footer section-content section-content-mini section-color-graydark">
     <div class="container">
       <p class="pull-right">
-        Designed by
-        <a href="http://ppparticularity.com">ppparticularity</a>
+       
       </p>
-      <p>&copy; Simiot 2013 - All rights reserved</p>
+     
     </div>
   </div>

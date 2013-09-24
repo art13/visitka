@@ -15,6 +15,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
  			f.input :name
  			f.input :preview, :hint=>I18n.t('max_client_comment')
 			f.input :description,  as: :wysihtml5
+			f.input :features, as: :wysihtml5
 		end
 		f.inputs t('file') do
 			f.has_many :releases do |i|
@@ -28,7 +29,8 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
 	show  :download_links => false  do |page|
 		 attributes_table do 	
               row :name
-			  row :description 
+			  row :description
+			  row :features 
 	     end
 	     
 	end

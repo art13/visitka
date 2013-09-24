@@ -3,13 +3,14 @@ Visitka::Application.routes.draw do
    resources :experts, :only=>[:show, :index]
    resources :feedbacks
    resources :materials, :only=>[:show, :index]
-   
+   resources :pages
+   resources :children_pages
     match '/programms'=>'materials#index'
-    match '/programms/:name/:id'=>'materials#show'
+    match '/programms/:id'=>'materials#show'
    resources :clients, :only=>[:show, :index]
    resources :programs_features
    #resources :lib_books
-   match '/library/:title/:id' =>'lib_books#show'
+   match '/library/:id' =>'lib_books#show'
    resources :about, :only=>[:index]
    match '/news'=>'posts#index'
    match '/news/:id'=>'posts#show'

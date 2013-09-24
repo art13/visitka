@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 		@news=Kaminari.paginate_array(@posts).page(params[:page]).per(10)
 	end
 	def show
-		@post=Post.find(params[:id])	
+		email_news
+		@post=Post.find(params[:id])
 	end
+	
+		 #handle_asynchronously :email_news, :run_at=>Proc.new{1.minutes.from_now}
 end 

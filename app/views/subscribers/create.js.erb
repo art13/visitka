@@ -3,6 +3,7 @@
 //$().toastmessage('showSuccessToast', "Теперь вы подписаны на наши обновления");
 $('.subscr ').empty();//.append("<%= j(render :partial=>'subscribers/errors')%>")
 $('#newsletter-email').val('');
+$().toastmessage('showSuccessToast', "Сообщение оправлено");
 <% else %>
 $('#news-letters').empty().append("<%= j(render :partial => 'subscribers/form', :locals => {:subscriber=> @subscriber})%>");
 $('.subscr ').empty().append("<%= j(render :partial=>'subscribers/errors')%>");

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913122817) do
+ActiveRecord::Schema.define(:version => 20130923085515) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -90,6 +90,22 @@ ActiveRecord::Schema.define(:version => 20130913122817) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "experts", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -122,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20130913122817) do
     t.string   "name",        :null => false
     t.string   "preview"
     t.text     "description"
+    t.text     "features"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -145,12 +162,6 @@ ActiveRecord::Schema.define(:version => 20130913122817) do
     t.text     "content"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "programs_features", :force => true do |t|
-    t.string  "title"
-    t.text    "description"
-    t.integer "material_id"
   end
 
   create_table "releases", :force => true do |t|

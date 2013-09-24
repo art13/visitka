@@ -14,14 +14,14 @@
                   <div class="span3">
                       <div class="text-center">
                         <figure>
-                          <a href="/programms/<%=material.name%>/<%=material.id%>">
+                          <a href="/programms/<%=material.id%>">
                             <i class="icon-cogs icon-8x icon-border"></i>
                           </a>
                         </figure>
                         <h4>
-                          <%=link_to material.name, "/programms/#{material.name}/#{material.id}" %>
+                          <%=link_to material.name, "/programms/#{material.id}" %>
                         </h4>
-                        <p><%=material.preview%>/p>
+                        <p><%=material.preview%></p>
                       </div>
                   </div>
               <%end%>  
@@ -37,7 +37,7 @@
         <div class="span3">
           <h2 class="section-title">
             Клиенты
-            <small>Fuga alias dolor reprehenderit nulla officia iure eveniet assumenda</small>
+            <small></small>
           </h2>
         </div>
         <div class="span9">
