@@ -48,7 +48,6 @@ gem "cocaine"
 gem "geocoder"
 gem "mail"
 gem "jquery-ui-rails"
-gem 'delayed_job_active_record'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
