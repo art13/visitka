@@ -48,6 +48,7 @@ gem "cocaine"
 gem "geocoder"
 gem "mail"
 gem "jquery-ui-rails"
+gem 'whenever', :require => false
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

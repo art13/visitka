@@ -1,10 +1,7 @@
 class SubscriberMailer < ActionMailer::Base
-    default from: "loft.ibesk@gmail.com",
-    	to: Subscriber.pluck(:email)
-  def news_email(posts)
-  	#@subscriber=subscriber
+    default from:"loft.ibesk@gmail.com"
+  def news_email(posts, subs)
   	@posts=posts
-  	mail(:subject=> " dear send message" )  	
-  	logger.debug('email_message')
+	  	mail(:to=>subs.email, :subject=> " dear send message" ).deliver  	
   end
 end

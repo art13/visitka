@@ -6,7 +6,8 @@ set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-
+set :whenever_command, "bundle exec whenever"
+  require "whenever/capistrano"
 set :scm, "git"
 set :repository,  "git@github.com:art13/#{application}.git"
 set :branch, "master"
@@ -37,7 +38,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     #run "ln -s #{shared_path}/public/spree #{release_path}/public/spree"
   end
-
+  
   after "deploy:finalize_update", "deploy:symlink_config"
   #namespace :solr do                                                              
   #task :reindex do
