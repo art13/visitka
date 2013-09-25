@@ -1,7 +1,13 @@
 $('document').ready(function(){
 	var body=$('body').attr('class');
-	$('.menus').children().removeClass('active')
-	$('.menus').children().filter('#'+body).addClass('active')
+	if (body=='pages' || body=='children_pages')
+		{ $('.menus').children().removeClass('active');
+		$('.menus').children().filter('#programs_features').addClass('active');}
+	else
+	{
+		$('.menus').children().removeClass('active');
+		$('.menus').children().filter('#'+body).addClass('active');
+	}
 
 });
 
