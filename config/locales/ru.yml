@@ -21,6 +21,7 @@ ru:
         content: Содержание
         photo: Картинка
       book:
+        preview: Превью
         book_file_name: Название книги
         alter_name: название для публикации
         created_at: Дата загрузки

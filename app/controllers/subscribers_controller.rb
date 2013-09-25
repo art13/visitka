@@ -25,8 +25,7 @@ class SubscribersController < ApplicationController
 			end
 			return @posts	
 			unless @posts.empty?
-				#SubscriberMailer.news_email(@posts).deliver
-				raise "fail!"		
+				SubscriberMailer.news_email(@posts)		
 			end		
  	    end
 end

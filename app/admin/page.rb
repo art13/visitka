@@ -4,11 +4,13 @@ ActiveAdmin.register Page do
 	index do 
 		selectable_column
 		column :title
+		column :preview
 		default_actions
 	end
 	form do |f|
 		f.inputs do
 			f.input :title
+			f.input :preview, :hint=>I18n.t('max_client_comment')
 			f.input :photo, as: :file
 			f.input :delete_photo, as: :boolean
 			f.input :content, as: :wysihtml5
@@ -18,7 +20,6 @@ ActiveAdmin.register Page do
 	show do |page|
 		attributes_table do 
 			row :title
-			#row :photo
 			row :content
 		end
 	end

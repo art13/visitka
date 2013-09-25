@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(:version => 20130923085515) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
+    t.string   "preview"
     t.text     "content"
     t.string   "photo_file_name"
     t.string   "photo_content_type"

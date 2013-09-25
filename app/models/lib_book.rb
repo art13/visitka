@@ -1,6 +1,6 @@
 class LibBook < ActiveRecord::Base
 	has_many :books
-	attr_accessible :title, :content, :photo, :book, :books, :books_attributes
+	attr_accessible :title, :content, :photo, :book, :books, :books_attributes, :delete_photo
 	has_attached_file :photo
 	accepts_nested_attributes_for :books, :allow_destroy =>true
 	attr_accessor :delete_photo

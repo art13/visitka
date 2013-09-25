@@ -1,0 +1,48 @@
+<section class="section-content section-news" id="section-news">
+    <div class="container">
+	    <div class="row">
+	        <div class="span3">
+	          <h2 class="section-title">
+	            Полезная информация
+	            <small></small>
+	          </h2>
+	        </div>
+	     	<div class="span9">
+	        	<%unless @news.empty?%>
+	        		<%@news.each do |page|%>
+				        <div class="row">
+				          	<%if  page.photo.url!='/photos/original/missing.png'%>
+					            <div class="span3">
+						              <figure>
+						                <%=link_to "/information_pages/#{page.id}" do %>
+											<%= image_tag page.photo.url(:medium)%>
+										<% end%>
+						              </figure>
+					            </div>
+				            <%end %>
+				            <div class="span6">
+				              <h4>
+				                <%= link_to page.title, "/information_pages/#{page.id}"%>
+				              </h4>
+				              <p><%=page.preview%></p>
+				            </div>
+				        </div>
+				        <hr> 
+	        		<%end%>
+	        	<%end%>
+	        </div>
+	    </div>
+	    <div class="row">
+        	<div class="span9 offset3">
+         		 <div class="pagination">
+         		 	<ul>
+           			 <%= paginate @news %>
+           			</ul>
+         		 </div>
+       		</div>
+        </div>
+    </div>
+</section>
+<%content_for :footer do %>
+	<span></span>
+<%end%>

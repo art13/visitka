@@ -1,0 +1,57 @@
+ <section class="section-content section-news-item" id="section-news-item">
+    <div class="container">
+      <h2 class="section-title">
+        <%=@page.title%>
+      </h2>
+      <div class="row">
+        <div class="span8">
+          <%if @page.photo.url!='/photos/original/missing.png'%>
+          <figure>
+            <%=image_tag @page.photo.url(:large)%>
+          </figure>
+          <%end%>
+          <p><%= raw @page.content%></p>
+        </div>
+
+        <div class="span3 offset1">
+            <h4>More</h4>
+            <%Page.where('id=?',@page.page_id).first.children_pages.each do |page|%>
+                <div class="media">
+                  <%if page.id!=@page.id%>
+
+                      <%if page.photo.url!='/photos/original/missing.png'%>
+                         <%= link_to "/information_pages/#{@page.id}/children/#{page.id}", :class=>"pull-left" do %>
+                              <%=image_tag page.photo.url(:small)%>
+                         <%end%>
+                      <%else%>
+                              <p class="pull-left" style='margin-left:64px' >
+                              </p>
+                      <%end%>
+                      <div class="media-body">
+                         <p class="media-heading">
+                           <%= link_to page.title, "/information_pages/#{@page.id}/children/#{page.id}"%>
+                         </p>
+                      </div>
+                  <%else%>
+                       <p class="pull-left" >
+                          <%if page.photo.url!='/photos/original/missing.png'%>
+                            <%=image_tag page.photo.url(:small)%>
+                          <%end%>
+                       </p>
+
+                    <div class="media-body">
+                      <p class="media-heading">
+                       <%=page.title%>
+                      </p>
+                    </div> 
+                <%end%>
+              </div>
+            <%end%>
+        </div> 
+          
+      </div>
+    </div>
+  </section>
+  <%content_for :footer do %>
+    <span></span>
+  <%end%>
