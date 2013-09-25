@@ -5,7 +5,7 @@
             <i class="icon-reorder"></i>
           </a>
           <a class="brand span3" href="/">
-             <span style='font-size:224%; color:#fff;'><strong>ООО «Лофт»</strong></span>
+             <span style='font-size:224%; color:#fff;'><strong><%=DataContact.first.name%></strong></span>
           </a>
           <nav class="nav-collapse collapse ">
             <ul class="nav primary-nav pull-right menus">
@@ -33,7 +33,9 @@
                   </a>
                 <ul class="dropdown-menu">
                   <li id='programs_features'><a href="/programs_features">Особенности Программ</a></li>
-                  <li id='pages'><a href="/information_pages">Прочая информация</a></li>
+                  <%Page.all.each do |page|%> 
+                    <li id='pages'><%= link_to truncate(page.title, :lenght=>60), "/information_pages/#{page.id}" %></li>
+                  <%end%>
                 </ul>
               </li>
             </ul>

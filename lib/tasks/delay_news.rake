@@ -2,6 +2,7 @@
 desc "deliver_email"
 task :deliver_email => :environment do
 			@posts=[]
+			@data=DataContact.first
 			@begin=Date.current
 			@end=@begin-7
 			posts=Post.find(:all)
@@ -12,7 +13,7 @@ task :deliver_email => :environment do
 			end
 			unless @posts.empty?
 				Subscriber.all.each do |subs|
-					SubscriberMailer.news_email(@posts, subs)
+					SubscriberMailer.news_email(@posts, subs, @data)
 				end	
 			end		
 end

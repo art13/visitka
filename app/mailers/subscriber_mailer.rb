@@ -1,7 +1,8 @@
+#encoding: utf-8
 class SubscriberMailer < ActionMailer::Base
-    default from:"loft.ibesk@gmail.com"
-  def news_email(posts, subs)
+  def news_email(posts, subs, data)
   	@posts=posts
-	  	mail(:to=>subs.email, :subject=> " dear send message" ).deliver  	
+  	@data=data
+	  	mail(:from=>data.email,:to=>subs.email, :subject=> " Свежие новости от #{data.name}" ).deliver  	
   end
 end

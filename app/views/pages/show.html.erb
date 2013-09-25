@@ -14,11 +14,13 @@
         </div>
 
         <div class="span3 offset1">
-            <h4>More</h4>
-            <%@page.children_pages.each do |page|%>
+            <h4>Последние новости</h4>
+            <%Page.last(10).each do |page|%>
                 <div class="media">
+                  <%if page.id!=@page.id%>
+
                       <%if page.photo.url!='/photos/original/missing.png'%>
-                         <%= link_to "/information_pages/#{@page.id}/children/#{page.id}", :class=>"pull-left" do %>
+                         <%= link_to "/information_pages/#{page.id}", :class=>"pull-left" do %>
                               <%=image_tag page.photo.url(:small)%>
                          <%end%>
                       <%else%>
@@ -27,9 +29,22 @@
                       <%end%>
                       <div class="media-body">
                          <p class="media-heading">
-                           <%= link_to page.title, "/information_pages/#{@page.id}/children/#{page.id}"%>
+                           <%= link_to page.title, "/information_pages/#{page.id}"%>
                          </p>
                       </div>
+                  <%else%>
+                       <p class="pull-left" >
+                          <%if page.photo.url!='/photos/original/missing.png'%>
+                            <%=image_tag page.photo.url(:small)%>
+                          <%end%>
+                       </p>
+
+                    <div class="media-body">
+                      <p class="media-heading">
+                       <%=page.title%>
+                      </p>
+                    </div> 
+                <%end%>
               </div>
             <%end%>
         </div> 

@@ -22,7 +22,7 @@ ActiveAdmin.register LibBook,  { :sort_order => :id_asc } do
 			f.has_many :books do |i|
 				i.input :alter_name
 				i.input :book, :as=> :file
-				i.input :_destroy, as: :boolean
+				i.input :_destroy, as: :boolean, :label=>I18n.t('destroy_file')
 			end
 		end
 		f.actions

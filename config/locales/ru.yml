@@ -2,9 +2,19 @@ ru:
   activerecord:
     errors:
       messages:
+        too_long: слишком длинный
+        too_short: слишком короткий
         blank:  не может быть пустым
         taken:  уже подписан 
     attributes:
+      data_contact:
+        name: Название фирмы
+        address: Адрес 
+        email: Текущий email 
+        phone: Телефон/Факс
+        preview: Коротко о фирме
+        about: Подробная информация о фирме
+        photo: Изображение
       feedback:
         fio: Имя
         message: Сообщение
@@ -31,13 +41,6 @@ ru:
         title: Заголовок
         content: Содержание
         photo:  Картинка
-      children_page:
-        delete_photo: Удалить изображение
-        title: Заголовок
-        content:  Содержание
-        photo:  Картинка
-        page_id: Страница первого уровня
-        page: Страница первого уровня
       admin_user:
         current_sign_in_at: "Текущий вход"
         password: "Пароль"
@@ -72,6 +75,9 @@ ru:
         phone: Телефон
         email: Электронная почта   
     models:
+      data_contact:
+        one: Данные фирмы
+        other: Данные фирмы
       lib_book:
         one: Библиотека
         many: Библиотеки
@@ -83,11 +89,6 @@ ru:
         other: Книга
         few: Книг
       page:
-        one: Страница
-        many: Страницы
-        other: Страница
-        few: Страница
-      children_page:
         one: Страница
         many: Страницы
         other: Страница
@@ -131,7 +132,13 @@ ru:
         one: Отзыв
         many: Отзывы
         other: Отзыв
-        few: Отзывов 
+        few: Отзывов
+  destroy_file: 'удалить файл'
+  data_firm: Данные фирмы      
+  about: 'Раздел "О компании"'
+  contact_data: Контактные данные фирмы      
+  current_email: 'На эту почту будут приходить отзывы, а также с неё будут рассылаться новости'      
+  max_client_preview: Максимум 300 символов       
   delete_photo: Удалить изображение
   load_photo: Фотография 
   max_client_comment: Максимум 200 символов

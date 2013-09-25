@@ -1,21 +1,19 @@
 <footer class="section-color-primarydark">
  <div class="container">
+  <%@data=DataContact.first%>
       <div class="row">
         <div class='span1'></div>
         <div class="span3">
           <div class="widget">
             <address>
-              <strong>ООО «Лофт»</strong>
-              <br>
-              156000, г.Кострома
-              <br>
-              ул.Горная, д.3
-              <br>
+              <strong><%=@data.name%></strong>
+              <br />
+              <%=@data.address%>
               <abbr title="email">email:</abbr>
-              <%= mail_to 'loft.ibesk@gmail.com'%>
+              <%= mail_to @data.email%>
               <br />
               <abbr title="Телефон">Факс:</abbr>
-              <a>8(4942)31-02-09</a>
+              <a><%=@data.phone%></a>
             </address>
           </div>
         </div>

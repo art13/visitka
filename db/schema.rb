@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923085515) do
+ActiveRecord::Schema.define(:version => 20130925100223) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,16 +71,6 @@ ActiveRecord::Schema.define(:version => 20130923085515) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "children_pages", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "page_id"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-  end
-
   create_table "clients", :force => true do |t|
     t.string   "name"
     t.string   "comment"
@@ -90,21 +80,18 @@ ActiveRecord::Schema.define(:version => 20130923085515) do
     t.datetime "photo_updated_at"
   end
 
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+  create_table "data_contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "preview"
+    t.text     "about"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "experts", :force => true do |t|
     t.string   "firstname"
