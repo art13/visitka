@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => 'baci.lindsaar.net',
-  :user_name            => "loft.ibesk",
-  :password             => "Administrator",
+  :domain               => 'visitka.ro.lt',
+  :user_name            =>  DataContact.first.deliver_email.split('@').first,
+  :password             =>  DataContact.first.deliver_pass,
   :authentication       => "plain",
   :enable_starttls_auto => true
 }

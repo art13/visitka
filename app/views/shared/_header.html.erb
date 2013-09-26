@@ -28,11 +28,11 @@
               <li id='experts'><a href="/experts">Контакты</a></li>
                  <li class="dropdown"id='programs_features'>
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    More
+                    Информация
                     <b class="caret"></b>
                   </a>
                 <ul class="dropdown-menu">
-                  <li id='programs_features'><a href="/programs_features">Информация</a></li>
+                  <li id='programs_features'><a href="/programs_features">Особенности программ</a></li>
                   <%Page.all.each do |page|%> 
                     <li id='pages'><%= link_to truncate(page.title, :lenght=>60), "/information_pages/#{page.id}" %></li>
                   <%end%>
