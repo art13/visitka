@@ -32,7 +32,7 @@
                     <b class="caret"></b>
                   </a>
                 <ul class="dropdown-menu">
-                  <li id='programs_features'><a href="/programs_features">Особенности Программ</a></li>
+                  <li id='programs_features'><a href="/programs_features">Информация</a></li>
                   <%Page.all.each do |page|%> 
                     <li id='pages'><%= link_to truncate(page.title, :lenght=>60), "/information_pages/#{page.id}" %></li>
                   <%end%>

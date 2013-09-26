@@ -8,7 +8,7 @@ ActiveAdmin.register DataContact do
 		column :address
 		column :phone
 		column :email
-		column t("actions") do |resource|
+		column '' do |resource|
 	 		 links = ''.html_safe
 	 		 links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "member_link edit_link"
 	  		 links += link_to I18n.t('active_admin.view'), resource_path(resource)
@@ -19,15 +19,17 @@ ActiveAdmin.register DataContact do
 		f.inputs t('contact_data') do 
 			f.input :name
 			f.input :address
-			f.input :email, :hint=>I18n.t('current_email')
+			f.input :email
 			f.input :phone
 			f.input :photo, as: :file
 			f.input :delete_photo, as: :boolean
-			
-		
+		end	
+		f.inputs t('deliver_data')do
+			f.input :deliver_email, :hint=>I18n.t('current_email')
+			f.input :deliver_pass
 		end
 		f.inputs t('about') do
-			f.input :preview,:hint=>I18n.t('max_client_preview')
+			f.input :preview, :hint=>I18n.t('max_client_preview')
 			f.input :about, as: :wysihtml5
 		end
 		f.actions

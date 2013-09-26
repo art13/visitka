@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(:version => 20130925100223) do
     t.string   "name"
     t.string   "address"
     t.string   "email"
+    t.string   "deliver_email"
+    t.string   "deliver_pass"
     t.string   "phone"
     t.string   "preview"
     t.text     "about"

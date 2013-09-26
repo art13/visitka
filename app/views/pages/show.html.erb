@@ -14,8 +14,8 @@
         </div>
 
         <div class="span3 offset1">
-            <h4>Последние новости</h4>
-            <%Page.last(10).each do |page|%>
+            <h4>Информационные страницы</h4>
+            <%Page.all.each do |page|%>
                 <div class="media">
                   <%if page.id!=@page.id%>
 

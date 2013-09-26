@@ -8,6 +8,8 @@ ru:
         taken:  уже подписан 
     attributes:
       data_contact:
+        deliver_email: 'email, с которого будет осуществляться рассылка'
+        deliver_pass: 'Пароль, установленный на почте' 
         name: Название фирмы
         address: Адрес 
         email: Текущий email 
@@ -133,11 +135,12 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  deliver_data: Данные для почтового сервиса
   destroy_file: 'удалить файл'
   data_firm: Данные фирмы      
   about: 'Раздел "О компании"'
   contact_data: Контактные данные фирмы      
-  current_email: 'На эту почту будут приходить отзывы, а также с неё будут рассылаться новости'      
+  current_email: 'ВАЖНО: почта должна быть зарегестрирована на сервисе gmail'      
   max_client_preview: Максимум 300 символов       
   delete_photo: Удалить изображение
   load_photo: Фотография 
