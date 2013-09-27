@@ -7,6 +7,23 @@ ru:
         blank:  не может быть пустым
         taken:  уже подписан 
     attributes:
+      lic_request:
+        name: Название организации
+        email: Контактный email
+        phone: Контактный телефон
+        confirmed: С ним связывались
+        created_at: Заявка получена
+        updated_at: Заявка обновлена
+      user:
+        name: Название организации
+        address: Адрес
+        email: email
+        inn: Инн
+        sign_in_count: "Количество входов"
+        created_at: Дата регистрации
+        updated_at: Обновление данных аккаунта
+        current_sign_in_at: Текущий вход в систему
+        last_sign_in_at: Последний вход в систему
       data_contact:
         deliver_email: 'email, с которого будет осуществляться рассылка'
         deliver_pass: 'Пароль, установленный на почте' 
@@ -77,6 +94,14 @@ ru:
         phone: Телефон
         email: Электронная почта   
     models:
+      lic_request:
+        one: Запрос лицензии
+        many: Запросы лицензии
+        other: Запрос лицензии
+      user:
+        one: Пользователь
+        many: Пользователи
+        other: Пользователь
       data_contact:
         one: Данные фирмы
         other: Данные фирмы
@@ -135,6 +160,9 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  confirmeded: 'Если связывались, ставим галочку'
+  lic_requests: Запросы лицензии
+  users: Пользователи
   deliver_data: Данные для почтового сервиса
   destroy_file: 'удалить файл'
   data_firm: Данные фирмы      

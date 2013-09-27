@@ -1,0 +1,38 @@
+<div class='container'>
+  <section class='section-about'>
+      <div class='row span3'>
+          <h2>Регистрация</h2>
+          <%= form_for(resource, :as => resource_name,:class=>"form-vertical", :url => registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <div>
+              	<label style='display:inline'>Название Фирмы</label><span style='color:red;diplay:inline'>*</span><br />
+            		<%= f.text_field :name, :placeholder =>'', :autofocus => true , :class=>'span3'%>
+            </div>
+            <div class='contro-group'>
+            		<label style='display:inline'>ИНН</label><span style='color:red'>*</span><br />
+            		<%= f.text_field :inn, :class=>'span3' %>
+            </div>
+            <div>
+            		<label style='display:inline'>email</label><span style='color:red'>*</span><br />
+            		<%= f.email_field :email, :class=>'span3' %>
+            </div>
+            <div>
+            		<label style='display:inline'>Адрес</label><br />
+            		<%= f.text_field :address, :class=>'span3'%>
+            </div>
+            <div>
+            	<label style='display:inline'>Пароль</label><span style='color:red'>*</span><br />
+            	<%= f.password_field :password, :class=>'span3' %>
+            </div>
+            <div>
+            	<label style='display:inline'>Подтверждение пароля</label><span style='color:red'>*</span><br />
+              <%= f.password_field :password_confirmation, :class=>'span3' %>
+            </div>
+            
+            <div><%= f.submit "Зарегистрироваться" ,:class=>'btn'%></div>
+          <% end %>
+          Вы уже зарегистрированы?
+          <%= render "devise/shared/links" %>
+      </div>
+  </section>
+</div>

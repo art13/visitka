@@ -20,6 +20,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
 		f.inputs t('file') do
 			f.has_many :releases do |i|
 				i.input :alter_name
+				i.input :demo
 				i.input :release, :as=> :file
 				i.input :_destroy, as: :boolean, :label=>I18n.t('destroy_file')
 			end

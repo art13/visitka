@@ -1,4 +1,15 @@
 Visitka::Application.routes.draw do
+  devise_for :users
+     match '/account'=>'users#account'
+  devise_scope :user do
+      get '/login' => 'devise/sessions#new', :as => :login
+      get '/logout' => 'devise/sessions#destroy', :as => :logout
+      get '/signup' => 'devise/registrations#new', :as => :signup
+      get '/account/edit'=>'devise/registrations#edit'
+
+  end
+  resources :accounts
+  resources :lic_requests
    root :to => "home#index"
    resources :experts, :only=>[:show, :index]
    resources :feedbacks
@@ -74,4 +85,5 @@ Visitka::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+    
 end

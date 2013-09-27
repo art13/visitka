@@ -10,8 +10,20 @@
           <nav class="nav-collapse collapse ">
             <ul class="nav primary-nav pull-right menus">
               <li class="active"id='home'><a href="/">Главная</a></li>
-              <li id='about'><a href="/about">О компании</a></li>
-              <li id='posts'><%=link_to 'Новости', '/news'%></li>
+               <li class="dropdown"id='programs_features'>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Информация
+                    <b class="caret"></b>
+                  </a>
+                 <ul class="dropdown-menu">
+                    <li id='about'><a href="/about">О компании</a></li>
+                    <li id='programs_features'><a href="/programs_features">Особенности программ</a></li>
+                    <li id='posts'><%=link_to 'Новости', '/news'%></li>
+                    <%Page.all.each do |page|%> 
+                      <li id='pages'><%= link_to truncate(page.title, :lenght=>60), "/information_pages/#{page.id}" %></li>
+                    <%end%>
+                 </ul>
+              </li>
               <li id='materials'><%= link_to 'Программы','/programms'%></li>
               <li class="dropdown"id='lib_books'>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -23,21 +35,9 @@
                      <li><%= link_to lib.title, "/library/#{lib.id}"%></li>
                   <%end%>
                 </ul>
-              </li>
-              
-              <li id='experts'><a href="/experts">Контакты</a></li>
-                 <li class="dropdown"id='programs_features'>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Информация
-                    <b class="caret"></b>
-                  </a>
-                <ul class="dropdown-menu">
-                  <li id='programs_features'><a href="/programs_features">Особенности программ</a></li>
-                  <%Page.all.each do |page|%> 
-                    <li id='pages'><%= link_to truncate(page.title, :lenght=>60), "/information_pages/#{page.id}" %></li>
-                  <%end%>
-                </ul>
-              </li>
+              </li>         
+              <li id='experts'><a href="/experts">Контакты</a></li>     
+              <%= render :partial=> 'shared/login_bar' %>
             </ul>
           </nav>
         </div>

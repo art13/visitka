@@ -3,6 +3,7 @@ class CreateReleases < ActiveRecord::Migration
  	create_table :releases do |t|
  	  t.string :release_file_name
  	  t.string :alter_name
+ 	  t.boolean :demo
       t.string :release_content_type
       t.integer :release_file_size
       t.datetime :release_updated_at
