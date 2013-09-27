@@ -1,4 +1,4 @@
-<%= form_for lic_request, :class=>'form-vertical',:id=>'request-form',:remote => true do |f| %>
+<%= form_for request, :class=>'form-vertical',:id=>'request-form',:remote => true do |f| %>
 	<div style='display:none'>
 		<%= f.text_field :name , :id=>"request-name", :value=>"#{user.name}"%>
 	</div>
