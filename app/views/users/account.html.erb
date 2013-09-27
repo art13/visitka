@@ -41,10 +41,13 @@
         		<div class="widget">
              		<h5 class="widget-">Демо версии Программ</h5>
           			<ul class="unstyled">
-	          			<% @demos.each do |demo|%>
-	          					<li> 
-	          					<span><%= link_to demo.material.name, demo.release.url%></span></li>
-	          				</ul>
+          				<%if @demos.empty? %>
+          					<p>Демо версий пока нет</p>
+          				<%else%>
+	          				<% @demos.each do |demo|%>
+	          						<li> 	
+	          						<span><%= link_to demo.material.name, demo.release.url%></span></li>
+	          				<%end%>
 	          			<%end%>
           			</ul>
           		</div>
