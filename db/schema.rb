@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130927115445) do
+ActiveRecord::Schema.define(:version => 20131002112903) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -114,6 +114,11 @@ ActiveRecord::Schema.define(:version => 20130927115445) do
     t.boolean "subscribe", :default => false
   end
 
+  create_table "info_posts", :force => true do |t|
+    t.string "title"
+    t.text   "content"
+  end
+
   create_table "lib_books", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -124,21 +129,46 @@ ActiveRecord::Schema.define(:version => 20130927115445) do
   end
 
   create_table "lic_requests", :force => true do |t|
+    t.string   "region"
+    t.string   "contact"
     t.string   "name"
     t.string   "phone"
     t.string   "email"
-    t.boolean  "confirmed"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "confirmed",  :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer "order_id"
+    t.integer "material_id"
+    t.decimal "price"
+    t.integer "quantity"
   end
 
   create_table "materials", :force => true do |t|
-    t.string   "name",        :null => false
+    t.string   "name",                 :null => false
+    t.string   "version"
     t.string   "preview"
+    t.text     "price_description"
+    t.decimal  "price"
     t.text     "description"
     t.text     "features"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "release_file_name"
+    t.string   "release_content_type"
+    t.integer  "release_file_size"
+    t.datetime "release_updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.decimal  "total"
+    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "questionnaire_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "pages", :force => true do |t|
@@ -163,16 +193,19 @@ ActiveRecord::Schema.define(:version => 20130927115445) do
     t.datetime "updated_at",         :null => false
   end
 
-  create_table "releases", :force => true do |t|
-    t.string   "release_file_name"
-    t.string   "alter_name"
-    t.boolean  "demo"
-    t.string   "release_content_type"
-    t.integer  "release_file_size"
-    t.datetime "release_updated_at"
-    t.integer  "material_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+  create_table "questionnaires", :force => true do |t|
+    t.string "name"
+    t.string "address"
+    t.string "inn"
+    t.string "phone"
+    t.string "email"
+    t.string "faks"
+    t.string "contact"
+    t.string "manager"
+    t.string "bank_name"
+    t.string "ras_schet"
+    t.string "kor_schet"
+    t.string "bik"
   end
 
   create_table "subscribers", :force => true do |t|

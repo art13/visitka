@@ -11,13 +11,13 @@
               <h1>Programm name</h1>
               <p class="lead">Programm descrition</p>
               <p>
-                <a class="btn btn-large btn-primary" href="#">Features</a>
+                <a class="btn btn-large btn-primary" href="#">Особенности</a>
               </p>
             <% else %>
                <h1><%=Material.first.name%></h1>
               <p class="lead"><%=Material.first.preview%></p>
               <p>
-                <a class="btn btn-large btn-primary" href="/programs_features">Особенности</a>
+                <a class="btn btn-large btn-primary" href="/programs_features">Особенности</a> <a class="btn btn-large btn-primary" href="/order_programm" style='width:110px'>Заказать</a>
               </p>
             <%end%>
           </div>

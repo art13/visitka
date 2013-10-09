@@ -1,58 +1,27 @@
 <section class="section-content section-sidebar-content">
     <div class="container">
       <h2 class="section-title">
-        Аккаунт <%= @user.name%>
+        Вы вошли как <%= @user.email%>
       </h2>
       <div class="row">
         <div class="span3">
           <aside>
             <div class="widget">
-              <h5 class="widget-title">Данные аккаунта</h5>
               <div class="widget-content">
-                <ul class="unstyled">
-                  <li><b>Дата регистрации:</b> <%= @user.created_at.to_date.to_formatted_s(:db)%></li>
-                  <li><b>Email:</b> <%= @user.email%></li>
-                  <li><b>Адрес:</b> <%= @user.address%></li>
-                  <li><B>ИНН:</B> <%= @user.inn%></li>
-                  <li><%= link_to 'Редактировать профиль', account_edit_path%></li>
+                <ul class="unstyled button_tab">
+                <li><a class='btn active_btn'id='free_download'>Скачать бесплатно</a></li>  
+                <li><a class='btn'id='prices'>Цены</a> </li>
+                <li><a class='btn'id='how_to'>Как купить и установить</a> </li>
+                <li><a class='btn'id='question'>Заключить договор</a> </li>
+                <li><a class='btn'id='installator'>Скачать инталлятор</a> </li>
+                <li><a class='btn'id='contract'>Мой договор</a> </li>
                 </ul>
               </div>
             </div>
-            <div class="widget">
-              <h5 class="widget-title">Получить Лицензию</h5>
-              <div class="widget-content">
-                <p>Контакты для ответа вам</p>
-               		 <span id='req_mess'>
-            			 <%= render :partial => 'lic_requests/form', :locals=>{:request=>LicRequest.new, :user=>@user}%>
-           			 </span>
-              </div>
-            </div>
-          </aside>
-        </div>
-        <div class="span6 ">
-          <article>
-            <p>Quidem laboriosam maxime dolor id ex quaerat quasi excepturi necessitatibus. Facere quis impedit neque sint amet aperiam ipsam nihil eligendi delectus ea? Inventore necessitatibus blanditiis veniam rem soluta quod recusandae in quia qui accusamus sunt hic repellendus iste illo magnam sequi dolore quasi dicta? Aspernatur esse dolorum sapiente pariatur architecto maxime ea repellendus totam nisi autem repellat temporibus natus aliquid rem laboriosam a ab doloribus odit. Sit ullam aliquam nostrum voluptas aperiam nisi omnis sint molestias iusto dolores sunt nam accusamus eius dolor quod tempore totam. Quod recusandae! Earum dolore veritatis eaque est repellendus amet explicabo eius odio distinctio suscipit cupiditate voluptatem ex? Quod eos nihil nulla vel totam fugit!</p>
-            <h3>Another title</h3>
-            <p>Dolorem nostrum laboriosam vitae ab aut corporis mollitia eum amet totam tempore itaque harum neque inventore consequuntur eveniet id ad velit ipsa. Facere saepe vel porro provident fuga animi unde ex laboriosam ipsa labore maiores exercitationem cumque eum ullam voluptatum aut ea molestias quaerat.</p>
-          </article>
-        </div>
-        <div class='span3'>
-        	<aside>
-        		<div class="widget">
-             		<h5 class="widget-">Демо версии Программ</h5>
-          			<ul class="unstyled">
-          				<%if @demos.empty? %>
-          					<p>Демо версий пока нет</p>
-          				<%else%>
-	          				<% @demos.each do |demo|%>
-	          						<li> 	
-	          						<span><%= link_to demo.material.name, demo.release.url%></span></li>
-	          				<%end%>
-	          			<%end%>
-          			</ul>
-          		</div>
-
-        	</aside> 
+           </aside>
+         </div>
+        <div class="span8 offset1"id='acc_block'>
+         <%= render :partial=>'free_download'%>
         </div>
       </div>
     </div>

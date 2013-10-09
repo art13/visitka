@@ -5253,3 +5253,26 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+.button_tab li{
+    margin-top: 5px 
+}
+.button_tab li a {
+  width: 12em;
+}
+.button_tab li a:hover{
+  background-color: #114a61 !important;
+  color: rgb(224, 206, 206) !important;
+}
+.contr_btn, .demo_btn{
+  float: right;
+}
+.active_btn, .contr_btn, .demo_btn{
+  background-color: #114a61 !important;
+  color: rgb(224, 206, 206) !important;
+}
+.qi{
+  display: inline;
+}
+.qi-float{
+  float: right;
+}

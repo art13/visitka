@@ -1,14 +1,18 @@
 Visitka::Application.routes.draw do
   devise_for :users
-     match '/account'=>'users#account'
   devise_scope :user do
+      match '/account'=>'users#account'
       get '/login' => 'devise/sessions#new', :as => :login
       get '/logout' => 'devise/sessions#destroy', :as => :logout
       get '/signup' => 'devise/registrations#new', :as => :signup
       get '/account/edit'=>'devise/registrations#edit'
 
   end
+   match 'order_programm'=>'lic_requests#request_programm'
   resources :accounts
+  resources :questionnaires
+  resources :orders
+  resources :line_items
   resources :lic_requests
    root :to => "home#index"
    resources :experts, :only=>[:show, :index]
@@ -29,6 +33,7 @@ Visitka::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
        root to: 'admin/admin_users#index' 
+       
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

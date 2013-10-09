@@ -1,6 +1,8 @@
 class CreateRequests < ActiveRecord::Migration
  def change
  	create_table :lic_requests do |t|
+ 		t.string :region
+ 		t.string :contact
  		t.string :name
  		t.string :phone
  		t.string :email 

@@ -1,9 +1,17 @@
 <% if @flag%>
-	$('.err_req').empty();
+	//$('.err_req').empty();
+	$('.err_reqq').empty();
+	$('#request-contact').val('');
+	$('#request-region').val('');	
 	$('#request-email').val('');
 	$('#request-phone').val('');
 	$().toastmessage('showSuccessToast', "Запрос оправлен");
 <% else %>
-    $('#req_mess').empty().append("<%= j(render :partial => 'lic_requests/form', :locals=>{:request=>LicRequest.new, user=>:user})%>");
-    $('.err_req').empty().append("<%= j(render :partial=>'lic_requests/errors')%>");
+	//if ($('body').attr('class')=='lic_requests')
+		{$('#req_mess_not_a').empty().append("<%= j(render :partial => 'lic_requests/form', :locals=>{:request=>LicRequest.new})%>");
+    	$('.err_reqq').empty().append("<%= j(render :partial=>'lic_requests/errors')%>");}
+   // else
+   	//	 {	$('#req_mess').empty().append("<%#= j(render :partial => 'lic_requests/form', :locals=>{:request=>LicRequest.new, :user=>@user})%>");
+   	//	 $('.err_req').empty().append("<%#= j(render :partial=>'lic_requests/errors')%>");}	
+    
 <% end %>

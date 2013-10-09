@@ -1,0 +1,1 @@
+$('#item_form').empty().append("<%= j(render :partial =>'orders/form', :locals=>{:order=>Order.new,:products=>@products})%>");

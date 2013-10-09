@@ -1,0 +1,19 @@
+<section class="section-content section-jumbotron" id="section-jumbotron">
+	<div class="container">
+	      <div class="row">
+	        <div class="span5 offset1">
+	          <img alt="" src="assets/img/ipad.png">
+	        </div>
+	        <div class="span5 _offset1">
+	        	<div class='slogan2'>	
+	        	</div>
+				<span id='not_a_form'>
+			        <%= render :partial => 'lic_requests/not_a_form', :locals=>{:request=>LicRequest.new, :user=>@user}%>
+			    </span>
+			</div>
+		</div>
+	</div>
+</section>
+<%content_for :footer do%>
+	<span></span>
+	<%end%>

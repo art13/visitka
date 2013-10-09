@@ -1,6 +1,14 @@
 <%= form_for request, :class=>'form-vertical',:id=>'request-form',:remote => true do |f| %>
 	<div style='display:none'>
-		<%= f.text_field :name , :id=>"request-name", :value=>"#{user.name}"%>
+		<%= f.text_field :name , :id=>"request-name" %>
+	</div>
+	<div class="control-group">
+		<label for="request-region"></label>
+		<%= f.text_field :region ,:class=>"span3",:id=>'request-region', :placeholder=> 'Регион'%>
+	</div>
+	<div class="control-group">
+		<label for="request-contact"></label>
+		<%= f.text_field :contact ,:class=>"span3",:id=>'request-contact', :placeholder=> 'Контактное лицо'%>
 	</div>
 	<div class='control-group'>
 		<label for="request-name-surname"></label>    
@@ -9,7 +17,7 @@
 	<div class="control-group">
 		<label for="request-email"></label>
 		<%= f.email_field :email ,:class=>"span3",:id=>'request-email', :placeholder=> 'email'%>
-	<div>	       
+	</div>	       
 		<span class="help-inline err_req">
 			<%= render :partial=>'lic_requests/errors'%>
 		</span>

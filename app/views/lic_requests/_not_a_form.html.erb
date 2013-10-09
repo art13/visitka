@@ -1,0 +1,25 @@
+<%= form_for request, :class=>'form-vertical',:id=>'request-form',:autocomplite=>'off',:remote => true do |f| %>
+	<div class='control-group'>
+		<%= f.text_field :name, :class=>'span3', :id=>"request-name",:placeholder=>'Компания'%>
+	</div>
+	<div class="ui-widget control-group", style='font-size:1em !important;'>
+		<label for="request-region"></label>
+		<%= f.text_field :region ,:class=>"span3",:id=>'tags', :placeholder=> 'Регион', :style=>'font-size:1em !important;'%>
+	</div>
+	<div class="control-group">
+		<label for="request-contact"></label>
+		<%= f.text_field :contact ,:class=>"span3",:id=>'request-contact', :placeholder=> 'Контактное лицо'%>
+	</div>
+	<div class='control-group'>
+		<label for="request-name-surname"></label>    
+		<%= f.text_field :phone ,:class=>"span3", :id=>"request-phone", :placeholder => 'Контактный телефон'%>
+	</div>
+	<div class="control-group">
+		<label for="request-email"></label>
+		<%= f.email_field :email ,:class=>"span3",:id=>'request-email', :placeholder=> 'email'%>
+	</div>	       
+		<p class="help-inline err_reqq" style='display: block;'>
+			<%= render :partial=>'lic_requests/errors'%>
+		</p>
+        	<%= f.submit :value=>'Отправить запрос', :class=>'btn btn-small'%>	
+<% end %>

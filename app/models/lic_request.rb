@@ -1,4 +1,4 @@
 class LicRequest < ActiveRecord::Base
-	#validates :email, :phone, :presence => true
-	attr_accessible :name, :phone, :email, :confirmed
+	validates :email, :region, :presence => true
+	attr_accessible :name, :phone, :email, :confirmed, :region, :contact
 end

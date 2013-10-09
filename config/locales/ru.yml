@@ -7,7 +7,12 @@ ru:
         blank:  не может быть пустым
         taken:  уже подписан 
     attributes:
+      info_post:
+        title: Заголовок
+        content: Содержание
       lic_request:
+        region: Регион
+        contact: Контактное лицо
         name: Название организации
         email: Контактный email
         phone: Контактный телефон
@@ -77,6 +82,12 @@ ru:
         created_at: Дата загрузки
         material: Программа
       material:
+        release_file_name: Имя файла
+        preview: Превью
+        version: Версия программы
+        release: Архив программы
+        price: Стоимость 
+        price_description: Описание условий и цен
         features: Особенности
         name: Имя программы
         description: Описание
@@ -94,6 +105,10 @@ ru:
         phone: Телефон
         email: Электронная почта   
     models:
+      info_post:
+        one: Инфо для ЛК
+        many: Инфо для ЛК
+        other: Инфо для ЛК
       lic_request:
         one: Запрос лицензии
         many: Запросы лицензии
@@ -160,6 +175,11 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  info_posts: Инфо для ЛК
+  change_content: Изменить содержание статьти        
+  full: Полная      
+  demo: Демо
+  pricing: Стоимость и условия
   confirmeded: 'Если связывались, ставим галочку'
   lic_requests: Запросы лицензии
   users: Пользователи

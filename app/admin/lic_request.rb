@@ -3,16 +3,19 @@ ActiveAdmin.register LicRequest do
 	actions :all, :except => [:new]
 	index do 
 		column :name
+		column :region
+		column :contact
 		column :email
 		column :phone
 		column :confirmed
 		column :created_at
-		column '' do |resource|
-	 		 links = ''.html_safe
-	 		 links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "member_link edit_link"
-	  		 links += link_to I18n.t('active_admin.view'), resource_path(resource)
-      		 links
-		end
+		default_actions
+		#column '' do |resource|
+	 	#	 links = ''.html_safe
+	 	#	 links += link_to I18n.t('active_admin.edit'), edit_resource_path(resource), :class => "member_link edit_link"
+	  	#	 links += link_to I18n.t('active_admin.view'), resource_path(resource)
+      	#	 links
+		#end
 	end
 	form do |f|
 		f.inputs t('confirmeded') do
@@ -23,7 +26,9 @@ ActiveAdmin.register LicRequest do
 	show do |lic_request|
 		attributes_table do
 			row :name
-			row :email
+			row :contact
+			row :region
+			row :email		
 			row :phone
 			row :confirmed
 			row :created_at
