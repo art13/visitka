@@ -2,16 +2,11 @@
 <br >
 <div class='row span8 offset1'>
 	<h4>Анкета для заключения договора</h4>
-		<div id='question_form'>
-			<%=render :partial =>'questionnaires/form', :locals=>{:anketa=>Questionnaire.new}%>
-		</div>
 		<div class='line_items'>
 			<div class='span6'>
 				<%if @products.empty?%>
 					Программ пока не нет
 				<%else%>
-					<h4>Я хочу купить следующие программные продукты</h4>
-
 								<div id='item_form' >
 									<%= render :partial =>'orders/form', :locals=>{:order=>Order.new,:products=>@products}%>
 								</div>
@@ -20,5 +15,5 @@
 					</div>
 				<%end%>	
 		</div>
-		<div class='span6'> <a id='save_order' class='btn'style='float:right'>Отправить заявку</a></div>
-</div>
+
+		

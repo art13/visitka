@@ -5276,3 +5276,12 @@ a.badge:focus {
 .qi-float{
   float: right;
 }
+.rqer li{
+  float: left;
+  color: red;
+  display: block;
+}
+.nemp{
+  display: inline;
+  color: red
+}

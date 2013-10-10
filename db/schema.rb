@@ -166,9 +166,20 @@ ActiveRecord::Schema.define(:version => 20131002112903) do
     t.decimal  "total"
     t.string   "status"
     t.integer  "user_id"
-    t.integer  "questionnaire_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "name"
+    t.string   "address"
+    t.string   "inn"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "faks"
+    t.string   "contact"
+    t.string   "manager"
+    t.string   "bank_name"
+    t.string   "ras_schet"
+    t.string   "kor_schet"
+    t.string   "bik"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pages", :force => true do |t|
@@ -191,21 +202,6 @@ ActiveRecord::Schema.define(:version => 20131002112903) do
     t.text     "content"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "questionnaires", :force => true do |t|
-    t.string "name"
-    t.string "address"
-    t.string "inn"
-    t.string "phone"
-    t.string "email"
-    t.string "faks"
-    t.string "contact"
-    t.string "manager"
-    t.string "bank_name"
-    t.string "ras_schet"
-    t.string "kor_schet"
-    t.string "bik"
   end
 
   create_table "subscribers", :force => true do |t|

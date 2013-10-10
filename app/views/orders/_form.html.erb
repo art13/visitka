@@ -1,5 +1,45 @@
 <%= form_for @order, :remote=>true,:html=>{:id=>'order_form'}, :method=>'post' do |f|%>
+	<div class='span6 row'>
+		<div class="control-group">    
+			<%= f.text_field :name ,:class=>"span6", :id=>"q-name", :placeholder => 'Название компании или физического лица *'%><span class='nemp'></span>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :address ,:class=>"span6", :id=>"q-address", :placeholder => 'Адрес'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :inn ,:class=>"span6", :id=>"q-inn", :placeholder => 'Реквизиты(ИНН, КПП или паспортные данные)'%>
+		</div>
+		<div class="control-group qi">    
+			<%= f.text_field :phone ,:class=>"span3", :id=>"q-phone", :placeholder => 'Телефон *'%>
+		</div>
+		<div class="control-group qi qi-float">    
+			<%= f.email_field :email ,:class=>"span3", :id=>"q-email", :placeholder => 'email *'%>
+		</div>
+		<div class="control-group qi">    
+			<%= f.text_field :faks ,:class=>"span3", :id=>"q-faks", :placeholder => 'Факс'%>
+		</div>
+		<div class="control-group qi qi-float">    
+			<%= f.text_field :contact ,:class=>"span3", :id=>"q-contact", :placeholder => 'Контактное лицо'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :manager ,:class=>"span6", :id=>"q-manager", :placeholder => 'ФИО Руководителя'%>
+		</div>
+		<label>Банковские реквизиты(если есть)</label>
+		<div class="control-group">    
+			<%= f.text_field :bank_name ,:class=>"span6", :id=>"q-bank_name", :placeholder => 'Название банка (вместе с городом нахождения банка)'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :ras_schet ,:class=>"span6", :id=>"q-ras_schet", :placeholder => 'Расчётный счёт'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :kor_schet ,:class=>"span6", :id=>"q-kor_schet", :placeholder => 'Корреспондентский счёт'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :bik ,:class=>"span6", :id=>"q-bik", :placeholder => 'БИК'%>
+		</div>
+	</div>
 	<table class='table table-striped table-bordered table-condensed'>
+		Я хочу купить следующие программные продукты
 		<thead>
 			<tr>
 				<th>Программа</th>
@@ -9,7 +49,6 @@
 			</tr>
 		</thead>
 	    <tbody>
-		
 				<%=f.hidden_field :status, :value=>'cart'%>
 				<%@products.each do |product|%>
 					<%=f.fields_for :line_items do |lf|%>
@@ -26,7 +65,9 @@
 								<td class='summa'></td>	
 							</tr>
 					<%end%>
+					
 				<%end%>			
 		</tbody>
-	</table>
+	</table><div class='req_errors span3 rqer'><%= render :partial=>'orders/errors'%></div>
+		<%=f.submit :value=>'Отправить заявку',:class=>'btn', :style=>'float:right'%>
 <%end%>
