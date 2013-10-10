@@ -27,3 +27,17 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+.order_info{
+	width: 500px;
+	float: left;
+}
+.order_items{
+	width: 400px;
+	float: right;
+}
+.order_all{
+	width: 1000px;
+	height: auto;
+	display: inline-block;
+}
+

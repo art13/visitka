@@ -5,7 +5,7 @@
 		<div class='line_items'>
 			<div class='span6'>
 				<%if @products.empty?%>
-					Программ пока не нет
+					Программ пока нет
 				<%else%>
 								<div id='item_form' >
 									<%= render :partial =>'orders/form', :locals=>{:order=>Order.new,:products=>@products}%>

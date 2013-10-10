@@ -7,6 +7,26 @@ ru:
         blank:  не может быть пустым
         taken:  уже подписан 
     attributes:
+      order:
+        status: Статус заказа
+        name: Организация(Физическое лицо)
+        user: Пользователь
+        phone: Телефон
+        faks: Факс
+        contact: Контактное лицо
+        address: Адрес
+        manager: Руководитель организации
+        bank_name: Название Банка
+        ras_schet: Расчётный счёт
+        kor_schet: Корреспондентский счёт
+        inn: ИНН
+        total: Общая стоимость заказа
+        bik: БИК
+      line_item:
+        material: Программа
+        quantity: Количество
+        amount: Сумма
+        price:  Стоимость за еденицу
       info_post:
         title: Заголовок
         content: Содержание
@@ -105,6 +125,14 @@ ru:
         phone: Телефон
         email: Электронная почта   
     models:
+      order:
+        one: Заказ
+        many: Заказы
+        other: Заказ
+      line_item:
+        one: Продукт
+        many: Продукты
+        other: Продукт
       info_post:
         one: Инфо для ЛК
         many: Инфо для ЛК
@@ -175,6 +203,16 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  name_of: названию организации 
+  user_f: пользователи
+  total_f: сумме заказа
+  orders: Заказы
+  order_details: Детали Заказа
+  line_items: Продукты
+  material: Программа
+  amount: Сумма
+  quantity: Количество
+  price: Стоимость
   info_posts: Инфо для ЛК
   change_content: Изменить содержание статьти        
   full: Полная      
