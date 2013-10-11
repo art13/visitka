@@ -8,6 +8,9 @@ class Order < ActiveRecord::Base
 	scope :cart, where(:status=>'cart')
 	scope :ready, where(:status=>'ready')
 before_destroy :delete_items
+	def total
+  		line_items.to_a.sum(&:amount)  		
+  	end
 private
 	def delete_items
 			self.line_items.each do |item|
@@ -15,8 +18,6 @@ private
 			end
 	end
 	
-  	def total
-  		line_items.to_a.sum(&:amount)  		
-  	end
+  	
 
 end
