@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
             @order.ras_schet=params[:order][:ras_schet]
             @order.kor_schet=params[:order][:kor_schet]
             @order.bik=params[:order][:bik]
+            @order.user_id=current_user.id
             @order.save
                
                           # @line_destr=LineItem.where('order_id=?',@order.id).where('quantity=?',0)
