@@ -1,7 +1,7 @@
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => 'visitka.ro.lt',
+  :domain               => 'loft-leshoz.ru',
   :user_name            =>  DataContact.first.deliver_email.split('@').first,
   :password             =>  DataContact.first.deliver_pass,
   :authentication       => "plain",

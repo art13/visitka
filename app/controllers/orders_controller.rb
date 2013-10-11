@@ -5,8 +5,10 @@ class OrdersController < ApplicationController
    end
    def create
       @flag1=false
+      @user=current_user
+      @data=DataContact.first
       @products=Material.where('version=?','Полная')
-   	@order=Order.new
+   	  @order=Order.new
             @order.status=params[:order][:status]
             @order.name=params[:order][:name]
             @order.phone=params[:order][:phone]
@@ -39,6 +41,8 @@ class OrdersController < ApplicationController
                     #    item.save
                     #  end
                   end
+                  OrderMailer.req_order(@order,@data).deliver
+                  OrderMailer.req_admin_order(@order,@data).deliver
             @flag1=true
                respond_to do |format|
                   format.js
