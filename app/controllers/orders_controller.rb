@@ -23,23 +23,13 @@ class OrdersController < ApplicationController
             @order.kor_schet=params[:order][:kor_schet]
             @order.bik=params[:order][:bik]
             @order.user_id=current_user.id
-            @order.save
-               
-                          # @line_destr=LineItem.where('order_id=?',@order.id).where('quantity=?',0)
-                          # @line_destr.each do |item|
-                          #    LineItem.find(item.id).destroy!
-                          # end       
+            @order.save     
          if @order.save
           line_items=params[:order][:line_items]
                   line_items.each do |key,value|
                      if (value[:quantity].to_i)>0 && value[:quantity]!=''
                          @order.line_items.create(:material_id=>key,:price=>value[:price],:quantity=>value[:quantity])
                      end
-                    # else
-                    #    item=@order.line_items.find_by_material_id(key)
-                    #    item.quantity=value[:quantity]
-                    #    item.save
-                    #  end
                   end
                   OrderMailer.req_order(@order,@data).deliver
                   OrderMailer.req_admin_order(@order,@data).deliver
