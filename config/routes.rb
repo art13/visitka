@@ -15,6 +15,7 @@ Visitka::Application.routes.draw do
   resources :line_items
   resources :lic_requests
    root :to => "home#index"
+   match '/registrations_now'=>'home#register_now'
    resources :experts, :only=>[:show, :index]
    resources :feedbacks
    resources :materials, :only=>[:show, :index]

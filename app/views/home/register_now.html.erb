@@ -7,9 +7,11 @@
 	        <div class="span5 _offset1">
 	        	<div class='slogan2'>	
 	        	</div>
+	        	<%unless current_user%>
 				<span id='not_a_form'>
-			        <%= render :partial => 'lic_requests/not_a_form', :locals=>{:request=>LicRequest.new, :user=>@user}%>
+			        <%= render :partial => 'devise/registrations/form', :locals=>{:resource=>User,:resource_name=>User.new}%>
 			    </span>
+			    <%end%>
 			</div>
 		</div>
 	</div>

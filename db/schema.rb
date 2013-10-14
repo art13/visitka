@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131002112903) do
+ActiveRecord::Schema.define(:version => 20131014092037) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -58,6 +58,26 @@ ActiveRecord::Schema.define(:version => 20131002112903) do
     t.string   "storage_format"
     t.string   "storage_mime_type"
     t.string   "storage_size"
+  end
+
+  create_table "bestellung", :force => true do |t|
+    t.string   "number"
+    t.integer  "order_id"
+    t.string   "status"
+    t.string   "name"
+    t.string   "address"
+    t.string   "inn"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "faks"
+    t.string   "contact"
+    t.string   "manager"
+    t.string   "bank_name"
+    t.string   "ras_schet"
+    t.string   "kor_schet"
+    t.string   "bik"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "books", :force => true do |t|
@@ -128,17 +148,6 @@ ActiveRecord::Schema.define(:version => 20131002112903) do
     t.datetime "photo_updated_at"
   end
 
-  create_table "lic_requests", :force => true do |t|
-    t.string   "region"
-    t.string   "contact"
-    t.string   "name"
-    t.string   "phone"
-    t.string   "email"
-    t.boolean  "confirmed",  :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
   create_table "line_items", :force => true do |t|
     t.integer "order_id"
     t.integer "material_id"
@@ -166,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20131002112903) do
     t.decimal  "total"
     t.string   "status"
     t.integer  "user_id"
+    t.string   "region"
     t.string   "name"
     t.string   "address"
     t.string   "inn"
@@ -209,9 +219,10 @@ ActiveRecord::Schema.define(:version => 20131002112903) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",                                   :null => false
-    t.string   "inn",                                    :null => false
-    t.string   "address"
+    t.string   "region"
+    t.string   "contact"
+    t.string   "company"
+    t.string   "phone"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"

@@ -1,6 +1,9 @@
 <h3>Мой договор</h3>
 <%@last_order=Order.where(:user_id=>current_user.id).last%>
 <div class='row span6'>
+	<%if @last_order.nil?%>
+		<label>Договор не заключен</label>
+	<%else%>
 	<div class='row'>
 	<h4>Мои данные</h4>
 	<h5>Название компании или физического лица</h5>
@@ -47,4 +50,5 @@
 		<h4>История установок</h4>
 		<label>empty</label>
 	</div>
+	<%end%>
 </div>

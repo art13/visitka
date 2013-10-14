@@ -1,5 +1,5 @@
 ActiveAdmin.register Material,  { :sort_order => :id_asc } do
-		menu :parent => I18n.t('download_materials'), :label => I18n.t('materials'), :priority=>1
+		menu :priority=>1, :parent => I18n.t('download_materials'), :label => I18n.t('materials'), :priority=>1
 		filter :name, :label=> I18n.t('name_f')
  	scope :all, :default => true
 	config.per_page = 8

@@ -7,6 +7,6 @@ class OrderMailer < ActionMailer::Base
 	end
 	def req_admin_order(order,data)
 		@order=order
-		mail(:from=>data.deliver_email,:to=>data.deliver_email, :subject=>"Пользователь #{order.user.name} оформил договор")
+		mail(:from=>data.deliver_email,:to=>data.deliver_email, :subject=>"Пользователь #{order.user.email} оформил договор")
 	end
 end

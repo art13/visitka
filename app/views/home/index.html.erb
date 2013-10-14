@@ -17,7 +17,12 @@
                <h1><%=Material.first.name%></h1>
               <p class="lead"><%=Material.first.preview%></p>
               <p>
-                <a class="btn btn-large btn-primary" href="/programs_features">Особенности</a> <a class="btn btn-large btn-primary" href="/order_programm" style='width:110px'>Заказать</a>
+                <a class="btn btn-large btn-primary" href="/programs_features">Особенности</a>
+                <%if current_user%>
+                    <a class="btn btn-large btn-primary" href="/account" style='width:110px'>Заказать</a>
+                 <%else%>
+                    <a class="btn btn-large btn-primary" href="/users/sign_up" style='width:110px'>Заказать</a>
+                <%end%>
               </p>
             <%end%>
           </div>

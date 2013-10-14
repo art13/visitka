@@ -1,7 +1,7 @@
-<%= form_for @order, :remote=>true,:html=>{:id=>'order_form'}, :method=>'post' do |f|%>
-	<div class='span6 row'>
+<%= form_for @order, :remote=>true,:html=>{:id=>'order_form',:class=>"form-vertical span6 row"}, :method=>'post' do |f|%>
+	
 		<div class="control-group">    
-			<%= f.text_field :name ,:class=>"span6", :id=>"q-name", :placeholder => 'Название компании или физического лица *'%><span class='nemp'></span>
+			<%= f.text_field :name ,:class=>"span6", :id=>"q-name", :placeholder => 'Название компании или физического лица *', :value=>current_user.company%><span class='nemp'></span>
 		</div>
 		<div class="control-group">    
 			<%= f.text_field :address ,:class=>"span6", :id=>"q-address", :placeholder => 'Адрес'%>
@@ -9,17 +9,20 @@
 		<div class="control-group">    
 			<%= f.text_field :inn ,:class=>"span6", :id=>"q-inn", :placeholder => 'Реквизиты(ИНН, КПП или паспортные данные)'%>
 		</div>
+		<div class="ui-widget control-group qi" style='font-size:1em !important;'>
+            <%= f.text_field :region ,:class=>"span6",:id=>'tags1', :placeholder=> 'Регион', :style=>'font-size:1em !important;',:value=>current_user.region%>
+        </div>
 		<div class="control-group qi">    
-			<%= f.text_field :phone ,:class=>"span3", :id=>"q-phone", :placeholder => 'Телефон *'%>
+			<%= f.text_field :phone ,:class=>"span3", :id=>"q-phone", :placeholder => 'Телефон *', :value=>current_user.phone%>
 		</div>
 		<div class="control-group qi qi-float">    
-			<%= f.email_field :email ,:class=>"span3", :id=>"q-email", :placeholder => 'email *'%>
+			<%= f.email_field :email ,:class=>"span3", :id=>"q-email", :placeholder => 'email *', :value=>current_user.email%>
 		</div>
 		<div class="control-group qi">    
 			<%= f.text_field :faks ,:class=>"span3", :id=>"q-faks", :placeholder => 'Факс'%>
 		</div>
 		<div class="control-group qi qi-float">    
-			<%= f.text_field :contact ,:class=>"span3", :id=>"q-contact", :placeholder => 'Контактное лицо'%>
+			<%= f.text_field :contact ,:class=>"span3", :id=>"q-contact", :placeholder => 'Контактное лицо', :value=>current_user.contact%>
 		</div>
 		<div class="control-group">    
 			<%= f.text_field :manager ,:class=>"span6", :id=>"q-manager", :placeholder => 'ФИО Руководителя'%>
@@ -37,7 +40,7 @@
 		<div class="control-group">    
 			<%= f.text_field :bik ,:class=>"span6", :id=>"q-bik", :placeholder => 'БИК'%>
 		</div>
-	</div>
+
 	<table class='table table-striped table-bordered table-condensed'>
 		Я хочу купить следующие программные продукты
 		<thead>
