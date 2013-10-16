@@ -1,4 +1,5 @@
 Visitka::Application.routes.draw do
+  devise_for :users, :controllers => { registrations: 'users/registrations' } ,:path=>'users/registrations'
   devise_for :users
   devise_scope :user do
       match '/account'=>'users#account'
@@ -8,7 +9,9 @@ Visitka::Application.routes.draw do
       get '/account/edit'=>'devise/registrations#edit'
 
   end
-   match 'order_programm'=>'lic_requests#request_programm'
+  
+
+  match 'order_programm'=>'lic_requests#request_programm'
   resources :accounts
   resources :questionnaires
   resources :orders

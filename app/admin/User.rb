@@ -1,15 +1,15 @@
 ActiveAdmin.register User do 
 	menu :parent =>I18n.t('mans'), :label=>I18n.t('users'), :priority=>5
 	filter :false
-	actions :all, :except => [:new,:destroy]
+	actions :all, :except => [:new,:edit]
 	scope :all
 	scope :interested
 	index do 
+		selectable_column
 		column :email
-
 		column '' do |resource|
 		  links = ''.html_safe
-		  links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "member_link"
+		  links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "member_link"	 
 	      links
 		end
 	end

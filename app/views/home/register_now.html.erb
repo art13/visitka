@@ -9,7 +9,7 @@
 	        	</div>
 	        	<%unless current_user%>
 				<span id='not_a_form'>
-			        <%= render :partial => 'devise/registrations/form', :locals=>{:resource=>User,:resource_name=>User.new}%>
+			        <%= render :partial => 'users/registrations/form', :locals=>{:user=>User.new}%>
 			    </span>
 			    <%end%>
 			</div>
