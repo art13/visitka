@@ -23,9 +23,10 @@
               <h5 class="widget-title">Материалы для скачивания</h5>
               <div class="widget-content">
                 <ul class="unstyled">
-                    <%@material.releases.all.each do |prog|%>
-                        <li><%=link_to prog.alter_name, prog.release.url%></i>
-                    <%end %>
+                    <li><%=@material.release.url%></li>
+                    <%#@material.releases.all.each do |prog|%>
+                        <li><%#=link_to prog.alter_name, prog.release.url%></i>
+                    <%#end %>
                 </ul>
               </div>
             </div>
