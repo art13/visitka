@@ -1,5 +1,5 @@
 <h3>Цены</h3>
-<%@rels=Material.all%>
+<%@rels=Material.where(:version => 'Полная')%>
 <%unless @rels.nil?%>
 	<% @rels.each do |material|%>
 	<div class='row' style='margin-bottom:10px;'>
