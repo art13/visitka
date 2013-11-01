@@ -1,16 +1,16 @@
 <%= form_for @order, :remote=>true,:html=>{:id=>'order_form',:class=>"form-vertical span6 row"}, :method=>'post' do |f|%>
 	
 		<div class="control-group">    
-			<%= f.text_field :name ,:class=>"span6", :id=>"q-name", :placeholder => 'Название компании или физического лица *', :value=>current_user.company%><span class='nemp'></span>
+			<%= f.text_field :name ,:class=>"span6", :id=>"q-name", :placeholder => 'Название юридического или физического лица *', :value=>current_user.company%><span class='nemp'></span>
 		</div>
 		<div class="control-group">    
-			<%= f.text_field :address ,:class=>"span6", :id=>"q-address", :placeholder => 'Адрес'%>
+			<%= f.text_field :address ,:class=>"span6 empt", :id=>"q-address", :placeholder => 'Адрес'%>
 		</div>
 		<div class="control-group">    
-			<%= f.text_field :inn ,:class=>"span6", :id=>"q-inn", :placeholder => 'Реквизиты(ИНН, КПП или паспортные данные)'%>
+			<%= f.text_field :inn ,:class=>"span6 empt", :id=>"q-inn", :placeholder => 'Реквизиты(ИНН, КПП или паспортные данные)'%>
 		</div>
 		<div class="ui-widget control-group qi" style='font-size:1em !important;'>
-            <%= f.text_field :region ,:class=>"span6",:id=>'tags1', :placeholder=> 'Регион', :style=>'font-size:1em !important;',:value=>current_user.region%>
+            <%= f.text_field :region ,:class=>"span6",:id=>'tags1', :placeholder=> 'субъект РФ', :style=>'font-size:1em !important;',:value=>current_user.region%>
         </div>
 		<div class="control-group qi">    
 			<%= f.text_field :phone ,:class=>"span3", :id=>"q-phone", :placeholder => 'Телефон *', :value=>current_user.phone%>
@@ -19,26 +19,35 @@
 			<%= f.email_field :email ,:class=>"span3", :id=>"q-email", :placeholder => 'email *', :value=>current_user.email%>
 		</div>
 		<div class="control-group qi">    
-			<%= f.text_field :faks ,:class=>"span3", :id=>"q-faks", :placeholder => 'Факс'%>
+			<%= f.text_field :faks ,:class=>"span3 empt", :id=>"q-faks", :placeholder => 'Факс'%>
 		</div>
 		<div class="control-group qi qi-float">    
 			<%= f.text_field :contact ,:class=>"span3", :id=>"q-contact", :placeholder => 'Контактное лицо', :value=>current_user.contact%>
 		</div>
 		<div class="control-group">    
-			<%= f.text_field :manager ,:class=>"span6", :id=>"q-manager", :placeholder => 'ФИО Руководителя'%>
+			<%= f.text_field :ogrn ,:class=>"span6 empt", :id=>"q-ogrn", :placeholder => 'ОГРН'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :manager ,:class=>"span6 empt", :id=>"q-manager", :placeholder => 'ФИО Руководителя'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :manager_status ,:class=>"span6 empt", :id=>"q-manager", :placeholder => 'Должность Руководителя'%>
+		</div>
+		<div class="control-group">    
+			<%= f.text_field :manager_reason ,:class=>"span6 empt", :id=>"q-manager", :placeholder => 'На основании чего действует руководитель'%>
 		</div>
 		<label>Банковские реквизиты(если есть)</label>
 		<div class="control-group">    
-			<%= f.text_field :bank_name ,:class=>"span6", :id=>"q-bank_name", :placeholder => 'Название банка (вместе с городом нахождения банка)'%>
+			<%= f.text_field :bank_name ,:class=>"span6 empt", :id=>"q-bank_name", :placeholder => 'Название банка (вместе с городом нахождения банка)'%>
 		</div>
 		<div class="control-group">    
-			<%= f.text_field :ras_schet ,:class=>"span6", :id=>"q-ras_schet", :placeholder => 'Расчётный счёт'%>
+			<%= f.text_field :ras_schet ,:class=>"span6 empt", :id=>"q-ras_schet", :placeholder => 'Расчётный счёт'%>
 		</div>
 		<div class="control-group">    
-			<%= f.text_field :kor_schet ,:class=>"span6", :id=>"q-kor_schet", :placeholder => 'Корреспондентский счёт'%>
+			<%= f.text_field :kor_schet ,:class=>"span6 empt", :id=>"q-kor_schet", :placeholder => 'Корреспондентский счёт'%>
 		</div>
 		<div class="control-group">    
-			<%= f.text_field :bik ,:class=>"span6", :id=>"q-bik", :placeholder => 'БИК'%>
+			<%= f.text_field :bik ,:class=>"span6 empt", :id=>"q-bik", :placeholder => 'БИК'%>
 		</div>
 
 	<table class='table table-striped table-bordered table-condensed'>

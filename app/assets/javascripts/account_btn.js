@@ -84,9 +84,11 @@ $('document').ready(function(){
 		});	  
 	});
 	$('body').on('click','.contr_btn',function(){
-		$('.button_tab').children().children().removeClass('active_btn');
-		perl = 'question';
-		$(document.getElementById(perl)).addClass('active_btn');
+		//$('.button_tab a').removeClass('active_btn');
+		//var a=$('#acc_block').children().attr('class')		
+		//$('.button_tab #'+a ).addClass('active_btn')
+		//perl = 'question';
+		//$(document.getElementById(perl)).addClass('active_btn');
 		$.post('/account',{perl:perl});
 	
 	});
@@ -101,5 +103,6 @@ $('document').ready(function(){
 		var p=$(this).parent().parent().find('.prpr').val();
 		sum=q*p
 		$(this).parent().parent().find('.summa').html('<label>'+sum+'</label>')
-	});	
+	});
+	
 });

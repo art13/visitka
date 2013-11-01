@@ -1,54 +1,56 @@
-<h3>Мой договор</h3>
-<%@last_order=Order.where(:user_id=>current_user.id).last%>
-<div class='row span6'>
-	<%if @last_order.nil?%>
-		<label>Договор не заключен</label>
-	<%else%>
-	<div class='row'>
-	<h4>Мои данные</h4>
-	<h5>Название компании или физического лица</h5>
-	<span class="input-xlarge uneditable-input span6"><%=@last_order.name%></span>
-	</div>
-	<div class='row'>
-	<table class='table table-bordered table-condensed'>
-		<caption>Заказанные программные продукты</caption>
-		<thead>
-			<tr>
-				
-				<th>№</th>
-				<th>Программа</th>
-				<th>Количество</th>
-				<th>Стоимость(за ед.)</th>
-				<th>Сумма</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%@last_order.line_items.each_with_index do |item, index |%>
+<div class='contract'>
+	<h3>Мой договор</h3>
+	<%@last_order=Order.where(:user_id=>current_user.id).last%>
+	<div class='row span6'>
+		<%if @last_order.nil?%>
+			<label>Договор не заключен</label>
+		<%else%>
+		<div class='row'>
+		<h4>Мои данные</h4>
+		<h5>Название компании или физического лица</h5>
+		<span class="input-xlarge uneditable-input span6"><%=@last_order.name%></span>
+		</div>
+		<div class='row'>
+		<table class='table table-bordered table-condensed'>
+			<caption>Заказанные программные продукты</caption>
+			<thead>
 				<tr>
-					<td><%= index+1	%></td>
-					<td><%= item.material.name%></td>
-					<td><%= item.quantity%></td>
-					<td><%= item.price.to_i%></td>
-					<td><%= item.amount.to_i%></td>
-				</tr>	
-			<%end%>
-		</tbody>
-		<tr>
-			<td></td>
-			<td>Итого:</td>	
-			<td></td>
-			<td></td>
-			<td><%= @last_order.total%></td>
-		</tr>
-	</table>
+					
+					<th>№</th>
+					<th>Программа</th>
+					<th>Количество</th>
+					<th>Стоимость(за ед.)</th>
+					<th>Сумма</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%@last_order.line_items.each_with_index do |item, index |%>
+					<tr>
+						<td><%= index+1	%></td>
+						<td><%= item.material.name%></td>
+						<td><%= item.quantity%></td>
+						<td><%= item.price.to_i%></td>
+						<td><%= item.amount.to_i%></td>
+					</tr>	
+				<%end%>
+			</tbody>
+			<tr>
+				<td></td>
+				<td>Итого:</td>	
+				<td></td>
+				<td></td>
+				<td><%= @last_order.total%></td>
+			</tr>
+		</table>
+		</div>
+		<div class='row'>
+			<h4>Лицензионные ключи</h4>
+			<label>empty</label>
+		</div>
+		<div class='row'>
+			<h4>История установок</h4>
+			<label>empty</label>
+		</div>
+		<%end%>
 	</div>
-	<div class='row'>
-		<h4>Лицензионные ключи</h4>
-		<label>empty</label>
-	</div>
-	<div class='row'>
-		<h4>История установок</h4>
-		<label>empty</label>
-	</div>
-	<%end%>
 </div>

@@ -1,8 +1,7 @@
 <% if @flag1%>
 $().toastmessage('showSuccessToast', "Ваша заявка отправлена");
 $('.req_errors').empty();
-$('#order_form').find('.span6').val('');
-$('#order_form').find('.span3').val('');
+$('#order_form').find('.empt').val('');
 $('#order_form').find('.item-quantity').val(0);
 $('#order_form').find('.summa').empty();
 <%else %>

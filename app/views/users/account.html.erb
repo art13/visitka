@@ -1,4 +1,11 @@
 <section class="section-content section-sidebar-content">
+  <script type="text/javascript">
+ $('document').ready(function(){
+    $('.button_tab a').removeClass('active_btn');
+    var a=$('#acc_block').children().attr('class')    
+    $('.button_tab #'+a ).addClass('active_btn')
+     });
+  </script>
     <div class="container">
       <h2 class="section-title">
         Вы вошли как: <span style='margin-left:15px'><%= @user.email%></span> 
@@ -21,7 +28,11 @@
            </aside>
          </div>
         <div class="span8 offset1"id='acc_block'>
-         <%= render :partial=>'free_download'%>
+          <%if @user.interes?%>
+            <%= render :partial=>'question'%>
+          <%else%>  
+            <%= render :partial=>'free_download'%>
+         <%end%>
         </div>
       </div>
     </div>

@@ -1,15 +1,17 @@
-<h3>Скачать бесплатно</h3>
-<%unless @demos.nil?%>
-	<% @demos.each do |demo|%>
-	<div class='row' style='margin-bottom:10px;'>
-		<blockquote class="<%= cycle('even', 'odd') -%>">
-			<h4><%= link_to demo.name, "programms/#{demo.id}"%></h4>
-			<br />
-			<article>
-				<%= raw demo.description%>
-			</article>	
-			<%= link_to 'Скачать демо-версию',demo.release.url, :class=>'btn demo_btn' %>
-		</blockquote>
-	</div>
+<div class='free_download'>
+	<h3>Скачать бесплатно</h3>
+	<%unless @demos.nil?%>
+		<% @demos.each do |demo|%>
+		<div class='row' style='margin-bottom:10px;'>
+			<blockquote class="<%= cycle('even', 'odd') -%>">
+				<h4><%= link_to demo.name, "programms/#{demo.id}"%></h4>
+				<br />
+				<article>
+					<%= raw demo.description%>
+				</article>	
+				<%= link_to 'Скачать демо-версию',demo.release.url, :class=>'btn demo_btn' %>
+			</blockquote>
+		</div>
+		<%end%>
 	<%end%>
-<%end%>
+<div>

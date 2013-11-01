@@ -1,17 +1,19 @@
-<h3>Заключить договор на поставку программных продуктов</h3>
-<br >
-<div class='row span8 offset1'>
-	<h4>Анкета для заключения договора</h4>
-		<div class='line_items'>
-			<div class='span6'>
-				<%if @products.empty?%>
-					Программ пока нет
-				<%else%>
-								<div id='item_form' >
-									<%= render :partial =>'orders/form', :locals=>{:order=>Order.new,:products=>@products}%>
-								</div>
-					</div>
-				<%end%>	
-		</div>
+<div class='question'>
+	<h3>Заключить договор на поставку программных продуктов</h3>
+	<br >
+	<div class='row span8 offset1'>
+		<h4>Анкета для заключения договора</h4>
+			<div class='line_items'>
+				<div class='span6'>
+					<%if @products.empty?%>
+						Программ пока нет
+					<%else%>
+									<div id='item_form' >
+										<%= render :partial =>'orders/form', :locals=>{:order=>Order.new,:products=>@products}%>
+									</div>
+						</div>
+					<%end%>	
+	</div>
+</div>
 
 		

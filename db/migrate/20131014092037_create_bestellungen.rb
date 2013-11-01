@@ -7,11 +7,14 @@ class CreateBestellungen < ActiveRecord::Migration
   		t.string :name
 		t.string :address
 		t.string :inn
+		t.string :ogrn
 		t.string :phone
 		t.string :email
 		t.string :faks
 		t.string :contact
 		t.string :manager
+		t.string :manager_status
+		t.string :manager_reason
 		t.string :bank_name
 		t.string :ras_schet
 		t.string :kor_schet

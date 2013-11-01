@@ -1,10 +1,11 @@
+<h4>Зарегистрироваться на сайте, чтобы заказать программу.</h4> 
  <%=form_for user,:url=>'/users/registrations',:html=>{:class=>"form-vertical",:id=>'request-form', :remote=>true} do |f| %>
 	<div class='control-group'>
-              <%= f.text_field :company, :class=>'span3', :id=>"request-name",:placeholder=>'Компания или физ. лицо'%>
+              <%= f.text_field :company, :class=>'span3', :id=>"request-name",:placeholder=>'Юр. или физ. лицо'%>
     </div>
     <div class="ui-widget control-group", style='font-size:1em !important;'>
               <label for="request-region"></label>
-              <%= f.text_field :region ,:class=>"span3",:id=>'tags', :placeholder=> 'Регион', :style=>'font-size:1em !important;'%>
+              <%= f.text_field :region ,:class=>"span3",:id=>'tags', :placeholder=> 'субъект РФ', :style=>'font-size:1em !important;'%>
      </div>
     <div class="control-group">
               <label for="request-contact"></label>
@@ -25,7 +26,7 @@
     <div class='control-group'>
             	<label ></label>
               <%= f.password_field :password_confirmation, :class=>'span3',:placeholder=>'Подтверждение пароля*' %>
-              <%#=f.hidden_field :interes, :value=>true%>
+              <%=f.hidden_field :interes, :value=>true%>
     </div>  
 
 		<p class="help-inline err_reqq" style='display: block;'>

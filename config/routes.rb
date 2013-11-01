@@ -12,7 +12,6 @@ Visitka::Application.routes.draw do
   
 
   match 'order_programm'=>'lic_requests#request_programm'
-  resources :accounts
   resources :questionnaires
   resources :orders
   resources :line_items

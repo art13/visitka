@@ -1,14 +1,16 @@
-<h3>Цены</h3>
-<%@rels=Material.where(:version => 'Полная')%>
-<%unless @rels.nil?%>
-	<% @rels.each do |material|%>
-	<div class='row' style='margin-bottom:10px;'>
-			<h4><%= link_to material.name, "programms/#{material.id}"%></h4>
-			<br />
-			<article>
-				<%= raw material.price_description%>
-			</article>	
-			<a class='btn contr_btn'id='contr_btn'>Перейти к заключению договора</a>
-	</div>
+<div class='prices'>
+	<h3>Цены</h3>
+	<%@rels=Material.where(:version => 'Полная')%>
+	<%unless @rels.nil?%>
+		<% @rels.each do |material|%>
+		<div class='row' style='margin-bottom:10px;'>
+				<h4><%= link_to material.name, "programms/#{material.id}"%></h4>
+				<br />
+				<article>
+					<%= raw material.price_description%>
+				</article>	
+				<a class='btn contr_btn'id='contr_btn'>Перейти к заключению договора</a>
+		</div>
+		<%end%>
 	<%end%>
-<%end%>
+</div>

@@ -1,6 +1,10 @@
 # encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  private
+    def after_sign_in_path_for(resource)
+      '/account'
+    end
   #  helper_method :current_order
   # private
   # def current_order

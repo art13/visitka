@@ -9,6 +9,9 @@ ru:
         taken:  уже подписан 
     attributes:
       order:
+        ogrn: ОГРН
+        manager_status: Должность руководителя 
+        manager_reason: На основании чего он действует
         status: Статус заказа
         name: Организация(Физическое лицо)
         user: Пользователь

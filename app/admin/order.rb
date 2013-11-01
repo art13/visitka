@@ -30,7 +30,10 @@ ActiveAdmin.register Order do
 				f.input :faks
 				f.input :address
 				f.input :inn
-				f.input :manager
+				f.input :ogrn
+				f.input :manager 
+				f.input :manager_status
+				f.input :manager_reason
 				f.input :bank_name
 				f.input :ras_schet
 				f.input :kor_schet
@@ -51,7 +54,10 @@ ActiveAdmin.register Order do
 					 			row :faks
 					 			row :address
 					 			row :inn
+					 			row :ogrn
 					 			row :manager
+					 			row :manager_status
+					 			row :manager_reason
 					 			row :bank_name
 					 			row :ras_schet
 					 			row :kor_schet
