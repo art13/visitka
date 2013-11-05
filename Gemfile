@@ -48,6 +48,7 @@ gem "cocaine"
 gem "geocoder"
 gem "mail"
 gem "jquery-ui-rails"
+gem 'delayed_job_active_record' #rails generate delayed_job:active_record     migrate
 gem 'whenever', :require => false
 group :development do
   gem 'better_errors'

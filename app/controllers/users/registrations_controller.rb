@@ -1,6 +1,7 @@
 # encoding: utf-8
  class Users::RegistrationsController < Devise::RegistrationsController
   def create
+    @data=DataContact.first
     @flag2=false
     @user=User.new(params[:user])
     if request.xhr?
@@ -11,12 +12,12 @@
            format.js
         end
       else
-        logger.debug('qwertyewq')
         @flag2=false
         flash['create_error']= resource.errors.full_messages
         sign_up(@user, resource)
         current_user=@user
         respond_to do |format|
+          UserMailer.registr_message(@user,@data).deliver
           format.js { render :js => "window.location.href = '#{account_path}'" }
           @dog='question'
         end
@@ -30,6 +31,7 @@
         sign_up(@user, resource)
         current_user=@user
         respond_to do |format|
+          UserMailer.registr_message(@user,@data).deliver
           format.html{ redirect_to account_path}
         end
       end 
