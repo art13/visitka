@@ -5260,13 +5260,13 @@ a.badge:focus {
   width: 12em;
 }
 .button_tab li a:hover{
-  background-color: #114a61 !important;
-  color: rgb(224, 206, 206) !important;
+  background-color: #1c7ca2 !important;
+  color: #fff !important;
 }
 .contr_btn, .demo_btn{
   float: right;
 }
-.active_btn, .contr_btn, .demo_btn{
+.active_btn{
   background-color: #114a61 !important;
   color: rgb(224, 206, 206) !important;
 }
@@ -5285,3 +5285,4 @@ a.badge:focus {
   display: inline;
   color: red
 }
+

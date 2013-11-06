@@ -1,3 +1,4 @@
+<script type="text/javascript" src='/assets/account_form.js'></script>
 <%= form_for @order, :remote=>true,:html=>{:id=>'order_form',:class=>"form-vertical span6 row"}, :method=>'post' do |f|%>
 	
 		<div class="control-group">    
@@ -81,5 +82,5 @@
 				<%end%>			
 		</tbody>
 	</table><div class='req_errors span3 rqer'><%= render :partial=>'orders/errors'%></div>
-		<%=f.submit :value=>'Отправить заявку',:class=>'btn', :style=>'float:right'%>
+		<%=f.submit :value=>'Отправить заявку',:class=>'btn btn-primary', :style=>'float:right'%>
 <%end%>

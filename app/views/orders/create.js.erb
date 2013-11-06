@@ -1,10 +1,12 @@
 <% if @flag1%>
 $().toastmessage('showSuccessToast', "Ваша заявка отправлена");
 $('.req_errors').empty();
+
 $('#order_form').find('.empt').val('');
 $('#order_form').find('.item-quantity').val(0);
 $('#order_form').find('.summa').empty();
 <%else %>
+	
  $('.req_errors').empty().append("<%= j(render :partial=>'orders/errors')%>");
  $('#item_form').empty().append("<%= j(render :partial =>'orders/form', :locals=>{:order=>@order,:products=>@products})%>");
 <%end%>
