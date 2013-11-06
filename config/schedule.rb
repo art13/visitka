@@ -4,7 +4,7 @@ every :wednesday, :at => '9pm' do
   puts'News deliver start'
 end
  every :reboot do 
- 	rake "jobs:work", :environment =>'production'
+ 	command "cd /apps/visitka/current && RAILS_ENV=production script/delayed_job start"
  	puts "delay is working now"
  end
 #whenever --update-crontab

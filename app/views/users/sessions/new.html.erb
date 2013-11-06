@@ -2,10 +2,9 @@
   <div class='row span4'>
     <h2>Войти</h2>
 
-    <%= form_for(resource, :as => resource_name,:class=>"form-vertical", :url => session_path(resource_name)) do |f| %>
+    <%= form_for(resource, :as => resource_name,:class=>"form-vertical", :url => '/login') do |f| %>
       <%= devise_error_messages! %>
       <div>
-        <%=resource_name%>
       	<%= f.label :email %>
       	<%= f.email_field :email, :autofocus => true, :class=>'span4'%></div>
       <div>
