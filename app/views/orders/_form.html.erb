@@ -1,4 +1,13 @@
-<script type="text/javascript" src='/assets/account_form.js'></script>
+<script type="text/javascript" >
+	$('#order_form').on('submit',function(){
+     message = confirm("Все данные введены правильно? На основе анкеты будет заключаться договор.");
+      if(message) {
+        return true;
+      } else {
+       return false;
+      }
+	});
+</script>
 <%= form_for @order, :remote=>true,:html=>{:id=>'order_form',:class=>"form-vertical span6 row"}, :method=>'post' do |f|%>
 	
 		<div class="control-group">    

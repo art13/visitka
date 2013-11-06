@@ -8,8 +8,12 @@
 		$('.spoiler-info-head').on('click',function(){
 			$(this).toggleClass('folded').toggleClass('unfolded').next().slideToggle();	
 		});
-	</script>
-	<script type="text/javascript" src='/assets/acc_contract'>
+		$('.empty-li').each(function(){
+			if ($(this).html()==" " || $(this).html()=="")
+			{
+				$(this).parent().empty();
+			}
+		});
 	</script>
 	<h3>Заключённые договора</h3>
 	<%@orders=Order.where(:user_id=>current_user.id)%>
