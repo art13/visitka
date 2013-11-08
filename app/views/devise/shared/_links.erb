@@ -2,12 +2,8 @@
   <%= link_to "Войти", new_session_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Зарегистрироваться", '/users/sign_up'%><br />
-<% end -%>
-
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Забыли пароль?", '/users/password/new' %><br />
+  <%= link_to "Забыли пароль?", '/users/passwords' %><br /><br /><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

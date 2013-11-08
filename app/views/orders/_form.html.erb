@@ -8,7 +8,7 @@
       }
 	});
 </script>
-<%= form_for @order, :remote=>true,:html=>{:id=>'order_form',:class=>"form-vertical span6 row"}, :method=>'post' do |f|%>
+<%= form_for @order, :remote=>true,:html=>{:id=>'order_form',:class=>"form-vertical span6 row-marg"}, :method=>'post' do |f|%>
 	
 		<div class="control-group">    
 			<%= f.text_field :name ,:class=>"span6", :id=>"q-name", :placeholder => 'Название юридического или физического лица *', :value=>current_user.company%><span class='nemp'></span>
@@ -20,7 +20,7 @@
 			<%= f.text_field :inn ,:class=>"span6 empt", :id=>"q-inn", :placeholder => 'Реквизиты(ИНН, КПП или паспортные данные)'%>
 		</div>
 		<div class="ui-widget control-group qi" style='font-size:1em !important;'>
-            <%= f.text_field :region ,:class=>"span6",:id=>'tags1', :placeholder=> 'субъект РФ', :style=>'font-size:1em !important;',:value=>current_user.region%>
+            <%= f.text_field :region ,:class=>"span6",:id=>'tags1', :placeholder=> 'Субъект РФ', :style=>'font-size:1em !important;',:value=>current_user.region%>
         </div>
 		<div class="control-group qi">    
 			<%= f.text_field :phone ,:class=>"span3", :id=>"q-phone", :placeholder => 'Телефон *', :value=>current_user.phone%>
@@ -91,5 +91,5 @@
 				<%end%>			
 		</tbody>
 	</table><div class='req_errors span3 rqer'><%= render :partial=>'orders/errors'%></div>
-		<%=f.submit :value=>'Отправить заявку',:class=>'btn btn-primary', :style=>'float:right'%>
+		<%=f.submit :value=>'Отправить анкету',:class=>'btn btn-primary', :style=>'float:right'%>
 <%end%>

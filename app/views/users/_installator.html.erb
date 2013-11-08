@@ -1,13 +1,13 @@
 <div class='installator'>
 	<h3>Как использовать инсталятор</h3>
-	<%@post=InfoPost.find_by_title('Как использовать инсталятор')%>
+	<%@post=InfoPost.find_by_title('Как использовать установщик')%>
 	<%unless @post.nil?%>
-		<div class='row' style='margin-bottom:10px;'>
+		<div class='row row-marg' style='margin-bottom:10px;'>
 				<article>
 					<%= raw @post.content%>
 				</article>	
 
-				<a class='btn' style='float:right; cursor: no-drop;'>Программа вами ещё не куплена </a>
+				<a class='btn' style='float:right; cursor: no-drop; margin:1em 0 '>Заключите договор, чтобы скачать установщик </a>
 		</div>
 	<%end%>
 </div>

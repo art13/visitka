@@ -50,7 +50,6 @@ width: 97%;
   display: inline;
 }
 .spoiler-info{
-	float: right !important;
     background: none repeat scroll 0 0 #fff !important;
     border-color: #C3CBD1;
     border-style: solid;
@@ -72,3 +71,25 @@ width: 97%;
 .spoiler-info-body li{
 	list-style-type: none;
 }
+ .row-marg{
+    margin-left: 0 !important;
+    margin-bottom: 10px;
+  }
+  .price-progr{
+    display: inline;
+    margin: 10px 0;
+  }
+  .price-progr h4 {
+    margin-top: 1em;
+    float:left;
+  }
+  .price-progr a{
+    margin-top: 1em;
+  }
+  .noticed{
+    float: right;
+color: rgb(197, 69, 37);
+position: absolute;
+top: 12em;
+left: 50em;
+  }

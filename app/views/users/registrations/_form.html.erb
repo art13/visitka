@@ -1,20 +1,20 @@
-<h4>Зарегистрироваться на сайте, чтобы заказать программу.</h4> 
+<h3>Зарегистрироваться на сайте, чтобы заказать программу.</h3> 
  <%=form_for user,:url=>'/users/registrations',:html=>{:class=>"form-vertical",:id=>'request-form', :remote=>true} do |f| %>
-	<div class='control-group'>
-              <%= f.text_field :company, :class=>'span3', :id=>"request-name",:placeholder=>'Юр. или физ. лицо'%>
+	<!--<div class='control-group'>
+              <%#= f.text_field :company, :class=>'span3', :id=>"request-name",:placeholder=>'Юр. или физ. лицо'%>
     </div>
     <div class="ui-widget control-group", style='font-size:1em !important;'>
               <label for="request-region"></label>
-              <%= f.text_field :region ,:class=>"span3",:id=>'tags', :placeholder=> 'субъект РФ', :style=>'font-size:1em !important;'%>
+              <%#= f.text_field :region ,:class=>"span3",:id=>'tags', :placeholder=> 'субъект РФ', :style=>'font-size:1em !important;'%>
      </div>
     <div class="control-group">
               <label for="request-contact"></label>
-              <%= f.text_field :contact ,:class=>"span3",:id=>'request-contact', :placeholder=> 'Контактное лицо'%>
+              <%#= f.text_field :contact ,:class=>"span3",:id=>'request-contact', :placeholder=> 'Контактное лицо'%>
     </div>
     <div class='control-group'>
               <label for="request-name-surname"></label>    
-              <%= f.text_field :phone ,:class=>"span3", :id=>"request-phone", :placeholder => 'Контактный телефон'%>
-    </div>
+              <%#= f.text_field :phone ,:class=>"span3", :id=>"request-phone", :placeholder => 'Контактный телефон'%>
+    </div>-->
 	<div class="control-group">
               <label for="request-email"></label>
               <%= f.email_field :email ,:class=>"span3",:id=>'request-email', :placeholder=> 'email*'%>
@@ -32,6 +32,6 @@
 		<p class="help-inline err_reqq" style='display: block;'>
 			<%#= devise_error_messages! %>
 		</p>
-        	 <div><%=f.submit "Зарегистрироваться",:class=>'btn btn-small',:id=>'create-user'%></div>
+        	 <div style='display:inline'><%=f.submit "Зарегистрироваться",:class=>'btn btn-small',:id=>'create-user'%> <span  style='margin:0px 10px 0 7px; '> или </span>  <%=link_to " Войти",'/login', :class=>'btn btn-small'%></div>
 <% end %>
      

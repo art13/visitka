@@ -1,0 +1,34 @@
+Дорогой покупатель,
+
+Вы заполнили анкету, проверьте введённые данные
+	
+============================================================
+Данные анкеты
+============================================================
+Название юридического или физического лица: <%unless @order.name.empty?%> <%=@order.name %><%else%> не заполнено<%end%>
+Адрес: <%unless @order.address.empty?%> <%= @order.address%><%else%> не заполнено<%end%>
+Реквизиты(ИНН, КПП или паспортные данные): <%unless @order.inn.empty?%> <%= @order.inn%><%else%> не заполнено<%end%>
+Субъект РФ: <%unless @order.region.nil?%> <%= @order.region%><%else%> не заполнено<%end%>
+Телефон:<%unless @order.phone.empty?%> <%= @order.phone%><%else%> не заполнено<%end%>
+Email:<%unless @order.email.empty?%> <%= @order.email%><%else%> не заполнено<%end%>
+Факс:<%unless @order.faks.empty?%> <%= @order.faks%><%else%> не заполнено<%end%>
+Контактное лицо: <%unless @order.contact.empty?%> <%= @order.contact%><%else%> не заполнено<%end%>
+ОГРН: <%unless @order.ogrn.nil?%> <%= @order.ogrn%><%end%>
+ФИО Руководителя: <%unless @order.manager.empty?%> <%= @order.manager%><%else%> не заполнено<%end%>
+Должность Руководителя: <%unless @order.manager_status.nil?%> <%= @order.manager_status%><%else%> не заполнено<%end%>
+На основании чего действует руководитель:<%unless @order.manager_reason.nil?%> <%= @order.manager_reason%><%else%> не заполнено<%end%>
+Название банка (вместе с городом нахождения банка): <%unless @order.bank_name.empty?%> <%= @order.bank_name%><%else%> не заполнено<%end%>
+Расчётный счёт:  <%unless @order.ras_schet.empty?%><%= @order.ras_schet%><%else%> не заполнено<%end%>
+Корреспондентский счёт:  <%unless @order.kor_schet.empty?%><%= @order.kor_schet%><%else%> не заполнено<%end%>
+БИК: <%unless @order.bik.empty?%><%= @order.bik%><%else%> не заполнено<%end%>
+============================================================
+============================================================
+Программные продукты
+============================================================
+<% @order.line_items.each do |item| %>
+<%= raw(item.material.name) %>  (<%=item.quantity%>) @ <%= item.material.price.to_i %>руб. = <%= item.price %>руб.
+<% end %>
+============================================================
+Итого по заказу: <%= @order.total.to_i %>руб.
+В ближайшее время с вами свяжется наш менеджер
+Спасибо, что выбрали нас.

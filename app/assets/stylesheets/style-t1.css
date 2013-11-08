@@ -345,6 +345,9 @@ a:focus {
 .offset1 {
   margin-left: 100px;
 }
+.offset05{
+  margin-left: 70px !important;
+}
 .row {
   margin-left: -20px;
   *zoom: 1;
@@ -10372,5 +10375,6 @@ footer .container .row {
   .navbar .nav-collapse .dropdown-menu a:focus {
     background-color: transparent;
   }
+ 
  
 }

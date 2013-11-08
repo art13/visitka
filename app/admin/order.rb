@@ -23,7 +23,7 @@ ActiveAdmin.register Order do
 			f.inputs do 
 				f.input :status, as: :radio, :collection=> ['cart','ready']
 				f.input :name
-				f.input :user, as: :select
+				#f.input :user, as: :select
 				f.input :contact
 				f.input :email
 				f.input :phone

@@ -2,7 +2,7 @@
 	<h3>Как купить и установить</h3>
 	<%@post=InfoPost.find_by_title('Как купить и установить')%>
 	<%unless @post.nil?%>
-		<div class='row' style='margin-bottom:10px;'>
+		<div class='row row-marg' style='margin-bottom:10px;'>
 				<article>
 					<%= raw @post.content%>
 				</article>	

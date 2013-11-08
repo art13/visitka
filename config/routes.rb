@@ -2,13 +2,16 @@ Visitka::Application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' } ,:path=>'users/registrations'
   devise_for :users 
   devise_scope :user do
-      get '/login'=> 'users/sessions#new'
+      get '/login'=> 'users/sessions#new', :as => :login
       post '/login'=> 'users/sessions#create'
-      #get '/signup'=> 'users/registrations#new', :as => :signup
+      get '/signup'=> 'users/registrations#new', :as => :signup
+      get  '/users/passwords'=> 'users/passwords#new'
+      post  '/users/passwords'=> 'users/passwords#create'
+      put  '/users/passwords'=> 'users/passwords#update'
       match '/account'=>'users#account'
       #get '/login' => 'devise/sessions#new', :as => :login
-      get '/logout' => 'devise/sessions#destroy', :as => :logout
-      get '/signup' => 'devise/registrations#new', :as => :signup
+       get '/logout' => 'devise/sessions#destroy', :as => :logout
+       get '/signup' => 'devise/registrations#new', :as => :signup
       get '/account/edit'=>'devise/registrations#edit'
 
   end

@@ -2,7 +2,7 @@
 	<h3>Скачать бесплатно</h3>
 	<%unless @demos.nil?%>
 		<% @demos.each do |demo|%>
-		<div class='row' style='margin-bottom:10px;'>
+		<div class='row ' style='margin-bottom:10px;'>
 			<blockquote class="<%= cycle('even', 'odd') -%>">
 				<h4><%= link_to demo.name, "programms/#{demo.id}"%></h4>
 				<br />

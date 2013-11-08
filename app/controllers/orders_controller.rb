@@ -31,9 +31,9 @@ class OrdersController < ApplicationController
                          @order.line_items.create(:material_id=>key,:price=>value[:price],:quantity=>value[:quantity])
                      end
                   end
+            @flag1=true
                   OrderMailer.delay.req_order(@order,@data)
                   OrderMailer.delay.req_admin_order(@order,@data)
-            @flag1=true
                respond_to do |format|
                   format.js
                end

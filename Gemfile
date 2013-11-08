@@ -38,7 +38,7 @@ gem 'jquery-rails', '<3.0.0'
 # gem 'debugger'
 gem 'activeadmin'
 gem 'paperclip', "~> 3.0"
-
+gem 'turbolinks'
 gem 'chosen-rails'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly' 
 gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'  #rake activeadmin_wysihtml5:install:migrations

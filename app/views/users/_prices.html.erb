@@ -3,14 +3,14 @@
 	<%@rels=Material.where(:version => 'Полная')%>
 	<%unless @rels.nil?%>
 		<% @rels.each do |material|%>
-		<div class='row' style='margin-bottom:10px;'>
+		<div class='row row-marg'>
 				<h4><%= link_to material.name, "programms/#{material.id}"%></h4>
-				<br />
 				<article>
 					<%= raw material.price_description%>
 				</article>	
-				<a class='btn contr_btn btn-primary'id='contr_btn'>Перейти к заключению договора</a>
+				<div class='price-progr'><h4 >Стоимость 1 лицензии: <b><%=material.price%>руб.</b></h4><a class='btn contr_btn btn-primary'id='contr_btn'>Перейти к заключению договора</a></div>
 		</div>
+		<hr>	
 		<%end%>
 	<%end%>
 </div>

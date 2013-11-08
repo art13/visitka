@@ -15,21 +15,21 @@
 			}
 		});
 	</script>
-	<h3>Заключённые договора</h3>
+	<h3 style='margin-left:20px'>Заключённые договоры</h3>
 	<%@orders=Order.where(:user_id=>current_user.id)%>
-	<div class='row span6'>
+	<div class='row span8 '>
 		<%if @orders.empty?%>
 			<label>Договор не заключен</label>
 		<%else%>
 			<%@orders.order("id desc").each do |order|%>
-					<div class="spoiler-wrap span7">
+					<div class="spoiler-wrap span8 row-marg">
 					<div class="spoiler-head folded lft">Заказ № <%= order.id%></div>
-						<div class="spoiler-body span6">
+						<div class="spoiler-body span8">
 								<div class=''>
 									<h4>Мои данные</h4>
 									<h5>Название компании или физического лица</h5>
 									<span class="input-xlarge uneditable-input span6"><%=order.name%></span>
-									<div class='spoiler-info row span5'>
+									<div class='spoiler-info span6 row-marg'>
 										<div class='spoiler-info-head folded'>Показать подробные данные</div>
 										<div class='spoiler-info-body'>
 											<li class='info-li'><span> Адрес: </span><span class='empty-li'> <%= order.address%></span></li>
@@ -50,17 +50,17 @@
 										</div>
 									</div>	
 								</div>
-								<div class=''>
+								<div class='row row-marg span7'>
 								<table class='table table-bordered table-condensed'>
 									<caption>Заказанные программные продукты</caption>
 									<thead>
 										<tr>
 											
-											<th>№</th>
-											<th>Программа</th>
-											<th>Количество</th>
-											<th>Стоимость(за ед.)</th>
-											<th>Сумма</th>
+											<th class='span1 row-marg'>№</th>
+											<th class='span2 row-marg'>Программа</th>
+											<th class='span1 row-marg'>Количество</th>
+											<th class='span1 row-marg'>Стоимость(за ед.)</th>
+											<th class='span2 row-marg'>Сумма</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -83,13 +83,13 @@
 									</tr>
 								</table>
 								</div>
-								<div class='row' align='center'>
-									<h4>Лицензионные ключи</h4>
-									<label>empty</label>
+								<div class='row span7 row-marg' >
+									<h4 align='center'>Лицензионные ключи</h4>
+									<label align='center'>empty</label>
 								</div>
-								<div class='row' align='center'>
-									<h4>История установок</h4>
-									<label >empty</label>
+								<div class='row span7 row-marg'>
+									<h4 align='center'>История установок</h4>
+									<label align='center' >empty</label>
 								</div>
 							</div>
 					</div>
