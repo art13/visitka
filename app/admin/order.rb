@@ -7,7 +7,7 @@ ActiveAdmin.register Order do
 	scope :cart
 	scope :ready
 	scope :all
-	config.per_page=10
+	config.per_page=16
 		index do 
 			selectable_column
 			column :user

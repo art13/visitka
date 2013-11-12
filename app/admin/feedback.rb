@@ -1,14 +1,14 @@
-ActiveAdmin.register Feedback, { :sort_order => :id_asc } do
+ActiveAdmin.register Feedback, { :sort_order => :id_desc } do
 		menu :label => I18n.t('feedbacks')
 		filter :email, :label => I18n.t('email_f')
 	scope :all, :default => true
-	config.per_page = 8
+	config.per_page = 10
 	index do
 		selectable_column
 		column t('fio'), :fio
 		column t('email'), :email
 		column t('question'), :message
-		column t('subscribe'), :subscribe
+		column :created_at
 		column '' do |resource|
 	  links = ''.html_safe
 	  links += link_to I18n.t('active_admin.view'), resource_path(resource), :class => "member_link"

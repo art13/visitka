@@ -4,8 +4,8 @@ class CreateFeedbacks < ActiveRecord::Migration
   		t.string :fio
   		t.string :email, :null => false
   		t.string :message, :null=> false
-  		t.boolean :subscribe, :default => false
+  		#t.boolean :subscribe, :default => false
+  		t.timestamps
   	end
-  	
   end
 end

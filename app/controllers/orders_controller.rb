@@ -28,14 +28,19 @@ class OrdersController < ApplicationController
           line_items=params[:order][:line_items]
                   line_items.each do |key,value|
                      if (value[:quantity].to_i)>0 && value[:quantity]!=''
-                         @order.line_items.create(:material_id=>key,:price=>value[:price],:quantity=>value[:quantity])
+                         @order.line_items.create(:material_id=>key,:price=>value[:price],:quantity=>value[:quantity])    
                      end
                   end
-            @flag1=true
+               if @order.line_items.empty?
+                  @order.destroy
+                  flash['order_errors']=['Ошибка в количестве лицензий']
+               else      
+                  @flag1=true
                   OrderMailer.delay.req_order(@order,@data)
                   OrderMailer.delay.req_admin_order(@order,@data)
-               respond_to do |format|
-                  format.js
+                  respond_to do |format|
+                     format.js
+                  end
                end
          else
             @flag1=false

@@ -147,10 +147,11 @@ ActiveRecord::Schema.define(:version => 20131105101124) do
   end
 
   create_table "feedbacks", :force => true do |t|
-    t.string  "fio"
-    t.string  "email",                        :null => false
-    t.string  "message",                      :null => false
-    t.boolean "subscribe", :default => false
+    t.string   "fio"
+    t.string   "email",      :null => false
+    t.string   "message",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "info_posts", :force => true do |t|
