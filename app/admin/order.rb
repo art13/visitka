@@ -4,9 +4,13 @@ ActiveAdmin.register Order do
 	filter :name, :label=>I18n.t('name_of')
 	filter :email, :label=>I18n.t('email_f')
 	filter :total, :label=>I18n.t('total_f')
-	scope :cart
+
+	scope :cart , :name=>I18n.t('cart')
+	scope :obrabotka
+	scope :waiting
 	scope :ready
 	scope :all
+
 	config.per_page=16
 		index do 
 			selectable_column
@@ -21,9 +25,8 @@ ActiveAdmin.register Order do
 		end
 		form do |f|
 			f.inputs do 
-				f.input :status, as: :radio, :collection=> ['cart','ready']
+				f.input :status, as: :radio, :collection=> [t('cart'),t('obrabotka'),t('waiting'),t('ready')]
 				f.input :name
-				#f.input :user, as: :select
 				f.input :contact
 				f.input :email
 				f.input :phone
@@ -66,6 +69,7 @@ ActiveAdmin.register Order do
 
 					 		end 
 					 	#end
+
 				end
 				div :class => "order_items" do 
 				 	panel I18n.t('line_items') do
@@ -78,6 +82,7 @@ ActiveAdmin.register Order do
 					 		column t('amount'), :amount
 				 		end
 				 	end
+				 	active_admin_comments
 				end
 			end
 		end

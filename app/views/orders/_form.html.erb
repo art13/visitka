@@ -71,7 +71,7 @@
 			</tr>
 		</thead>
 	    <tbody>
-				<%=f.hidden_field :status, :value=>'cart'%>
+				<%=f.hidden_field :status, :value=>'Анкета'%>
 				<%@products.each do |product|%>
 					<%=f.fields_for :line_items do |lf|%>
 							<tr >

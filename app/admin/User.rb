@@ -13,18 +13,29 @@ ActiveAdmin.register User do
 	      links
 		end
 	end
-	show  :download_links => false do |user|   
-        attributes_table do
-          row :email
-          row :contact
-          row :company
-          row :region
-          row :phone
-          row :created_at
-          row :updated_at
-          row :current_sign_in_at
-          row :last_sign_in_at
-          row :sign_in_count
-        end
-      end
+	show  :download_links => false do |user|  
+		div :class=>'user_info' do
+		 	attributes_table do
+	          row :email
+	          row :contact
+	          row :company
+	          row :region
+	          row :phone
+	          row :created_at
+	          row :updated_at
+	          row :current_sign_in_at
+	          row :last_sign_in_at
+	          row :sign_in_count
+	        end
+		end 
+		div :class=>'user_orders' do 
+			panel I18n.t('user_orders') do
+				table_for user.orders do |order|
+						column :id
+						column t('created_at'),:created_at
+						column t('status'), :status
+				end
+			end
+		end 
+    end
 end

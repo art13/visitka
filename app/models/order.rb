@@ -5,9 +5,11 @@ class Order < ActiveRecord::Base
 	#belongs_to :questionnaire
 	attr_accessible :user_id, :status, :ogrn, :manager_status,:manager_reason, :total,:name,:region, :address, :inn, :phone, :email, :faks, :contact, :manager, :bank_name, :ras_schet, :kor_schet, :bik	
 	validates :email, :name,:phone,  :presence => true
-	scope :cart, where(:status=>'cart')
-	scope :ready, where(:status=>'ready')
-before_destroy :delete_items
+	scope :cart, where(:status=>'Анкета')
+	scope :obrabotka, where(:status=>'В обработке')
+	scope :waiting, where(:status=>'Ожидание')
+	scope :ready, where(:status=>'Договор')
+	before_destroy :delete_items
 	def total
   		line_items.to_a.sum(&:amount)  		
   	end

@@ -27,9 +27,14 @@ class OrdersController < ApplicationController
          if @order.save
           line_items=params[:order][:line_items]
                   line_items.each do |key,value|
-                     if (value[:quantity].to_i)>0 && value[:quantity]!=''
-                         @order.line_items.create(:material_id=>key,:price=>value[:price],:quantity=>value[:quantity])    
+                     if (value[:quantity].to_i)<0
+                        flash['order_errors']=['количество лицензий должно быть больше нуля']
+                     else 
+                        if (value[:quantity].to_i)>0 && value[:quantity]!=''
+                            @order.line_items.create(:material_id=>key,:price=>value[:price],:quantity=>value[:quantity])        
+                        end
                      end
+
                   end
                if @order.line_items.empty?
                   @order.destroy

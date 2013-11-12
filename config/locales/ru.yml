@@ -6,7 +6,7 @@ ru:
         too_long: слишком длинный
         too_short: слишком короткий
         blank:  не может быть пустым
-        taken:  уже подписан 
+        taken:  уже подписан  
     attributes:
       order:
         ogrn: ОГРН
@@ -26,6 +26,7 @@ ru:
         inn: ИНН
         total: Общая стоимость заказа
         bik: БИК
+        cart: корзина
       line_item:
         material: Программа
         quantity: Количество
@@ -209,6 +210,8 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  status: Статус заказа
+  user_orders: Анкеты пользователя
   deliver_message: "На указаный адрес отправлено письмо с инструкциями"      
   name_of: названию организации 
   user_f: пользователи
@@ -591,6 +594,11 @@ ru:
       short: ! '%d %b, %H:%M'
     pm: вечера
   active_admin:
+    scopes:
+      obrabotka: В обработке
+      waiting: Ожидание
+      ready: Договор
+      cart: Анкета
     Actions: Действия
     name: "Имя"
     pages: 'Создание страниц'
