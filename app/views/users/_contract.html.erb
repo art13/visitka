@@ -85,26 +85,30 @@
 								</div>
 								<div class='row span7 row-marg' >
 									<h4 align='center'>Лицензионные ключи</h4>
-										<table class='table table-bordered table-condensed'>
-											<thead>
-												<tr>
-													<th>№</th>
-													<th>Программа</th>
-													<th>Ключ</th>
-													<th>Статус ключа</th>
-												</tr>
-											</thead>
-											<tbody>
-												<%order.lic_keys.each_with_index do |key,index|%>
+										<%if order.lic_keys.empty?%>
+											<label align='center' >empty</label>
+										<%else%>
+											<table class='table table-bordered table-condensed'>
+												<thead>
 													<tr>
-														<td><%=index+1%></td>
-														<td><%=key.material.name%></td>
-														<td><%=key.lic%></td>
-														<td><%=key.status%></td>	
+														<th>№</th>
+														<th>Программа</th>
+														<th>Ключ</th>
+														<th>Статус ключа</th>
 													</tr>
-												<%end%>
-											</tbody>
-										</table>
+												</thead>
+												<tbody>
+													<%order.lic_keys.each_with_index do |key,index|%>
+														<tr>
+															<td><%=index+1%></td>
+															<td><%=key.material.name%></td>
+															<td><%=key.lic%></td>
+															<td><%=key.status%></td>	
+														</tr>
+													<%end%>
+												</tbody>
+											</table>
+										<%end%>
 								</div>
 								<div class='row span7 row-marg'>
 									<h4 align='center'>История установок</h4>
