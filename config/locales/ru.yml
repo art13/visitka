@@ -70,6 +70,7 @@ ru:
         fio: Имя
         message: Сообщение
         email: email
+        created_at: Сообщение отправлено
       post:
         delete_photo: Удалить изображение
         title: Заголовок
@@ -130,7 +131,12 @@ ru:
         photo: Фотография
         secondname: Отчество
         phone: Телефон
-        email: Электронная почта   
+        email: Электронная почта 
+      lic_key:
+        lic: Лицензионный ключ
+        status: Статус
+        material: Программа
+        order: Заказ
     models:
       order:
         one: Заказ
@@ -209,7 +215,16 @@ ru:
         one: Отзыв
         many: Отзывы
         other: Отзыв
-        few: Отзывов
+        few: Отзывов  
+  key_status: Статус ключа
+  license: Лицензии
+  key: Лицензионный Ключ      
+  obrabotka: В обработке
+  waiting: Ожидание
+  ready: Договор
+  cart: Анкета
+  create_lk: Сгенерировать ЛК
+  not_active: Не активирован
   status: Статус заказа
   user_orders: Анкеты пользователя
   deliver_message: "На указаный адрес отправлено письмо с инструкциями"      

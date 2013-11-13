@@ -5,7 +5,7 @@ ActiveAdmin.register Order do
 	filter :email, :label=>I18n.t('email_f')
 	filter :total, :label=>I18n.t('total_f')
 
-	scope :cart , :name=>I18n.t('cart')
+	scope :cart
 	scope :obrabotka
 	scope :waiting
 	scope :ready
@@ -66,7 +66,15 @@ ActiveAdmin.register Order do
 					 			row :kor_schet
 					 			row :bik
 					 			row :total
-
+					 			logger.debug(order.status)
+					 			logger.debug(order.lic_keys.empty?)
+					 			if (order.status ==t('ready') && order.lic_keys.empty?)
+					 				div :class=> '' do 
+					 					a :class=> 'lk_create' do 
+					 						t('create_lk')
+					 					end
+					 				end
+								end
 					 		end 
 					 	#end
 
@@ -81,6 +89,15 @@ ActiveAdmin.register Order do
 					 		column t('price'), :price
 					 		column t('amount'), :amount
 				 		end
+				 	end
+				 	unless order.lic_keys.empty?
+					 	panel I18n.t('license') do 
+					 		table_for order.lic_keys do |lic_key|
+					 			column t('material'), :material
+					 			column t('key'), :lic
+					 			column t('key_status'), :status
+					 		end
+					 	end
 				 	end
 				 	active_admin_comments
 				end

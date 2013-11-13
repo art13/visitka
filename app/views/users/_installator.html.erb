@@ -1,13 +1,23 @@
 <div class='installator'>
-	<h3>Как использовать инсталятор</h3>
+	<h3>Как использовать установщик</h3>
 	<%@post=InfoPost.find_by_title('Как использовать установщик')%>
 	<%unless @post.nil?%>
 		<div class='row row-marg' style='margin-bottom:10px;'>
 				<article>
 					<%= raw @post.content%>
 				</article>	
+				<%@materials.each do |programm|%>
+					<%if programm.lic_keys.empty?%>
+						<a class='btn' style='float:right; cursor: no-drop; margin:1em 0 '>Заключите договор, чтобы скачать установщик </a>
+					<%else%>
+						<div class='row'>
+							<h4 align='center'><%=programm.name%></h4>
+							<%= link_to 'Скачать установщик', programm.release.url, :class=>'btn btn-primary',:style=>'float:right; margin:1em 0' %>
+						</div>
+					<%end%>
 
-				<a class='btn' style='float:right; cursor: no-drop; margin:1em 0 '>Заключите договор, чтобы скачать установщик </a>
+				<%end%>	
+				
 		</div>
 	<%end%>
 </div>

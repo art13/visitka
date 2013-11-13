@@ -15,8 +15,7 @@ Visitka::Application.routes.draw do
       get '/account/edit'=>'devise/registrations#edit'
 
   end
-  
-
+  resources :lic_keys, :only => [:create,:destroy]
   match 'order_programm'=>'lic_requests#request_programm'
   resources :questionnaires
   resources :orders

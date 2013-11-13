@@ -34,6 +34,7 @@ ActiveAdmin.register User do
 						column :id
 						column t('created_at'),:created_at
 						column t('status'), :status
+						
 				end
 			end
 		end 

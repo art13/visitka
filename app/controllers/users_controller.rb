@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		@order=Order.new
 		@products=Material.where('version=?','Полная')
 		@demos=Material.where('version=?','Демо')
-		logger.debug request.format
+		download_file
 		if request.xhr?
 			logger.debug('jslog')
 			@perl=params[:perl]
@@ -21,4 +21,17 @@ class UsersController < ApplicationController
             end
         end
 	end
+end
+
+def download_file
+	@materials=[]
+	@orders=Order.where(:user_id=>@user.id).where(:status=>'Договор')
+	@orders.each do |order|
+			unless order.lic_keys.empty?
+				order.line_items.each do |item|
+					@materials<<item.material
+				end
+			end
+	end
+	@materials=@materials.uniq
 end
