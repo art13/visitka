@@ -26,8 +26,11 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
 			f.input :price_description
 		end
 		f.inputs t('file') do
-			f.input :release, as: :file
+			f.input :release, as: :file, :hint =>unless material.release.url=='/releases/original/missing.png'
+				t('current_file')+material.release.url.split('/').last.split('?').first
+			end	
 		end
+
 		f.actions
 	end
 	show  :download_links => false  do |page|

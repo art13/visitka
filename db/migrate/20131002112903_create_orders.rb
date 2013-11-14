@@ -2,6 +2,8 @@ class CreateOrders < ActiveRecord::Migration
   def change
   	 create_table :orders do |t|
   	 	t.decimal :total
+  	 	t.integer :number
+  	 	t.datetime :order_create_time
   	 	t.string  :status
   	 	t.integer :user_id
   	 	t.string :region

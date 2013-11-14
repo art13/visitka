@@ -83,4 +83,32 @@
     color: #efefef !important;
     cursor: pointer;
   }
-  	
+ #order_status_input{
+    float: left;
+    width: 350px !important;
+ }
+  #order_status_input ol{
+    width: 200px;
+    padding-left: 50% !important;
+  }
+  .order-number{
+    display: none;
+    width: 200px;
+    float: left;
+  }
+  .order-number label, .order-date label {
+    width: 100px !important;
+  }
+  .order-date{
+    display:none;
+     width: 200px;
+     margin-left: -220px !important;
+     margin-top: 70px !important;
+     float: left;
+  }
+  .order-date label {
+    width: 200px !important;
+  }
+  .create-order{
+    display: block !important;
+  }

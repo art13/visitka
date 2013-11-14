@@ -6,7 +6,6 @@
     $('body').on('click','.contr_btn',function(){
         perl = 'question';
         $('.button_tab a').removeClass('active_btn');
-        perl = 'question';
         $(document.getElementById(perl)).addClass('active_btn');
         $.post('/account',{perl:perl});
     });

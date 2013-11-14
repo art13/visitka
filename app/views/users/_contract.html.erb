@@ -14,6 +14,12 @@
 				$(this).parent().empty();
 			}
 		});
+		$('body').on('click','.on-install',function(){
+      	 	perl = 'installator';
+       	 	$('.button_tab a').removeClass('active_btn');
+       	 	$(document.getElementById(perl)).addClass('active_btn');
+       	 	$.post('/account',{perl:perl});
+    	});
 	</script>
 	<h3 style='margin-left:20px'>Заключённые договоры</h3>
 	<%@orders=Order.where(:user_id=>current_user.id)%>
@@ -51,7 +57,7 @@
 									</div>	
 								</div>
 								<div class='row row-marg span7'>
-								<table class='table table-bordered table-condensed'>
+								<table class='table table-bordered table-condensed alg'>
 									<caption>Заказанные программные продукты</caption>
 									<thead>
 										<tr>
@@ -108,7 +114,9 @@
 													<%end%>
 												</tbody>
 											</table>
+											<a class='btn btn-primary btn-small on-install'>Скачать установщик</a>
 										<%end%>
+
 								</div>
 								<div class='row span7 row-marg'>
 									<h4 align='center'>История установок</h4>

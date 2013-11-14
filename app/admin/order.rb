@@ -1,6 +1,6 @@
 ActiveAdmin.register Order do 
 	menu :label=>I18n.t('orders')
-	filter :user, :label=>I18n.t('user_f')
+	filter :user,:content_columns =>:email, :label=>I18n.t('user_f')
 	filter :name, :label=>I18n.t('name_of')
 	filter :email, :label=>I18n.t('email_f')
 	filter :total, :label=>I18n.t('total_f')
@@ -14,18 +14,22 @@ ActiveAdmin.register Order do
 	config.per_page=16
 		index do 
 			selectable_column
+			column :number
 			column :user
 			column :name
-			column :email
-			column :phone
-			column :contact
 			column :status
 			column :total
 			default_actions	
 		end
 		form do |f|
-			f.inputs do 
-				f.input :status, as: :radio, :collection=> [t('cart'),t('obrabotka'),t('waiting'),t('ready')]
+
+			f.inputs t('order_status') do
+				f.input :status, as: :radio, :collection=> [t('cart'),t('obrabotka'),t('waiting'),t('ready')], :wrapper_html=>{:class=>'order-delay'}
+				f.input :number, :wrapper_html=>{:class=>'order-number'}
+				f.input :order_create_time, :as => :datetime_picker, :wrapper_html=>{:class=>'order-date'}
+			end	
+			f.inputs t('anketa_data') do 	
+				f.input :user, as: :select,:include_blank => false
 				f.input :name
 				f.input :contact
 				f.input :email
@@ -51,6 +55,11 @@ ActiveAdmin.register Order do
 					 	#panel I18n.t('') do
 					 		attributes_table do
 					 			row :user
+					 			row :status
+					 			if order.status == t('ready')
+					 				row :number
+					 				row :order_create_time
+					 			end
 					 			row :name
 					 			row :email
 					 			row :phone

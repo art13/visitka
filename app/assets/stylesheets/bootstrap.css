@@ -5285,4 +5285,6 @@ a.badge:focus {
   display: inline;
   color: red
 }
-
+.alg td, .alg th{
+  text-align: right !important;
+}

@@ -7,4 +7,23 @@ $('document').ready(function(){
 		       );
 		console.log(order_id);
 	});
+	$('.order-delay').on('change',function(){
+  		 if ($('.order-delay li ').last().find('input').prop('checked')==true)
+      		   {
+     		      $('.order-date').addClass('create-order');
+     		      $('.order-number').addClass('create-order');
+     		   }
+   		 else
+   		   {
+   		      $('.order-date').removeClass('create-order');
+   		      $('.order-number').removeClass('create-order');
+    		   }
+
+	});
+ 	if ($('.order-delay li ').last().find('input').prop('checked')==true)
+      		   {
+     		      $('.order-date').addClass('create-order');
+     		      $('.order-number').addClass('create-order');
+     		   }
+	else{}
 });

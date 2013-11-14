@@ -9,5 +9,8 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :questionnaires 
   	scope :interested, where(:interes => true)
-
+    
+    def display_name
+      self.email # or whatever column you want
+    end
 end

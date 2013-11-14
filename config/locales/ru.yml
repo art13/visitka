@@ -9,6 +9,8 @@ ru:
         taken:  уже подписан  
     attributes:
       order:
+        order_create_time: Время конвертации в договор
+        number: Номер заказа
         ogrn: ОГРН
         manager_status: Должность руководителя 
         manager_reason: На основании чего он действует
@@ -215,7 +217,10 @@ ru:
         one: Отзыв
         many: Отзывы
         other: Отзыв
-        few: Отзывов  
+        few: Отзывов
+  anketa_data: Данные анкеты
+  order_status: Статус Договора  
+  current_file: 'Текущий файл: '
   key_status: Статус ключа
   license: Лицензии
   key: Лицензионный Ключ      
@@ -259,7 +264,7 @@ ru:
   librarys: Библиотеки
   library: Библиотеки
   books: Книги
-  m_pages: Страницы первого уровня
+  m_pages: Простые страницы 
   m_children_pages: Страницы второго уровня
   informations: Информационный раздел
   mans: Люди

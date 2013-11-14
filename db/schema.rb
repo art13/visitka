@@ -60,29 +60,6 @@ ActiveRecord::Schema.define(:version => 20131113073538) do
     t.string   "storage_size"
   end
 
-  create_table "bestellung", :force => true do |t|
-    t.string   "number"
-    t.integer  "order_id"
-    t.string   "status"
-    t.string   "name"
-    t.string   "address"
-    t.string   "inn"
-    t.string   "ogrn"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "faks"
-    t.string   "contact"
-    t.string   "manager"
-    t.string   "manager_status"
-    t.string   "manager_reason"
-    t.string   "bank_name"
-    t.string   "ras_schet"
-    t.string   "kor_schet"
-    t.string   "bik"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
   create_table "books", :force => true do |t|
     t.string   "book_file_name"
     t.string   "alter_name"
@@ -200,6 +177,8 @@ ActiveRecord::Schema.define(:version => 20131113073538) do
 
   create_table "orders", :force => true do |t|
     t.decimal  "total"
+    t.integer  "number"
+    t.datetime "order_create_time"
     t.string   "status"
     t.integer  "user_id"
     t.string   "region"
@@ -218,8 +197,8 @@ ActiveRecord::Schema.define(:version => 20131113073538) do
     t.string   "ras_schet"
     t.string   "kor_schet"
     t.string   "bik"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "pages", :force => true do |t|

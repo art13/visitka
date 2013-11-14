@@ -38,7 +38,6 @@ gem 'jquery-rails', '<3.0.0'
 # gem 'debugger'
 gem 'activeadmin'
 gem 'paperclip', "~> 3.0"
-gem 'turbolinks'
 gem 'chosen-rails'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly' 
 gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'  #rake activeadmin_wysihtml5:install:migrations
@@ -48,7 +47,7 @@ gem "cocaine"
 gem "geocoder"
 gem "mail"
 gem "jquery-ui-rails"
-gem 'delayed_job_active_record' #rails generate delayed_job:active_record     migrate
+gem 'delayed_job_active_record' #rails generate delayed_job:active_record     migrate   script/delayed_job start
 gem "daemons"
 gem 'whenever', :require => false
 group :development do
