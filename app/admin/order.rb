@@ -4,7 +4,7 @@ ActiveAdmin.register Order do
 	filter :name, :label=>I18n.t('name_of')
 	filter :email, :label=>I18n.t('email_f')
 	filter :total, :label=>I18n.t('total_f')
-
+	config.sort_order = "id_desc"
 	scope :cart
 	scope :obrabotka
 	scope :waiting
@@ -14,6 +14,7 @@ ActiveAdmin.register Order do
 	config.per_page=16
 		index do 
 			selectable_column
+			column :id
 			column :number
 			column :user
 			column :name

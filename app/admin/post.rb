@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
 	menu :parent => I18n.t('informations'), :label =>I18n.t('news'), :priority=>1
 	filter :title, :label => I18n.t('title_f')
 	filter :created_at, :label => I18n.t('created_at_f')
-
+	config.sort_order = "id_desc"
 	index do 
 		selectable_column
 		column :title
