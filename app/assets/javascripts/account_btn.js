@@ -103,5 +103,8 @@ $('document').ready(function(){
 		sum=q*p
 		$(this).parent().parent().find('.summa').html('<label>'+sum+'</label>')
 	});
+	    $('.button_tab a').removeClass('active_btn');
+	    var att=$('#acc_block').children().attr('class')    
+	    $('.button_tab #'+att ).addClass('active_btn')
 	
 });

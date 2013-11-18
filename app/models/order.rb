@@ -11,24 +11,25 @@ class Order < ActiveRecord::Base
 	scope :waiting, where(:status=>'Ожидание')
 	scope :ready, where(:status=>'Договор')
 	before_destroy :delete_items
-	#before_validation :generate_order_number, on: :create
-	
+	before_validation :valid_line
 	def total
   		line_items.to_a.sum(&:amount)  		
   	end
-
-  	# def generate_order_number
-   #    record = true
-   #    while record
-   #      random="R#{Array.new(9){rand(9)}.join}"
-   #      record=self.class.where(number: random).first
-   #    end
-   #    self.number=random if self.number.blank?
-   #    self.number
-   #  end
-
 private
+	def valid_line
+		@q=0
+		@ordererrors=[]
+		line_items.each do |item|
+			@q+=item.quantity
+			if item.quantity<0
+				@ordererrors<<['количество лицензий должно быть больше нуля']
+			end
+		end
+		if @q<1
+				@ordererrors<<['Вы не заказали программ']
+		end
 
+	end
 	def delete_items
 			self.line_items.each do |item|
 				item.destroy

@@ -91,5 +91,5 @@
 				<%end%>			
 		</tbody>
 	</table><div class='req_errors span3 rqer'><%= render :partial=>'orders/errors'%></div>
-		<%=f.submit :value=>'Отправить анкету',:class=>'btn btn-primary', :style=>'float:right'%>
+		<%=f.submit :value=>'Отправить анкету',:class=>'btn btn-primary', :style=>'float:right'%><%= @quantity_all%>
 <%end%>
