@@ -29,24 +29,18 @@ class OrdersController < ApplicationController
           line_items=params[:order][:line_items]
           flash['order_errors']=[]
                   line_items.each do |key,val|
-                     @quantity_all+=val[:quantity].to_i
-                     if (val[:quantity].to_i)<0
-                       flash['order_errors']<<'количество лицензий должно быть больше нуля'
-                     else 
                         if (val[:quantity].to_i)>0 && val[:quantity]!=''
                             @order.line_items.create(:material_id=>key,:price=>val[:price],:quantity=>val[:quantity].to_i) 
-
                         end
-                     end
                   end
-               if !flash['order_errors'].empty? or @order.line_items.empty?
+               if @order.line_items.empty?
                   @order.line_items.destroy_all
                   @order.destroy
-                  flash['order_errors']<<'Ошибка в количестве лицензий'<<@quantity_all
+                  flash['order_errors']<<'Ошибка в количестве лицензий'
                else   
                   @flag1=true
-                 # OrderMailer.delay.req_order(@order,@data)
-                  #OrderMailer.delay.req_admin_order(@order,@data)
+                  # OrderMailer.delay.req_order(@order,@data)
+                  # OrderMailer.delay.req_admin_order(@order,@data)
                   respond_to do |format|
                      format.js
                   end

@@ -82,7 +82,7 @@
 									<%= lf.hidden_field "#{product.id}[price]", :value=>product.price, :class=>'prpr'%>
 								</td>
 								<td>
-									<%= lf.text_field "#{product.id}[quantity]", :class=>'span1 item-quantity',:value=>0%>
+									<%= lf.number_field "#{product.id}[quantity]",in: 0...1000, :class=>'span1 item-quantity',:value=>0%>
 								</td>
 								<td class='summa'></td>	
 							</tr>
