@@ -40,6 +40,7 @@ class OrdersController < ApplicationController
                      end
                   end
                if !flash['order_errors'].empty? or @order.line_items.empty?
+                  @order.line_items.destroy_all
                   @order.destroy
                   flash['order_errors']<<'Ошибка в количестве лицензий'
                else   
