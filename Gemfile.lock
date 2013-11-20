@@ -265,6 +265,7 @@ DEPENDENCIES
   meta_request
   paperclip (~> 3.0)
   pg
+  rack-ssl
   rails (= 3.2.14)
   ruby-graphviz
   sass-rails (~> 3.2.3)
