@@ -112,6 +112,7 @@ ru:
         created_at: Дата загрузки
         material: Программа
       material:
+        installer_version: Версия инсталятора
         release_file_name: Имя файла
         preview: Превью
         version: Версия программы
@@ -218,6 +219,7 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  generate: Заменить
   anketa_data: Данные анкеты
   order_status: Статус Договора  
   current_file: 'Текущий файл: '

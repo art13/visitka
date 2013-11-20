@@ -208,6 +208,7 @@ GEM
       json (~> 1.4)
     responders (1.0.0.rc)
       railties (>= 3.2, < 5)
+    ruby-graphviz (1.0.9)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -218,6 +219,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    state_machine (1.2.0)
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -264,7 +266,9 @@ DEPENDENCIES
   paperclip (~> 3.0)
   pg
   rails (= 3.2.14)
+  ruby-graphviz
   sass-rails (~> 3.2.3)
+  state_machine
   uglifier (>= 1.0.3)
   unicorn
   whenever

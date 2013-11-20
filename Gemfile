@@ -37,6 +37,8 @@ gem 'jquery-rails', '<3.0.0'
 # To use debugger
 # gem 'debugger'
 gem 'activeadmin'
+gem 'state_machine'
+gem 'ruby-graphviz', :require => 'graphviz'
 gem 'paperclip', "~> 3.0"
 gem 'chosen-rails'
 gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly' 

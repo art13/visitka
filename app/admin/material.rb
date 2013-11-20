@@ -7,6 +7,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
  		selectable_column
  		column  :name 
  		column  :version
+ 		column  :installer_version
  		column 	:price
  		column 	:release_file_name
  		column  :created_at
@@ -16,6 +17,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
  	form html: { multipart: true }do |f|
  		f.inputs t('materials') do
  			f.input :name
+ 			f.input :installer_version
  			f.input :preview, :hint=>I18n.t('max_client_comment')
  			f.input :version, as: :radio, :collection => [t('demo'),t('full')]
 			f.input :description,  as: :wysihtml5
@@ -37,6 +39,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
 		 attributes_table do 	
               row :name
               row :version
+              row :installer_version
 			  row :price
 			  row :description
 			  row :features 

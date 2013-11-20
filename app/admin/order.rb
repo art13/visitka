@@ -106,6 +106,11 @@ ActiveAdmin.register Order do
 					 			column t('material'), :material
 					 			column t('key'), :lic
 					 			column t('key_status'), :status
+					 			column do 
+					 				a :class=> 'generate-new' do 
+					 						t('generate')
+					 			end
+					 		end
 					 		end
 					 	end
 				 	end

@@ -5,31 +5,17 @@ class Order < ActiveRecord::Base
 	belongs_to :user
 	#belongs_to :questionnaire
 	attr_accessible :user_id, :status,:order_create_time,:number, :ogrn, :manager_status,:manager_reason, :total,:name,:region, :address, :inn, :phone, :email, :faks, :contact, :manager, :bank_name, :ras_schet, :kor_schet, :bik	
-	validates :email, :name,:phone,  :presence => true
+	#validates :email, :name, :phone,  :presence => true
 	scope :cart, where(:status=>'Анкета')
 	scope :obrabotka, where(:status=>'В обработке')
 	scope :waiting, where(:status=>'Ожидание')
 	scope :ready, where(:status=>'Договор')
+	validates :number, :uniqueness => true
 	before_destroy :delete_items
-	before_validation :valid_line
 	def total
   		line_items.to_a.sum(&:amount)  		
   	end
 private
-	def valid_line
-		@q=0
-		@ordererrors=[]
-		line_items.each do |item|
-			@q+=item.quantity
-			if item.quantity<0
-				@ordererrors<<['количество лицензий должно быть больше нуля']
-			end
-		end
-		if @q<1
-				@ordererrors<<['Вы не заказали программ']
-		end
-
-	end
 	def delete_items
 			self.line_items.each do |item|
 				item.destroy

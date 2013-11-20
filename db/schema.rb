@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113073538) do
+ActiveRecord::Schema.define(:version => 20131118095918) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -136,6 +136,20 @@ ActiveRecord::Schema.define(:version => 20131113073538) do
     t.text   "content"
   end
 
+  create_table "installments", :force => true do |t|
+    t.string   "product_key"
+    t.string   "license_key"
+    t.string   "installer_version"
+    t.integer  "user_id"
+    t.integer  "material_id"
+    t.string   "status"
+    t.string   "info"
+    t.integer  "statement"
+    t.string   "state"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "lib_books", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -162,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20131113073538) do
   create_table "materials", :force => true do |t|
     t.string   "name",                 :null => false
     t.string   "version"
+    t.string   "installer_version"
     t.string   "preview"
     t.text     "price_description"
     t.decimal  "price"
