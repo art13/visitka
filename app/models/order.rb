@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
 	scope :obrabotka, where(:status=>'В обработке')
 	scope :waiting, where(:status=>'Ожидание')
 	scope :ready, where(:status=>'Договор')
-	validates :number, :uniqueness => true
+	#validates :number, :uniqueness => true
 	before_destroy :delete_items
 	def total
   		line_items.to_a.sum(&:amount)  		
