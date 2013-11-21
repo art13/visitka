@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Installment < ActiveRecord::Base 
 	attr_accessible :product_key,:installer_version, :info, :license_key, :user_id, :user, :material_id, :material, :statement, :status, :state
- 	 validates :info, :presence => true
+ 	 #validates :info, :presence => true
  	state_machine :initial => :post_request do 
  		state :post_request
  		state :swap
