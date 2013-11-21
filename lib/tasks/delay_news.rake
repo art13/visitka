@@ -17,3 +17,27 @@ task :deliver_email => :environment do
 				end	
 			end		
 end
+desc "destroy_lines"
+task :destroy_lines => :environment do 
+	puts 'Initialisation...'
+	@lines=Installment.where(:state=>'post_request')
+	if @lines.empty?
+		puts 'already empty'
+	else	
+		puts 'destroy all human'
+		@lines.destroy_all
+		if @lines.empty?
+			puts 'alles kaput'
+		else
+			puts 'failure'
+		end	
+	end
+end
+desc "enccrypt"
+task :encrypt => :environment do 
+	    key='1031-13d5a-c6322fproverka'
+	    aes=FastAES.new(key)
+		#file=File.open('/home/art/apps/visitka/public/system/Регламент продаж Лофт.doc')
+		#openssl  aes-256-cbc -in /home/art/apps/visitka/public/system/1.doc -out /home/art/apps/visitka/public/system/2.enc
+		#
+end

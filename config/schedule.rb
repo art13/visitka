@@ -7,5 +7,8 @@ end
  	command "cd /apps/visitka/current && RAILS_ENV=production script/delayed_job start"
  	puts "delay is working now"
  end
- 
+ every 1.hour do 
+ 	rake "destroy_lines", :environment =>'production'
+ 	puts "destroy after 1 hour"
+ end
 #whenever --update-crontab
