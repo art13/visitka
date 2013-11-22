@@ -30,10 +30,10 @@ class Installment < ActiveRecord::Base
 	end
 	def keys_control?
 	 	@key=LicKey.find_by_lic(self.license_key)
-	 	@number_all=Installment.where(:license_key=>@key.lic).size-2
-	 	@last_info=Installment.where(:license_key=>@key.lic)[@number_all]
 	    @key_status=0
 	 	unless @key.nil?
+	 		@number_all=Installment.where(:license_key=>@key.lic).size-2
+	 	    @last_info=Installment.where(:license_key=>@key.lic)[@number_all]
 		 	if @key.status=='Не активирован'
 		 		@key.status='Активирован'
 		 		@key.save
