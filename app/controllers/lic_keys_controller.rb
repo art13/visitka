@@ -9,7 +9,7 @@ class LicKeysController < ApplicationController
 				programm_number=item.material_id.to_s
 				order_number=@order.id.to_s
 				number_lic_key=SecureRandom.hex(3)
-				number=user_number+order_number+programm_number+'-'+installer_version+'-'+number_lic_key
+				number=user_number+order_number+'x'+programm_number+'-'+installer_version+'-'+number_lic_key
 				@order.lic_keys.create(:material=>item.material, :status=>t('not_active'), :lic=>number)
 			end
 		end
@@ -23,7 +23,7 @@ class LicKeysController < ApplicationController
 		programm_number=@key.material.id.to_s
 		order_number=@order.id.to_s
 		number_lic_key=SecureRandom.hex(3)
-		number=user_number+order_number+programm_number+'-'+installer_version+'-'+number_lic_key
+		number=user_number+order_number+'x'+programm_number+'-'+installer_version+'-'+number_lic_key
 		@order.lic_keys.create(:material=>@key.material, :status=>t('not_active'), :lic=>number)
 		@key.destroy
 		render :js => "window.location = '/admin/orders/#{@order.id}'"

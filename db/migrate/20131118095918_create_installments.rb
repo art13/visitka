@@ -7,7 +7,7 @@ class CreateInstallments < ActiveRecord::Migration
   	 	t.integer :user_id
   	 	t.integer :material_id
   	 	t.string :status
-      t.string :info
+      t.text :info
   	 	t.integer :statement
       t.string :state
       t.timestamps

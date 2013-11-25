@@ -3,15 +3,18 @@ class InstallmentsController < ApplicationController
 	 skip_before_filter  :verify_authenticity_token
 	def create
 	 	@installment=Installment.new
+	 	if params[:key]
+			params[:key]=params[:key].downcase
+	 	end
 	 	@installment.license_key=params[:key]
-	 	@installment.product_key=params[:programm_version]
+	 	@installment.material_id=params[:programm_version]
 	 	@installment.installer_version=params[:installer_version]
 	 	@installment.info=params[:info]
 	 	if @installment.save
 	 		#@installment.reset_line
 	 		@installment.swap_keys
 	 		if @installment.swap?
-	 			render text: '202'
+	 			render text: '200'
 	 		else
 		 		 if @installment.status==3
 		 			render text: '417'
@@ -28,4 +31,5 @@ class InstallmentsController < ApplicationController
 	  	
 	end 
 end
+#Digest::MD5.hexdigest(x)  
 	

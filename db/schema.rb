@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20131118095918) do
     t.integer  "user_id"
     t.integer  "material_id"
     t.string   "status"
-    t.string   "info"
+    t.text     "info"
     t.integer  "statement"
     t.string   "state"
     t.datetime "created_at",        :null => false
