@@ -46,7 +46,7 @@ class InstallmentsController < ApplicationController
 			  		send_file "#{$download_file}"
 			  		system "rm -rf #{$path_file}"		
 			    else
-			   		render text: '200'
+			   		render text: '202'
 			   	end
 			else
 			   	render text: '406'
@@ -57,24 +57,31 @@ class InstallmentsController < ApplicationController
 		
 	end
 	def instalations_end
-		@installment=Installment.find($request1.id)
-		if @installment.download_files?&&params[:complete]
-			params[:complete]=params[:complete].downcase
-		    if params[:complete]=='yeap'&&!$request1.nil?
-		    	@installment.endgame
-		    	if @installment.instalation_complete?
-		    		@installment.status='instalation_complete'
-		    		@installment.save
-		    		render text:'200'
-		    	else
-		    		render text:'400'
-		    	end 
-		    	
-		    else
-		    		@installment.status='instalation failure'
-		    		@installment.save
-		  	        render text: '406'
-		    end
+		if params[:complete]
+			logger.debug('------------')
+			logger.debug($request.id)
+			logger.debug('------------')
+			@installment=Installment.find($request.id)
+			if @installment.download_files?
+				params[:complete]=params[:complete].downcase
+			    if params[:complete]=='yeap'&&!$request1.nil?
+			    	@installment.endgame
+			    	if @installment.instalation_complete?
+			    		@installment.status='instalation_complete'
+			    		@installment.save
+			    		render text:'200'
+			    	else
+			    		render text:'400'
+			    	end 
+			    	
+			    else
+			    		@installment.status='instalation failure'
+			    		@installment.save
+			  	        render text: '406'
+			    end
+			else
+				render text:'505' 
+			end
 		else
 			render text: '417'
 		end

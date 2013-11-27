@@ -22,6 +22,7 @@ class Installment < ActiveRecord::Base
 	 	      	after_transition :from=> [:post_request], :do => :create_product_key
 	 	      	after_transition :from=> [:post_request], :do => :encrypting_files
 	 	    end
+	 	    
 
 	end
 
@@ -117,7 +118,7 @@ class Installment < ActiveRecord::Base
 			$request1=self
 			return true
 		else
-			logger.debug('self.state')
+			logger.debug(self.state)
 			return false
 		end	
 	end
