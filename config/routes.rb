@@ -16,6 +16,8 @@ Visitka::Application.routes.draw do
 
   end
   resources :installments
+  post  'installments/download' => 'installments#download_files_step'
+  post  'installments/end'=> 'installments#instalations_end'
   resources :lic_keys, :only => [:create,:destroy]
   match 'lic_keys/generate'=>'lic_keys#update_key'
   match 'order_programm'=>'lic_requests#request_programm'

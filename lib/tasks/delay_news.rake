@@ -24,20 +24,14 @@ task :destroy_lines => :environment do
 	if @lines.empty?
 		puts 'already empty'
 	else	
-		puts 'destroy all human'
-		@lines.destroy_all
-		if @lines.empty?
-			puts 'alles kaput'
-		else
-			puts 'failure'
-		end	
+		@lines.each do |line|
+			if line.updated_at+10.minutes < Time.now
+				puts "line with id #{line.id} destroy"
+				line.destroy
+			else 
+				puts 'time gut'
+			end
+		end
+		puts 'destroy all human'	
 	end
-end
-desc "enccrypt"
-task :encrypt => :environment do 
-	    key='1031-13d5a-c6322fproverka'
-	    aes=FastAES.new(key)
-		#file=File.open('/home/art/apps/visitka/public/system/Регламент продаж Лофт.doc')
-		#openssl  aes-256-cbc -in /home/art/apps/visitka/public/system/1.doc -out /home/art/apps/visitka/public/system/2.enc
-		#
 end

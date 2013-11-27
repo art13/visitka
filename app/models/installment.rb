@@ -11,26 +11,20 @@ class Installment < ActiveRecord::Base
  		event :swap_keys do 
  			transition :to => :swap, :from =>[:post_request], :if => :keys_control?
  		end
- 		event :crypta do 
- 			#transition :to => :download, :from =>[:swap], :do => :encrypting_files 
+ 		event :downloads do 
+ 			transition :to => :download_files, :from =>[:swap], :if => :castle_rock? 
+ 		end
+ 		event :endgame do 
+ 			transition :to => :instalation_complete, :from=>[:download_files]
  		end
 
- 		    #if states[:post_request]
- 		    #	before_transition :from =>[:post_request], :do => :
- 	         #end
 	 	    if states[:swap]
 	 	      	after_transition :from=> [:post_request], :do => :create_product_key
-	 	      #	before_transition :to =>[:download_files],
-	 	      #	after_transition :from=> [:post_request], :do => :encrypting_files
+	 	      	after_transition :from=> [:post_request], :do => :encrypting_files
 	 	    end
-	 	#after_transition :to => :post_request, :do=> :reset_line    
-	 	#after_transition :to =>[:swap], :do =>  :reset_line
-	 	  
+
 	end
 
-	def checked_keys
-		logger.debug('qwerty')
-	end
 	def keys_control?
 	 	@key=LicKey.find_by_lic(self.license_key)
 	    @key_status=0
@@ -45,8 +39,7 @@ class Installment < ActiveRecord::Base
 				logger.debug('=======================')
 		 		return true
 			else
-				#@number_all=Installment.where(:license_key=>@key.lic).
-				@last_info=Installment.where(:license_key=>@key.lic).where(:state=>'swap').first
+				@last_info=Installment.where(:license_key=>@key.lic).where('state!=?','post_request').first
 			 	logger.debug('==========================')
 				logger.debug('=== Key already active ===')
 				logger.debug('==========================')
@@ -72,9 +65,6 @@ class Installment < ActiveRecord::Base
 			logger.debug('=======================')
 			self.status=4
 			self.save
-			# logger.debug ('============================')
-			# logger.debug ('==== Line was destroyed ====')
-			# logger.debug ('============================')
 				return false
 		end      	                                      
 	end
@@ -91,17 +81,47 @@ class Installment < ActiveRecord::Base
 		logger.debug(self.product_key)
 		logger.debug('============================')
 	end
-	# def encrypting_files
-	# 	@file=Material.find_by_id(self.license_key.split('-').first.split('x').last).release.path
-	# 	@path_file=Rails.root.to_s+'/public/system/files/'+@file.split('/').last+self.id.to_s
-	# 	system "unzip #{@file} -d #{@path_file}" 
-	# end
-# 		def reset_line
-# 				logger.debug ('============================')
-# 				logger.debug ('==== Line was destroyed ====')
-# 				logger.debug ('===== Key was deactive  ====')
-# 				logger.debug ('============================')
-# 		end
-# 	 	handle_asynchronously :reset_line, :run_at => Proc.new { 2.minutes.from_now }
+	def encrypting_files
+		@file=Material.find_by_id(self.license_key.split('-').first.split('x').last)
+		@file_url=@file.release.path
+		logger.debug(@file_url)
+		@folder_name=@file.release_file_name.split('.')
+		@folder=@folder_name.first
+		@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+self.id.to_s
+		logger.debug('here')
+		logger.debug(@file.release.path)
+		logger.debug(@path_file)
+		system "unzip #{@file.release.path} -d #{@path_file}" 
+		@db_file=Dir.glob(@path_file+"/#{@folder}/*.db").first
+		system "openssl aes-256-cbc -in  #{@db_file} -out #{@db_file}.enc -pass pass:#{self.product_key.first(32)}"
+		system "rm #{@db_file}"
+		system "zip -r -j #{@path_file}/#{@folder}.zip  #{@path_file}/#{@folder}"
+		system "rm -rf #{@path_file}/#{@folder}"
+		@download_file=@path_file+'/'+@folder+'.zip'
+		logger.debug(@download_file)
+		$destroyed_path=@path_file
+		logger.debug('11111111111111111111111111')
+		logger.debug(@path_file)
+		logger.debug($destroyed_path)
+		logger.debug(@download_file)
+		logger.debug('11111111111111111111111111')
+		$request=self
+		$download_file=@download_file
+
+	end
+	def castle_rock?
+		if self.swap?
+			logger.debug('=-----------------------==========================')
+			logger.debug(self.state)
+			logger.debug('=========================------------------------=')
+			$request1=self
+			return true
+		else
+			logger.debug('self.state')
+			return false
+		end	
+	end
+
 end
 
+#openssl aes-256-cbc -d -in /home/art/11.db.enc -out /home/art/11.db -pass pass:'@key'
