@@ -29,27 +29,30 @@ class InstallmentsController < ApplicationController
 	end	
 	
 	def download_files_step
-		if params[:confirm]
-			params[:confirm]=params[:confirm].upcase
-		    if params[:confirm]=='OK'&&!$request.nil?&&!$download_file.nil?#&&!$destroyed_path.nil?
-			  logger.debug('============================')
-			  logger.debug($request.license_key)
-			  logger.debug('============================')
-			  logger.debug($download_file)
-			  logger.debug('============================')
-			  logger.debug($destroyed_path)
-			  logger.debug('============================')
-			  @installment=Installment.find($request.id)
-			  @installment.downloads
-			    if @installment.download_files?
-			  		#render text: 'download'
-			  		send_file "#{$download_file}"
-			  		system "rm -rf #{$path_file}"		
-			    else
-			   		render text: '202'
-			   	end
+		if params[:sysha]
+			Installment.where(:state=>'swap').where(:license_key=>params[:sysha].downcase).last
+			if params[:confirm]
+			    if params[:confirm].upcase=='OK'&&!$request.nil?&&!$download_file.nil?#&&!$destroyed_path.nil?
+				  logger.debug('============================')
+				  logger.debug($request.license_key)
+				  logger.debug('============================')
+				  logger.debug($download_file)
+				  logger.debug('============================')
+				  logger.debug($destroyed_path)
+				  logger.debug('============================')
+				  @installment=Installment.find($request.id)
+				  @installment.downloads
+				    if @installment.download_files?
+				  		send_file "#{$download_file}"
+				  		system "rm -rf #{$path_file}"		
+				    else
+				   		render text: '202'
+				   	end
+				else
+				   	render text: '406'
+				end
 			else
-			   	render text: '406'
+				render text: '400'
 			end
 		else
 			render text: '400'
@@ -57,33 +60,38 @@ class InstallmentsController < ApplicationController
 		
 	end
 	def instalations_end
-		if params[:complete]
-			logger.debug('------------')
-			logger.debug($request.id)
-			logger.debug('------------')
-			@installment=Installment.find($request.id)
-			if @installment.download_files?
-				params[:complete]=params[:complete].downcase
-			    if params[:complete]=='yeap'&&!$request1.nil?
-			    	@installment.endgame
-			    	if @installment.instalation_complete?
-			    		@installment.status='instalation_complete'
-			    		@installment.save
-			    		render text:'200'
-			    	else
-			    		render text:'400'
-			    	end 
-			    	
-			    else
-			    		@installment.status='instalation failure'
-			    		@installment.save
-			  	        render text: '406'
-			    end
+		if params[:sysha]
+			Installment.where(:state=>'download_files').where(:license_key=>params[:sysha].downcase).last
+			if params[:complete]
+				logger.debug('------------')
+				logger.debug($request.id)
+				logger.debug('------------')
+				@installment=Installment.find($request.id)
+				if @installment.download_files?
+					params[:complete]=params[:complete].downcase
+				    if params[:complete]=='yeap'
+				    	@installment.endgame
+				    	if @installment.instalation_complete?
+				    		@installment.status='instalation_complete'
+				    		@installment.save
+				    		render text:'200'
+				    	else
+				    		render text:'400'
+				    	end 
+				    	
+				    else
+				    		@installment.status='instalation failure'
+				    		@installment.save
+				  	        render text: '406'
+				    end
+				else
+					render text:'505' 
+				end
 			else
-				render text:'505' 
+				render text: '417'
 			end
 		else
-			render text: '417'
+			render text: '400'
 		end
 	end
 end
