@@ -79,6 +79,9 @@ class InstallmentsController < ApplicationController
 							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 				    		system "rm -rf #{@path_file}"	
 				    		render text:'200'
+				    		@key=LicKey.find_by_lic(@installment.license_key)
+				    		key.status='Активирован'
+				    		@key.save
 				    	else
 				    		render text:'400'
 				    	end 

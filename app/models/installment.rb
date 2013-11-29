@@ -22,19 +22,13 @@ class Installment < ActiveRecord::Base
 	 	      	after_transition :from=> [:post_request], :do => :create_product_key
 	 	      	after_transition :from=> [:post_request], :do => :encrypting_files
 	 	    end
-	 	    # if states[:download_files]
-	 	    # 	after_transition :to [:download_files], :do => :
-	 	    # end
-
-
 	end
 
 	def keys_control?
 	 	@key=LicKey.find_by_lic(self.license_key)
-	    @key_status=0
 	 	unless @key.nil?
 		 	if @key.status=='Не активирован'
-		 		@key.status='Активирован'
+		 		@key.status='В процессе'
 		 		@key.save
 		 		self.status=1
 		 		self.save
@@ -100,7 +94,6 @@ class Installment < ActiveRecord::Base
 		system "rm -rf #{@path_file}/#{@folder}"
 		@download_file=@path_file+'/'+@folder+'.zip'
 		logger.debug(@download_file)
-		#$destroyed_path=@path_file
 	end
 	def castle_rock?
 		if self.swap?

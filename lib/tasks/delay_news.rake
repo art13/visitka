@@ -27,11 +27,16 @@ task :destroy_lines => :environment do
 		@lines.each do |line|
 			if line.updated_at.to_time+10.minutes < Time.now
 				puts "line with id #{line.id} destroy"
+				@key=LicKey.find_by_lic(line.license_key)
+				if @key.status != 'Активирован'
+					@key.status='Не активирован'
+					@key.save
+				end
 				line.destroy
 			else 
 				puts 'time gut'
 			end
 		end
-		puts 'destroy all human'	
+		puts 'destroy all humans'	
 	end
 end
