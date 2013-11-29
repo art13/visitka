@@ -35,6 +35,13 @@ class InstallmentsController < ApplicationController
 			    if params[:confirm].upcase=='OK'
 				    @installment.downloads
 				    if @installment.download_files?
+				    	@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+							@file_url=@file.release.path
+							logger.debug(@file_url)
+							@folder_name=@file.release_file_name.split('.')
+							@folder=@folder_name.first
+							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
+							@download_file=@path_file+'/'+@folder+'.zip'
 				  		send_file "#{$download_file}"
 				  		system "rm -rf #{$path_file}"		
 				    else
