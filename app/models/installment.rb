@@ -92,9 +92,6 @@ class Installment < ActiveRecord::Base
 		@folder_name=@file.release_file_name.split('.')
 		@folder=@folder_name.first
 		@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+self.id.to_s
-		logger.debug('here')
-		logger.debug(@file.release.path)
-		logger.debug(@path_file)
 		system "unzip #{@file.release.path} -d #{@path_file}" 
 		@db_file=Dir.glob(@path_file+"/#{@folder}/*.db").first
 		system "openssl aes-256-cbc -in  #{@db_file} -out #{@db_file}.enc -pass pass:#{self.product_key.first(32)}"
@@ -103,7 +100,7 @@ class Installment < ActiveRecord::Base
 		system "rm -rf #{@path_file}/#{@folder}"
 		@download_file=@path_file+'/'+@folder+'.zip'
 		logger.debug(@download_file)
-		$destroyed_path=@path_file
+		#$destroyed_path=@path_file
 	end
 	def castle_rock?
 		if self.swap?

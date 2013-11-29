@@ -20,12 +20,12 @@ end
 desc "destroy_lines"
 task :destroy_lines => :environment do 
 	puts 'Initialisation...'
-	@lines=Installment.where(:state=>'post_request')
+	@lines=Installment.where('state !=?','instalation_complete')
 	if @lines.empty?
 		puts 'already empty'
 	else	
 		@lines.each do |line|
-			if line.updated_at+10.minutes < Time.now
+			if line.updated_at.to_time+10.minutes < Time.now
 				puts "line with id #{line.id} destroy"
 				line.destroy
 			else 
