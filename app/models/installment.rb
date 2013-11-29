@@ -104,14 +104,6 @@ class Installment < ActiveRecord::Base
 		@download_file=@path_file+'/'+@folder+'.zip'
 		logger.debug(@download_file)
 		$destroyed_path=@path_file
-		logger.debug('11111111111111111111111111')
-		logger.debug(@path_file)
-		logger.debug($destroyed_path)
-		logger.debug(@download_file)
-		logger.debug('11111111111111111111111111')
-		$request=self
-		$download_file=@download_file
-
 	end
 	def castle_rock?
 		if self.swap?

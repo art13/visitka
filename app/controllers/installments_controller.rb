@@ -30,18 +30,10 @@ class InstallmentsController < ApplicationController
 	
 	def download_files_step
 		if params[:sysha]
-			Installment.where(:state=>'swap').where(:license_key=>params[:sysha].downcase).last
-			if params[:confirm]
-			    if params[:confirm].upcase=='OK'&&!$request.nil?&&!$download_file.nil?#&&!$destroyed_path.nil?
-				  logger.debug('============================')
-				  logger.debug($request.license_key)
-				  logger.debug('============================')
-				  logger.debug($download_file)
-				  logger.debug('============================')
-				  logger.debug($destroyed_path)
-				  logger.debug('============================')
-				  @installment=Installment.find($request.id)
-				  @installment.downloads
+			@installment=Installment.where(:state=>'swap').where(:license_key=>params[:sysha].downcase).last
+			if params[:confirm]&&!@installment.nil?
+			    if params[:confirm].upcase=='OK'
+				    @installment.downloads
 				    if @installment.download_files?
 				  		send_file "#{$download_file}"
 				  		system "rm -rf #{$path_file}"		
@@ -61,12 +53,11 @@ class InstallmentsController < ApplicationController
 	end
 	def instalations_end
 		if params[:sysha]
-			Installment.where(:state=>'download_files').where(:license_key=>params[:sysha].downcase).last
-			if params[:complete]
+			@installment=Installment.where(:state=>'download_files').where(:license_key=>params[:sysha].downcase).last
+			if params[:complete]&&!@installment.nil?
 				logger.debug('------------')
-				logger.debug($request.id)
+				logger.debug(@installment.id)
 				logger.debug('------------')
-				@installment=Installment.find($request.id)
 				if @installment.download_files?
 					params[:complete]=params[:complete].downcase
 				    if params[:complete]=='yeap'
