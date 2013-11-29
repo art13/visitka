@@ -35,15 +35,14 @@ class InstallmentsController < ApplicationController
 			    if params[:confirm].upcase=='OK'
 				    @installment.downloads
 				    if @installment.download_files?
-				    	@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+				    	    @file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
 							@file_url=@file.release.path
 							logger.debug(@file_url)
 							@folder_name=@file.release_file_name.split('.')
 							@folder=@folder_name.first
 							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 							@download_file=@path_file+'/'+@folder+'.zip'
-				  		send_file "#{$download_file}"
-				  		system "rm -rf #{$path_file}"		
+				  		    send_file "#{@download_file}"
 				    else
 				   		render text: '202'
 				   	end
@@ -72,6 +71,13 @@ class InstallmentsController < ApplicationController
 				    	if @installment.instalation_complete?
 				    		@installment.status='instalation_complete'
 				    		@installment.save
+				    		@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+							@file_url=@file.release.path
+							logger.debug(@file_url)
+							@folder_name=@file.release_file_name.split('.')
+							@folder=@folder_name.first
+							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
+				    		system "rm -rf #{@path_file}"	
 				    		render text:'200'
 				    	else
 				    		render text:'400'
