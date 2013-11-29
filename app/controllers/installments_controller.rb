@@ -78,10 +78,11 @@ class InstallmentsController < ApplicationController
 							@folder=@folder_name.first
 							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 				    		system "rm -rf #{@path_file}"	
-				    		render text:'200'
+				    		
 				    		@key=LicKey.find_by_lic(@installment.license_key)
 				    		key.status='Активирован'
 				    		@key.save
+				    		render text:'200'
 				    	else
 				    		render text:'400'
 				    	end 
@@ -92,7 +93,7 @@ class InstallmentsController < ApplicationController
 				  	        render text: '406'
 				    end
 				else
-					render text:'505' 
+					render text:'202' 
 				end
 			else
 				render text: '417'
