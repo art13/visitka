@@ -28,4 +28,10 @@ class LicKeysController < ApplicationController
 		@key.destroy
 		render :js => "window.location = '/admin/orders/#{@order.id}'"
 	end
+ private 
+  # def cenerate_key
+  # 	begin
+  # 	 number_lic_key =SecureRandom.hex(3)
+  # 	end while  
+  # end
 end

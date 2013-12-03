@@ -55,6 +55,7 @@ gem 'fast-aes'
 gem 'rack-ssl', :require => 'rack/ssl'
 gem 'whenever', :require => false
 group :development do
+  gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'

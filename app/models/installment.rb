@@ -37,25 +37,31 @@ class Installment < ActiveRecord::Base
 				logger.debug('=======================')
 		 		return true
 			else
-				@last_info=Installment.where(:license_key=>@key.lic).where('state!=?','post_request').first
-			 	logger.debug('==========================')
-				logger.debug('=== Key already active ===')
-				logger.debug('==========================')
-				if self.info==@last_info.info
-					self.status=2
-					self.save
-					logger.debug ('====================')
-					logger.debug ('==== Info valid ====')
-					logger.debug ('====================')
-					return true
-				else	
-					self.status=3
-					self.save
-					logger.debug ('==================')
-					logger.debug ('==== Info new ====')
-					logger.debug ('==================')
-			 		return false
-			 	end 
+				if @key.status=='Активирован'
+  	            	logger.debug('-----------active key-------------')
+  	            	self.status=3
+  	            	self.save
+				else
+					@last_info=Installment.where(:license_key=>@key.lic).where('state!=?','post_request').first
+				 	logger.debug('==========================')
+					logger.debug('=== Key already active ===')
+					logger.debug('==========================')
+					if self.info==@last_info.info
+						self.status=2
+						self.save
+						logger.debug ('====================')
+						logger.debug ('==== Info valid ====')
+						logger.debug ('====================')
+						return true
+					else	
+						self.status=3
+						self.save
+						logger.debug ('==================')
+						logger.debug ('==== Info new ====')
+						logger.debug ('==================')
+				 		return false
+				 	end 
+				end
 			end 	 
 		else
 			logger.debug('=======================')
@@ -88,7 +94,7 @@ class Installment < ActiveRecord::Base
 		@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+self.id.to_s
 		system "unzip #{@file.release.path} -d #{@path_file}" 
 		@db_file=Dir.glob(@path_file+"/#{@folder}/*.db").first
-		system "openssl aes-256-cbc -in  #{@db_file} -out #{@db_file}.enc -pass pass:#{self.product_key.first(32)}"
+		system "openssl aes-256-cbc -a -in  #{@db_file} -out #{@db_file}.enc -pass pass:#{self.product_key.first(64)}"
 		system "rm #{@db_file}"
 		system "zip -r -j #{@path_file}/#{@folder}.zip  #{@path_file}/#{@folder}"
 		system "rm -rf #{@path_file}/#{@folder}"
