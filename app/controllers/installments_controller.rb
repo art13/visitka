@@ -30,10 +30,10 @@ class InstallmentsController < ApplicationController
 	def download_files_step
 		if params[:sysha]
 			@installment=Installment.where(:state=>'swap').where(:license_key=>params[:sysha].downcase).last
-			 @file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
-			 @file_url=@file.release.path
-			 @path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 			if params[:confirm]&&!@installment.nil?
+				@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+			 	@file_url=@file.release.path
+			    @path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 			    if params[:confirm].upcase=='OK'
 				    @installment.downloads
 				    if @installment.download_files?
@@ -51,7 +51,6 @@ class InstallmentsController < ApplicationController
 				   	render text: '406'
 				end
 			else
-				system "rm -rf #{@path_file}"
 				render text: '400'
 			end
 		else
@@ -62,10 +61,10 @@ class InstallmentsController < ApplicationController
 	def instalations_end
 		if params[:sysha]
 			@installment=Installment.where(:state=>'download_files').where(:license_key=>params[:sysha].downcase).last
-			@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
-			 @file_url=@file.release.path
-			 @path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 			if params[:complete]&&!@installment.nil?
+				@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+			 	@file_url=@file.release.path
+				@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 				logger.debug('------------')
 				logger.debug(@installment.id)
 				logger.debug('------------')
@@ -99,7 +98,7 @@ class InstallmentsController < ApplicationController
 					render text:'202' 
 				end
 			else
-				system "rm -rf #{@path_file}"
+				
 				render text: '400'
 			end
 		else
