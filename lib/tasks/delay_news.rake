@@ -42,3 +42,14 @@ task :destroy_lines => :environment do
 		puts 'destroy all humans'	
 	end
 end
+desc 'empty_folder'
+task :empty_folder => :environment do 
+	if Installment.where('state !=?','instalation_complete').empty?
+		@path=Rails.root.to_s+'/public/system/'
+		system "rm -rf #{@path}files"
+		system "mkdir #{@path}files"
+		puts 'folder clear'
+	else
+		puts 'process in action'
+	end
+end

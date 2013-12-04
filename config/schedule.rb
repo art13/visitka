@@ -11,4 +11,8 @@ end
  	rake "destroy_lines", :environment =>'production'
  	puts "destroy after 10 minutes"
  end
+ every :sunday do 
+ 	rake :empty_folder, :environment =>'production'
+ 	puts 'clearing folder files'
+ end
 #whenever --update-crontab

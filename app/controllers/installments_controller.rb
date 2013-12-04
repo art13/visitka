@@ -43,11 +43,11 @@ class InstallmentsController < ApplicationController
 							@download_file=@path_file+'/'+@folder+'.zip'
 				  		    send_file "#{@download_file}"
 				    else
-				    	system "rm -rf #{@path_file}"
+				    	
 				   		render text: '202'
 				   	end
 				else
-					system "rm -rf #{@path_file}"
+					
 				   	render text: '406'
 				end
 			else
@@ -83,22 +83,19 @@ class InstallmentsController < ApplicationController
 				    		@key.save
 				    		render text:'200'
 				    	else
-				    		system "rm -rf #{@path_file}"
+				    		
 				    		render text:'505'
 				    	end 
 				    	
 				    else
 				    		@installment.status='instalation failure'
 				    		@installment.save
-				    		system "rm -rf #{@path_file}"
 				  	        render text: '406'
 				    end
 				else
-					system "rm -rf #{@path_file}"
 					render text:'202' 
 				end
 			else
-				
 				render text: '400'
 			end
 		else
