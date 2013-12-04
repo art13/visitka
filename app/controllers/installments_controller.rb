@@ -11,7 +11,6 @@ class InstallmentsController < ApplicationController
 	 	@installment.installer_version=params[:installer_version]
 	 	@installment.info=params[:info]
 	 	if @installment.save
-	 		#@installment.reset_line
 	 		@installment.swap_keys
 	 		if @installment.swap?
 	 			render text: '200'
@@ -31,25 +30,28 @@ class InstallmentsController < ApplicationController
 	def download_files_step
 		if params[:sysha]
 			@installment=Installment.where(:state=>'swap').where(:license_key=>params[:sysha].downcase).last
+			 @file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+			 @file_url=@file.release.path
+			 @path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 			if params[:confirm]&&!@installment.nil?
 			    if params[:confirm].upcase=='OK'
 				    @installment.downloads
 				    if @installment.download_files?
-				    	    @file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
-							@file_url=@file.release.path
 							logger.debug(@file_url)
 							@folder_name=@file.release_file_name.split('.')
-							@folder=@folder_name.first
-							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
+							@folder=@folder_name.first		
 							@download_file=@path_file+'/'+@folder+'.zip'
 				  		    send_file "#{@download_file}"
 				    else
+				    	system "rm -rf #{@path_file}"
 				   		render text: '202'
 				   	end
 				else
+					system "rm -rf #{@path_file}"
 				   	render text: '406'
 				end
 			else
+				system "rm -rf #{@path_file}"
 				render text: '400'
 			end
 		else
@@ -60,41 +62,44 @@ class InstallmentsController < ApplicationController
 	def instalations_end
 		if params[:sysha]
 			@installment=Installment.where(:state=>'download_files').where(:license_key=>params[:sysha].downcase).last
+			@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
+			 @file_url=@file.release.path
+			 @path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 			if params[:complete]&&!@installment.nil?
 				logger.debug('------------')
 				logger.debug(@installment.id)
 				logger.debug('------------')
 				if @installment.download_files?
-					params[:complete]=params[:complete].downcase
-				    if params[:complete]=='yeap'
+				    if params[:complete].downcase=='yeap'
 				    	@installment.endgame
 				    	if @installment.instalation_complete?
 				    		@installment.status='instalation_complete'
 				    		@installment.save
-				    		@file=Material.find_by_id(@installment.license_key.split('-').first.split('x').last)
-							@file_url=@file.release.path
 							logger.debug(@file_url)
 							@folder_name=@file.release_file_name.split('.')
 							@folder=@folder_name.first
-							@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+@installment.id.to_s
 				    		system "rm -rf #{@path_file}"
 				    		@key=LicKey.find_by_lic(@installment.license_key)
-				    		key.status='Активирован'
+				    		@key.status='Активирован'
 				    		@key.save
 				    		render text:'200'
 				    	else
+				    		system "rm -rf #{@path_file}"
 				    		render text:'505'
 				    	end 
 				    	
 				    else
 				    		@installment.status='instalation failure'
 				    		@installment.save
+				    		system "rm -rf #{@path_file}"
 				  	        render text: '406'
 				    end
 				else
+					system "rm -rf #{@path_file}"
 					render text:'202' 
 				end
 			else
+				system "rm -rf #{@path_file}"
 				render text: '400'
 			end
 		else
