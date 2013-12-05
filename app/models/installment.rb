@@ -94,7 +94,7 @@ class Installment < ActiveRecord::Base
 		@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+self.id.to_s
 		system "unzip #{@file.release.path} -d #{@path_file}" 
 		@db_file=Dir.glob(@path_file+"/#{@folder}/*.db").first
-		system "openssl aes-256-cbc -a -in  #{@db_file} -out #{@db_file}.enc -pass pass:#{self.product_key.first(64)}"
+		system "openssl aes-256-cbc -in  #{@db_file} -out #{@db_file}.enc -pass pass:#{self.product_key.first(64)}"
 		system "rm #{@db_file}"
 		system "zip -r -j #{@path_file}/#{@folder}.zip  #{@path_file}/#{@folder}"
 		system "rm -rf #{@path_file}/#{@folder}"

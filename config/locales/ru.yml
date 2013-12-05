@@ -8,6 +8,15 @@ ru:
         blank:  не может быть пустым
         taken:  уже подписан  
     attributes:
+      installment:
+        license_key: Лицензионный ключ
+        installer_version: Версия инсталятора
+        status: Статус установки
+        state: Текущий шаг установки
+        updated_at: Обновлён
+        created_at: Создан
+        info: Информация о системе
+        product_key: Ключ продукта
       order:
         order_create_time: Время конвертации в договор
         number: Номер заказа
@@ -141,6 +150,10 @@ ru:
         material: Программа
         order: Заказ
     models:
+      installment:
+        one: Установка
+        many: Установки
+        other: Установки
       order:
         one: Заказ
         many: Заказы
@@ -219,6 +232,7 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  installments: История установок
   generate: Заменить
   anketa_data: Данные анкеты
   order_status: Статус Договора  
