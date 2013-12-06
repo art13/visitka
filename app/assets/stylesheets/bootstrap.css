@@ -5265,6 +5265,7 @@ a.badge:focus {
 }
 .contr_btn, .demo_btn{
   float: right;
+  margin-top: 10px
 }
 .active_btn{
   background-color: #114a61 !important;

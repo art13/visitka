@@ -32,41 +32,41 @@ class Installment < ActiveRecord::Base
 		 		@key.save
 		 		self.status=1
 		 		self.save
-			    logger.debug('=======================')
-				logger.debug('==== Key accepted =====')
-				logger.debug('=======================')
+			 #    logger.debug('=======================')
+				# logger.debug('==== Key accepted =====')
+				# logger.debug('=======================')
 		 		return true
 			else
 				if @key.status=='Активирован'
-  	            	logger.debug('-----------active key-------------')
+  	            	# logger.debug('-----------active key-------------')
   	            	self.status=3
   	            	self.save
 				else
 					@last_info=Installment.where(:license_key=>@key.lic).where('state!=?','post_request').first
-				 	logger.debug('==========================')
-					logger.debug('=== Key already active ===')
-					logger.debug('==========================')
+				 # 	logger.debug('==========================')
+					# logger.debug('=== Key already active ===')
+					# logger.debug('==========================')
 					if self.info==@last_info.info
 						self.status=2
 						self.save
-						logger.debug ('====================')
-						logger.debug ('==== Info valid ====')
-						logger.debug ('====================')
+						# logger.debug ('====================')
+						# logger.debug ('==== Info valid ====')
+						# logger.debug ('====================')
 						return true
 					else	
 						self.status=3
 						self.save
-						logger.debug ('==================')
-						logger.debug ('==== Info new ====')
-						logger.debug ('==================')
+						# logger.debug ('==================')
+						# logger.debug ('==== Info new ====')
+						# logger.debug ('==================')
 				 		return false
 				 	end 
 				end
 			end 	 
 		else
-			logger.debug('=======================')
-			logger.debug('==== Key not found ====')
-			logger.debug('=======================')
+			# logger.debug('=======================')
+			# logger.debug('==== Key not found ====')
+			# logger.debug('=======================')
 			self.status=4
 			self.save
 				return false
@@ -74,21 +74,21 @@ class Installment < ActiveRecord::Base
 	end
 	def create_product_key
 		@hash_key=Digest::SHA256.hexdigest(self.license_key)
-		logger.debug(@hash_key)
+		# logger.debug(@hash_key)
 		@hash_info=Digest::SHA256.hexdigest(self.info)
-		logger.debug(@hash_info)
+		# logger.debug(@hash_info)
 		@product_key=@hash_key+@hash_info
 		self.product_key=@product_key
 		self.save
-		logger.debug('============================')
-		logger.debug('==== create_product_key ====')
-		logger.debug(self.product_key)
-		logger.debug('============================')
+		# logger.debug('============================')
+		# logger.debug('==== create_product_key ====')
+		# logger.debug(self.product_key)
+		# logger.debug('============================')
 	end
 	def encrypting_files
 		@file=Material.find_by_id(self.license_key.split('-').first.split('x').last)
 		@file_url=@file.release.path
-		logger.debug(@file_url)
+		# logger.debug(@file_url)
 		@folder_name=@file.release_file_name.split('.')
 		@folder=@folder_name.first
 		@path_file=Rails.root.to_s+'/public/system/files/'+@file_url.split('/').last+self.id.to_s
@@ -99,17 +99,17 @@ class Installment < ActiveRecord::Base
 		system "zip -r -j #{@path_file}/#{@folder}.zip  #{@path_file}/#{@folder}"
 		system "rm -rf #{@path_file}/#{@folder}"
 		@download_file=@path_file+'/'+@folder+'.zip'
-		logger.debug(@download_file)
+		# logger.debug(@download_file)
 	end
 	def castle_rock?
 		if self.swap?
-			logger.debug('=-----------------------==========================')
-			logger.debug(self.state)
-			logger.debug('=========================------------------------=')
+			# logger.debug('=-----------------------==========================')
+			# logger.debug(self.state)
+			# logger.debug('=========================------------------------=')
 			#$request1=self
 			return true
 		else
-			logger.debug(self.state)
+			# logger.debug(self.state)
 			return false
 		end	
 	end

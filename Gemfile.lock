@@ -120,7 +120,6 @@ GEM
       rack
     erubis (2.7.0)
     execjs (2.0.1)
-    fast-aes (0.1.1)
     fastercsv (1.5.5)
     formtastic (2.2.1)
       actionpack (>= 3.0)
@@ -258,7 +257,6 @@ DEPENDENCIES
   daemons
   delayed_job_active_record
   devise
-  fast-aes
   geocoder
   jquery-rails (< 3.0.0)
   jquery-ui-rails
@@ -267,7 +265,6 @@ DEPENDENCIES
   meta_request
   paperclip (~> 3.0)
   pg
-  rack-ssl
   rails (= 3.2.14)
   ruby-graphviz
   sass-rails (~> 3.2.3)

@@ -1,4 +1,5 @@
-<div class='installator'>
+<a name="install"></a>	
+<div class='installator'>	
 	<h3>Как использовать установщик</h3>
 	<%@post=InfoPost.find_by_title('Как использовать установщик')%>
 	<%unless @post.nil?%>
@@ -15,7 +16,7 @@
 								<%= link_to 'Скачать установщик', programm.release.url, :class=>'btn btn-primary',:style=>'float:right; margin:1em 0' %>
 							</div>
 					<%end%>
-
+                    <a class='ancors' href="#install">asasdasda</a>	
 				<%end%>	
 				
 		</div>
