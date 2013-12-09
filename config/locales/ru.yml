@@ -8,6 +8,11 @@ ru:
         blank:  не может быть пустым
         taken:  уже подписан  
     attributes:
+      installator:
+        version: Версия
+        name: Название
+        installator: Инсталятор
+        material: Программа
       installment:
         license_key: Лицензионный ключ
         installer_version: Версия инсталятора
@@ -121,6 +126,7 @@ ru:
         created_at: Дата загрузки
         material: Программа
       material:
+        installator: Инсталятор
         installer_version: Версия инсталятора
         release_file_name: Имя файла
         preview: Превью
@@ -232,6 +238,7 @@ ru:
         many: Отзывы
         other: Отзыв
         few: Отзывов
+  installators: Инсталяторы      
   installments: История установок
   generate: Заменить
   anketa_data: Данные анкеты

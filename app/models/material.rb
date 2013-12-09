@@ -3,6 +3,7 @@ class Material < ActiveRecord::Base
 	validates_length_of :preview, :maximum=>200
 	has_attached_file :release
 	has_many :lic_keys
+	belongs_to :installator
 	#before_destroy :delete_releases
 
 	#private

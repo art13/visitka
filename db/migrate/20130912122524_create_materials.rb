@@ -9,6 +9,7 @@ class CreateMaterials < ActiveRecord::Migration
   		t.decimal :price
   		t.text :description
   		t.text :features
+      t.integer :installator_id
       t.attachment :release
   		t.timestamps
   	end

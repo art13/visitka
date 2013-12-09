@@ -13,10 +13,10 @@
 					<%@materials.each do |programm|%>
 							<div class='row'>
 								<h4 align='center'><%=programm.name%></h4>
-								<%= link_to 'Скачать установщик', programm.release.url, :class=>'btn btn-primary',:style=>'float:right; margin:1em 0' %>
+								<%= link_to 'Скачать установщик', programm.installator.installator.url, :class=>'btn btn-primary',:style=>'float:right; margin:1em 0' %>
 							</div>
 					<%end%>
-                    <a class='ancors' href="#install">asasdasda</a>	
+           
 				<%end%>	
 				
 		</div>
