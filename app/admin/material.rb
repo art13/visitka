@@ -18,7 +18,7 @@ ActiveAdmin.register Material,  { :sort_order => :id_asc } do
  		f.inputs t('materials') do
  			f.input :name
  			f.input :installer_version
- 			f.input :installator, as: :select 
+ 			f.input :installator, as: :select , :collection => Installator.all.map { |a| [ a.name+' v-'+ a.version]}
  			f.input :preview, :hint=>I18n.t('max_client_comment')
  			f.input :version, as: :radio, :collection => [t('demo'),t('full')]
 			f.input :description,  as: :wysihtml5
