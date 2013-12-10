@@ -31,7 +31,7 @@
 					<div class="spoiler-wrap span8 row-marg">
 					<div class="spoiler-head folded lft">Заказ № <%= order.id%></div>
 						<div class="spoiler-body span8">
-								<div class=''>
+								<div>
 									<h4>Мои данные</h4>
 									<h5>Название компании или физического лица</h5>
 									<span class="input-xlarge uneditable-input span6"><%=order.name%></span>
@@ -114,7 +114,11 @@
 													<%end%>
 												</tbody>
 											</table>
-											<a class='btn btn-primary btn-small on-install'>Скачать установщик</a>
+											<%order.line_items.each do |item|%>
+											 	<%if item.material.installator%>
+													<%= link_to "Скачать установщик для программы #{item.material.name}" , item.material.installator.installator.url, :class=>'btn btn-primary',:style=>'float:left; margin:1em 0' %>
+												<%end%>
+											<%end%>
 										<%end%>
 
 								</div>
