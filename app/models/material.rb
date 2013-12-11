@@ -5,7 +5,6 @@ class Material < ActiveRecord::Base
 	has_many :lic_keys
 	belongs_to :installator
 	#before_destroy :delete_releases
-
 	#private
 	#def delete_releases
 	#	self.release.destroy
