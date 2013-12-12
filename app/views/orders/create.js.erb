@@ -1,9 +1,10 @@
 <% if @flag1%>
-$().toastmessage('showSuccessToast', "Спасибо! Ваша заявка отправлена");
-$('.req_errors').empty();
-$('#order_form').find('.empt').val('');
-$('#order_form').find('.item-quantity').val(0);
-$('#order_form').find('.summa').empty();
+$('#contract').get(0).click();
+$().toastmessage('showSuccessToast', "Спасибо! Ваша заявка принята");
+setTimeout(function(){
+   $(".no_<%=current_user.orders.last.id%>").get(0).click()}, 500);
+setTimeout(function(){ 
+   $('.click-on-me').get(0).click()},500);
 <%else %>
 	
  $('.req_errors').empty().append("<%= j(render :partial=>'orders/errors')%>");

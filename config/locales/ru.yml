@@ -1,12 +1,17 @@
 ru:
   activerecord:
     errors:
+      models:
+        user:
+          attributes:
+            reset_password_token:
+              invalid: "Используемая вами ссылка устарела, воспользуйтесь новой "
       messages:
         confirmation: не совпадает с подтверждением
         too_long: слишком длинный
         too_short: слишком короткий
         blank:  не может быть пустым
-        taken:  уже подписан  
+        taken:  уже подписан 
     attributes:
       installator:
         version: Версия
@@ -61,6 +66,7 @@ ru:
         created_at: Заявка получена
         updated_at: Заявка обновлена
       user:
+        reset_password_token: ''
         password: Пароль
         password_confirmation: Подтверждение пароля
         name: Название организации
@@ -842,12 +848,12 @@ ru:
       unlocked: "Ваш аккаунт успешно разблокирован. Пожалуйста, войдите в систему для продолжения."
   errors:
     messages:
-
+      reset_password_token: ' '
       already_confirmed: "адрес подтвержден, попробуйте войти"
       confirmation_period_expired: "должно быть подтверждено в течение{%period}, пожалуйста, вы можете заказать новую"
       expired: "истек, пожалуйста, вы можете заказать новую"
       not_found: "не найден"
       not_locked: "не заблокирован"
       not_saved:
-        one: "Пользователь не сохранен:"
-        other: "Пользователь не сохранен:"           
+        one: "Данные не сохранились:"
+        other: "Данные не сохранились:"           
