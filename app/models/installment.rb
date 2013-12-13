@@ -39,8 +39,22 @@ class Installment < ActiveRecord::Base
 			else
 				if @key.status=='Активирован'
   	            	# logger.debug('-----------active key-------------')
-  	            	self.status=3
-  	            	self.save
+  	            	@active_k=Installment.where(:license_key=>@key.lic).where('state!=?','instalation_complete').first
+  	            	if self.info==@active_key.info
+  	            		self.status=2
+						self.save
+						# logger.debug ('====================')
+						# logger.debug ('==== Info valid ====')
+						# logger.debug ('====================')
+						return true
+					else	
+						self.status=3
+						self.save
+						# logger.debug ('==================')
+						# logger.debug ('==== Info new ====')
+						# logger.debug ('==================')
+				 		return false
+				 	end 
 				else
 					@last_info=Installment.where(:license_key=>@key.lic).where('state!=?','post_request').first
 				 # 	logger.debug('==========================')
