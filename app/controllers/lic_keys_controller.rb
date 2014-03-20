@@ -1,5 +1,6 @@
 class LicKeysController < ApplicationController
 	def create
+		@data=DataContact.first
 		@order=Order.find(params[:order_id])
 		@order.line_items.each do |item|
 			q=item.quantity
@@ -13,6 +14,7 @@ class LicKeysController < ApplicationController
 				@order.lic_keys.create(:material=>item.material, :status=>t('not_active'), :lic=>number)
 			end
 		end
+		LicKeyMailer.delay.keygen(@order, @data)
 		render :js => "window.location = '/admin/orders/#{@order.id}'"		
 	end
 	def update_key
