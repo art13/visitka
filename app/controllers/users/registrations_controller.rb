@@ -31,7 +31,7 @@
         sign_up(@user, resource)
         current_user=@user
         respond_to do |format|
-          UserMailer.registr_message(@user,@data).deliver
+          UserMailer.delay.registr_message(@user,@data)
           format.html{ redirect_to account_path}
         end
       end 
