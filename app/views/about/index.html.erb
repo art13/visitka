@@ -6,9 +6,11 @@
       </h2>
       <div class="row">
         <div class="span4">
-          <figure>
-            <img alt="" src="/assets/img/gallery/16rct-l.jpg">
-          </figure>
+          <%if data.photo == "/photos/original/missing.png"%>
+              <img alt="" src="/assets/img/gallery/16rct-l.jpg">
+          <%else%>
+              <%=image_tag data.photo%>
+          <%end%>
         </div>
         <div class="span8">
           <blockquote>

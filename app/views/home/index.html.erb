@@ -94,7 +94,7 @@
                
                   <%unless Post.all.empty?%>  
                     <% if Post.all.size>6%>
-                      <%= active_news=Post.last(3)%>
+                      <%active_news=Post.last(3)%>
                       <%news=Post.last(6)-active_news%>
                       <%news_item=Post.last(6)-news-active_news%>
                     <%else%>
