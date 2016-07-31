@@ -83,15 +83,6 @@ $('document').ready(function(){
 			});			
 		});	  
 	});
-	//$('body').on('click','.contr_btn',function(){
-	//	perl = 'question';
-	//	$('.button_tab a').removeClass('active_btn');
-         //       var a=$('#acc_block').children().attr('class')                
-        //        $('.button_tab #'+a ).addClass('active_btn')
-                //perl = 'question';
-        //        $(document.getElementById(perl)).addClass('active_btn');
-	//	$.post('/account',{perl:perl});
-	//});
 	$('body').on('click','#save_order',function(){
 		$('#contact-form').trigger('submit');
 		$('#order_form').trigger('submit');

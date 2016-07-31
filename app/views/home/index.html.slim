@@ -1,0 +1,57 @@
+section class="section-content section-jumbotron" id="section-jumbotron"
+  div class="container"
+    div class="row"
+      div class="span5 offset1"
+        img src="assets/img/ipad.png"
+      div class="span5 _offset1"
+        div class="slogan"
+          h1 
+            = @current_material[:name]
+          p class="lead" 
+            = @current_material[:preview]
+          p
+            a class="btn btn-large btn-primary" href="#{@current_material[:url_to_material]}" Особенности 
+            a class="btn btn-large btn-primary" href="#{@url_to_order}" style='width:110px; margin-left: 2px;' Заказать
+section class="section-content section-testimonials section-color-white" id="section-testimonials"
+  div class="container"
+    h2 class="section-title" Клиенты
+    div class="row"
+      - unless Client.all.empty?
+        - @clients.each do |client|
+          div class="span3"
+            blockquote
+              p
+                i class="icon-quote-left icon-4x pull-left icon-muted" 
+                = client.comment
+              small 
+                = client.name
+section class="section-content section-news-on-carousel" id="section-news-on-carousel"
+  div class="container"
+    div class="row"
+      div class="span3"
+        h2 class="section-title" 
+          span Новости
+          small Последние новости о нашей компании, продуктах и услугах
+        p
+          a class="btn btn-small btn-primary" href="/news"
+            i class="icon-search"
+            span Все новости
+      div class="span9"
+        div class="row"
+          ul class="bxslider "
+            - @posts.each do |post|
+              li 
+                figure
+                  a href="/news/#{post.id}"
+                    image src="#{post.photo.url(:medium)}"
+                h4 
+                  a href="/news/#{post.id}" 
+                    = post.title
+                  p 
+                    = post.preview
+                p
+                  a class="btn btn-small btn-primary" href="news/#{post.id}"
+                    i class="icon-search" 
+                    span Подробнее
+= content_for :footer do 
+  span

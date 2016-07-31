@@ -13,29 +13,13 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails', '<3.0.0'
+gem 'unicorn'
+gem 'capistrano'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
- gem 'unicorn'
-
-# Deploy with Capistrano
- gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
 gem 'activeadmin'
 gem 'state_machine'
 gem 'ruby-graphviz', :require => 'graphviz'
@@ -48,12 +32,12 @@ gem "kaminari", "~> 0.13.0"
 gem "cocaine"
 gem "geocoder"
 gem "mail"
+gem "slim"
 gem "jquery-ui-rails"
 gem 'delayed_job_active_record' #rails generate delayed_job:active_record     migrate   script/delayed_job start
 gem "daemons"
 gem 'whenever', :require => false
 group :development do
-  #gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'

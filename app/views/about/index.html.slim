@@ -1,0 +1,19 @@
+section class="section-content section-about" id="section-about"
+  div class="container"
+    h2 class="section-title" О компании
+    div class="row"
+      div class="span4"
+        - if @data.photo.url == "/photos/original/missing.png"
+          img src="/assets/img/gallery/16rct-l.jpg"
+        - else
+          = image_tag @data.photo
+      div class="span8"
+        blockquote
+          p class="lead"
+            = @data.preview
+      div class="row"
+        div class="span8"
+          = raw @data.about
+
+- content_for :footer do 
+  span

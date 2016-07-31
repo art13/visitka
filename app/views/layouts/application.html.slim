@@ -1,0 +1,18 @@
+doctype html
+html class="no-js" lang="ru"
+	head
+		title ЛОФТ
+		link rel="shortcut icon" href="/assets/img/forest_icon.ico"
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+
+	body class=controller_name
+		header class="navbar-fixed-top"
+			= render :partial=>'shared/header'
+		= yield
+		
+		- if content_for? :footer
+			= render :partial=>'shared/footer'  
+
+		

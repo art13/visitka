@@ -1,0 +1,14 @@
+= form_for feedback, :class => 'form-vertical', :id =>'contact-form', :remote => true do |f| 
+	div class='control-group'
+		label for="contact-name-surname"
+		= f.text_field :fio ,:class => "span3", :id => "contact-name-surname", :placeholder => 'Ваши Имя и Фамилия'
+	div class="control-group"
+		label for="contact-email"
+		= f.email_field :email ,:class => "span3",:id => 'contact-email', :placeholder => 'email'
+	div
+		label for="contact-message"
+		= f.text_area :message,:class=>"span3",:id=>'contact-message',:rows=>5, :placeholder=>'Сообщение'
+		span class="help-inline err_feed"
+			= render :partial=>'feedbacks/errors'
+	= f.submit :value=>'Отправить сообщение', :class=>'btn btn-small'	
+ 
