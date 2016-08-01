@@ -1,0 +1,30 @@
+section class="section-content section-news-item" id="section-news-item"
+  div class="container"
+    h2 class="section-title"
+      = @page.title
+    div class="row"
+      div class="span8"
+        - if @page.photo.url!='/photos/original/missing.png'
+          figure = image_tag @page.photo.url(:large)
+          p = raw @page.content
+      div class="span3 offset1"
+        h4 Информационные страницы
+          - @pages.each do |page|
+            div class="media"
+              - if page.id != @page.id
+                - if page.photo.url!='/photos/original/missing.png'
+                  = link_to "/information_pages/#{page.id}", :class="pull-left" do 
+                    = image_tag page.photo.url(:small)
+                - else
+                  p class="pull-left" style='margin-left:64px'
+                  div class="media-body"
+                    p class="media-heading"
+                      = link_to page.title, "/information_pages/#{page.id}"
+              - else
+                p class="pull-left"
+                  - if page.photo.url!='/photos/original/missing.png'
+                    = image_tag page.photo.url(:small)
+              div class="media-body"
+                p class="media-heading" = page.title
+= content_for :footer do 
+  span

@@ -1,0 +1,5 @@
+h4 Свежие новости
+- @posts.each do |post|
+	h5 = post.title
+	p = post.preview
+	= link_to' Посмотреть полностью', post_path(post)

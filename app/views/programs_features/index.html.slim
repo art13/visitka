@@ -1,0 +1,40 @@
+javascript
+  $('document').ready(function(){
+    $('body').attr('data-spy','scroll');
+    $('body').attr('data-target', '.documentation-nav');
+  });   
+section class="section-content"
+  div class="container"
+    div class="row"
+      div class="span3 documentation-nav affix hidden-phone"
+        ul class="nav nav-pills nav-stacked"
+          - first=[]
+          - feats=@feats 
+          -  first << feats.shift
+          -  first=first.first
+          li class="active"a href="#section-#{first.id}"
+            i class="icon-angle-right pull-right"
+            = first.name
+            feats.each do |f|
+              li
+                a href="#section-=f.id"
+                  i class="icon-angle-right pull-right"
+                  = f.name
+      div class="span8 offset3"
+        h2 class="section-title" 
+          span Особенности Программ
+          small
+      div
+        section class="section-content section-=first.id" id="section-#{first.id}"
+          h3 class="section-title"
+            = first.name
+          p = raw first.features
+          - @feats.each do |f|
+            section class="section-content section-#{f.id}" id="section-#{f.id}"
+                    h3 class="section-title"
+                      = f.name
+                    p = raw f.features
+div class="post-footer section-content section-content-mini section-color-graydark"
+  div class="container"
+    p class="pull-right" 
+      span OOO "Лофт"

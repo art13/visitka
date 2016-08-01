@@ -1,0 +1,32 @@
+section class="section-content section-news-item" id="section-news-item"
+  div class="container"
+    h2 class="section-title"
+      = @post.title
+    div class="row"
+      div class="span8"
+      - if @post.photo.url!='/photos/original/missing.png'
+        figure
+          = image_tag @post.photo.url(:large)
+          p = raw @post.content
+        div class="span3 offset1"
+          h4  Последние новости
+            - Post.last(6).each do |post|
+              div class="media"
+              - if post.id != @post.id
+                - if post.photo.url!='/photos/original/missing.png'
+                  = link_to "/news/#{post.id}", :class="pull-left" do 
+                    = image_tag post.photo.url(:small)
+                - else
+                  p class="pull-left" style='margin-left:64px'
+                div class="media-body"
+                  p class="media-heading"
+                    = link_to post.title, "/news/#{post.id}"
+              - else
+                p class="pull-left"
+                  - if post.photo.url!='/photos/original/missing.png'
+                    = image_tag post.photo.url(:small)
+              div class="media-body"
+                p class="media-heading"
+                  = post.title
+= content_for :footer do 
+  span

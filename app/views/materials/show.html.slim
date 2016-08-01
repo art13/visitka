@@ -1,0 +1,17 @@
+section class="section-content section-content-sidebar"
+  div class="container"
+    h2 class="section-title"
+      = @material.name
+    div class="row"
+      div class="span8"
+        article
+          = raw @material.description
+      div class="span3 offset1"
+        aside
+          div class="widget"
+            h5 class="widget-title" Особенности программы
+          div class="widget-content"
+            p Здесь вы узнаете, почему именно эта  программа нужна вам
+            span = link_to "Посмотреть","#{programs_features_path}#section-#{@material.id}"
+= content_for :footer do 
+  span

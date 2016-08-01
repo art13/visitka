@@ -1,0 +1,5 @@
+- if current_user.nil?
+ 	li = link_to 'Вoйти', '/login'
+- else
+	li = link_to 'Личный кабинет', "/account" 
+	li = link_to 'Выйти', '/logout'

@@ -1,0 +1,5 @@
+li class="#{ ' active' if page.current?}"
+	- if page.current?
+        = page
+    - else
+        = link_to page, url, opts = {:remote => remote}

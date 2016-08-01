@@ -1,0 +1,27 @@
+section class="section-content section-news" id="section-news"
+	div class="container"
+		div class="row"
+			div class="span3"
+				h2 class="section-title"
+	            	span Новости
+	            	small Последние новости о нашей компании, продуктах и услугах
+	        div class="span9"
+	        	- unless @news.empty?
+	        		- @news.each do |post|
+	        			div class="row"
+	        				if  post.photo.url!='/photos/original/missing.png'
+	        					div class="span3"
+						              figure
+						                =link_to "/news/#{post.id}" do 
+											= image_tag post.photo.url(:medium)
+							div class="span6"
+								h4 = link_to post.title, "/news/#{post.id}"
+							p = post.preview
+						hr
+		div class="row"
+			div class="span9 offset3"
+				div class="pagination"
+					ul
+						= paginate @news
+= content_for :footer do 
+	span

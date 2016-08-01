@@ -1,0 +1,19 @@
+section class="section-content section-content-sidebar"
+  div class="container"
+    h2 class="section-title"
+      = @lib.title
+    div class="row"
+      div class="span8"
+        article
+          = raw @lib.content
+      div class="span3 offset1"
+        aside
+          div class="widget"
+            h5 class="widget-title"Материалы для скачивания
+            div class="widget-content"
+              ul class="unstyled"
+                - @lib.books.all.each do |prog|
+                  li style='border-bottom: 1px solid #eeeeee;'
+                    = link_to prog.alter_name, prog.book.url
+= content_for :footer do 
+  span

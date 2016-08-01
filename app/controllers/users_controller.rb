@@ -2,10 +2,10 @@
 class UsersController < ApplicationController
  before_filter :authenticate_user!, :except => [:show, :index]
 	def account
-		@user=current_user
-		@order=Order.new
-		@products=Material.where('version=?','Полная')
-		@demos=Material.where('version=?','Демо')
+		@user = current_user
+		@order = Order.new
+		@products = Material.where('version=?','Полная')
+		@demos = Material.where('version=?','Демо')
 		download_file
 		if request.xhr?
 			logger.debug('jslog')

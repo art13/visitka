@@ -1,7 +1,0 @@
-<h4>Свежие новости</h4>
-
-<%@posts.each do |post|%>
-	<h5><%=post.title%></h5>
-	<p><%= post.preview%></p>
-	 	<a href="http://loft-leshoz.ru/news/<%=post.id%>"> Посмотреть полностью</a>
-<%end%>
