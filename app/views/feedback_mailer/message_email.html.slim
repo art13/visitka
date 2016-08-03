@@ -1,0 +1,11 @@
+h4>Поступил новый отзыв
+br
+br
+br
+br
+h5 Посетитель сайта
+	= @feedback.fio
+	br написал: 
+	p = @feedback.message
+	br
+	P Ответить ему >>> "#{mail_to @feedback.email, @feedback.email}"

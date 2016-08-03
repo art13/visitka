@@ -16,7 +16,7 @@ section class="section-content section-testimonials section-color-white" id="sec
   div class="container"
     h2 class="section-title" Клиенты
     div class="row"
-      - unless Client.all.empty?
+      - unless @clients.empty?
         - @clients.each do |client|
           div class="span3"
             blockquote

@@ -1,24 +1,24 @@
 div class='container'
-  if flash[:notice]
+  - if flash[:notice]
     div id="notice" class='span4 noticed'
-      h4  = flash[:notice]
+      h4 = flash[:notice]
   div class='row span4'
     h2 Войти
-    = form_for(resource, :as => resource_name,:class => "form-vertical", :url => '/login') do |f|
+    = form_for(resource, :as => resource_name, :class => "form-vertical", :url => '/login') do |f|
       = devise_error_messages!
       div
         = f.label :email
-        = f.email_field :email, :autofocus => true, :class=>'span4'
+        = f.email_field :email, :autofocus => true, :class => 'span4'
       div
         = f.label "Пароль"
-        = f.password_field :password, :class=>'span4'
-      if devise_mapping.rememberable?
+        = f.password_field :password, :class => 'span4'
+      - if devise_mapping.rememberable?
         label class='checkbox' 
           = f.check_box :remember_me 
             span Запомнить меня
       br
       div
         = f.submit "Войти" , :class => 'btn btn-small btn-primary'
-        span или
+        span  или 
         = link_to "Зарегистрироваться", '/users/sign_up', :class => 'btn btn-small btn-primary'
     = render "devise/shared/links"

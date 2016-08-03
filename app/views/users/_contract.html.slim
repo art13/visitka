@@ -1,5 +1,5 @@
 div class='contract'
-	javascript
+	javascript:
 		$('.spoiler-body').hide();
 		$('.spoiler-head').on('click',function(){
 			$(this).toggleClass('folded').toggleClass('unfolded').next().slideToggle();	
@@ -21,7 +21,6 @@ div class='contract'
        	 	$.post('/account',{perl:perl});
     	});
     h3 style='margin-left:20px' Заключённые договоры
-    - @orders=Order.where(:user_id=>current_user.id)
     div class='row span8 '
     	- if @orders.empty?
     		label Договор не заключен
@@ -41,62 +40,11 @@ div class='contract'
     						div class='spoiler-info span6 row-marg'
     							div class='spoiler-info-head folded' Показать подробные данные
     							div class='spoiler-info-body'
-    								li class='info-li'
-    									span Адрес: 
-    									span class='empty-li' 
-    										= order.address
-    								li class='info-li'
-    									span Реквизиты: 
-    									span class='empty-li' 
-    										= order.inn
-    								li class='info-li'
-    									span Субъект РФ: 
-    									span class='empty-li' 
-    										= order.region
-    								li class='info-li'
-    									span Телефон: 
-    									span class='empty-li' 
-    										= order.phone
-    								li class='info-li'
-    									span Email: 
-    									span class='empty-li' 
-    										= order.email
-    								li class='info-li'
-    									span Факс: 
-    									span class='empty-li'
-    										= order.faks
-    								li class='info-li'
-    									span Контактное лицо: 
-    									span class='empty-li'
-    										= order.contact
-    								li class='info-li'
-    									span ОГРН: 
-    									span class='empty-li'
-    										= order.ogrn
-    								li class='info-li'
-    									span Руководитель: 
-    									span class='empty-li'
-    										= order.manager
-    								li class='info-li'
-    									span Название банка: 
-    									span class='empty-li'
-    										= order.bank_name
-    								li class='info-li'
-    									span Расчётный счёт: 
-    									span class='empty-li'
-    										= order.ras_schet
-    								li class='info-li'
-    									span Корреспондентский стчёт:
-    									span class='empty-li'
-    										= order.kor_schet
-    								li class='info-li'
-    									span БИК: 
-    									span class='empty-li'
-    										= order.bik
-    								li class='info-li'
-    									span Дата создания: 
-    									span class='empty-li'
-    										= order.created_at.to_date
+                                    - order_list(order).each do |key, value|
+    								    li class='info-li'
+    									   span = key 
+    									   span class='empty-li'
+                                            = value
     							div class='row row-marg span7'
     								table class='table table-bordered table-condensed alg'
     									caption Заказанные программные продукты

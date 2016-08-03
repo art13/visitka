@@ -1,5 +1,5 @@
 section class="section-content section-sidebar-content"
-  javascript
+  javascript:
     $('.button_tab a').removeClass('active_btn');
     var att = $('#acc_block').children().attr('class')    
     $('.button_tab #'+att ).addClass('active_btn')
@@ -10,9 +10,9 @@ section class="section-content section-sidebar-content"
       $.post('/account',{perl:perl});
     });
   div class="container"
-    h2 class="section-title"> Вы вошли как: 
-      span style='margin-left:15px' 
-        = @user.email
+    h2 class="section-title" 
+      span Вы вошли как:
+      span style='margin-left:15px' = @user.email
     div class="row"
       div class="span3"
         aside

@@ -1,6 +1,6 @@
 class ProgramsFeaturesController < ApplicationController
 	def index
-		@feats=Material.all
+		@feats = Material.all
 	end
 	def show
 		

@@ -36,14 +36,9 @@ section class="section-content section-clients-on-carousel section-color-graylig
                   i class="icon-chevron-right"
             div class="carousel-inner"
               - unless @clients.empty?
-                - arr=[]
-                - j=0
-                - j_max = @clients.size
-                - while j!=3
-                  - arr << clients.shift
-                  - j+=1
                 div class="item active"
-                  - arr.each do |client|
+                  - active_clients = @clients.shift(3)
+                  - active_clients.each do |client|
                     - unless client.nil?
                       div class="span3"
                         figure class="hover-figcaption"
@@ -51,14 +46,13 @@ section class="section-content section-clients-on-carousel section-color-graylig
                             = image_tag client.photo.url(:medium)
                               div class="figcaption"
                                 strong client.name
-                - unless clients.empty?
-                  div class="item"
-                    clients.each do |client|
-                      div class="span3"
-                        figure class="hover-figcaption"
-                          span 
-                            = image_tag client.photo.url(:medium)
-                              div class="figcaption"
-                                strong client.name
+                div class="item"
+                  - @clients.each do |client|
+                    div class="span3"
+                      figure class="hover-figcaption"
+                        span 
+                          = image_tag client.photo.url(:medium)
+                            div class="figcaption"
+                              strong client.name
 = content_for :footer do 
   span

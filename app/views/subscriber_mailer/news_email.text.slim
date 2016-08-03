@@ -1,0 +1,9 @@
+span Свежие новости
+@posts.each do |post|
+span ====================================
+= post.title
+span -------------------
+= post.preview
+span -------------------
+a href="http://loft-leshoz.ru/news/#{=post.id}" Посмотреть полностью
+span ====================================

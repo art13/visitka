@@ -5,25 +5,25 @@ div class="container"
         i class="icon-reorder"
       a class="brand span3" href="/"
         span style='font-size:224%; color:#fff;'
-          strong="#{DataContact.first.name}"
-          nav class="nav-collapse collapse "
-            ul class="nav primary-nav pull-right menus"
-              li class="active"id='home'
-                a href="/" Главная
-              li class="dropdown"id='programs_features'
-                a class="dropdown-toggle" data-toggle="dropdown" href="#" 
-                  span Информация
-                  b class="caret"
-                ul class="dropdown-menu"
-                  li id='about'
-                    a href="/about"О компании
-                  li id='programs_features'
-                    a href="/programs_features" Особенности программ
-                  li id='posts' 
-                    = link_to 'Новости', '/news'
-                  - Page.all.each do |page|
+          strong="#{@data_contacts.name}"
+      nav class="nav-collapse collapse "
+        ul class="nav primary-nav pull-right menus"
+          li class="active"id='home'
+            a href="/" Главная
+            li class="dropdown"id='programs_features'
+              a class="dropdown-toggle" data-toggle="dropdown" href="#" 
+                span Информация
+                b class="caret"
+              ul class="dropdown-menu"
+                li id='about'
+                  a href="/about"О компании
+                li id='programs_features'
+                  a href="/programs_features" Особенности программ
+                li id='posts' 
+                  = link_to 'Новости', '/news'
+                  - @data_pages.each do |page|
                     li id='pages'
-                      = link_to truncate(page.title, :lenght=60), "/information_pages/#{page.id}"
+                      = link_to truncate(page.title, :lenght => 60), information_page_path(page)
               li id='materials'
                 = link_to 'Программы','/programms'
               li class="dropdown" id='lib_books'
@@ -31,9 +31,9 @@ div class="container"
                   span Библиотеки
                   b class="caret"
                 ul class="dropdown-menu"
-                  - LibBook.all.each do |lib|
+                  - @data_libs.each do |lib|
                     li
-                      = link_to lib.title, "/library/#{lib.id}"
+                      = link_to lib.title, lib_book_path(lib)
                 li id='experts'
                   a href="/experts" Контакты     
-              = render :partial= 'shared/login_bar'
+              = render :partial => 'shared/login_bar'
