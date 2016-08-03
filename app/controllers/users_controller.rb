@@ -10,12 +10,12 @@ class UsersController < ApplicationController
 		@demos = Material.where('version=?','Демо')
 		download_file
 		if request.xhr?
-			@perl=params[:perl]
+			@perl = params[:perl]
 			respond_to do |format|
 				format.js
 			end
 		else
-			@perl='question'
+			@perl = 'question'
 			respond_to do |format|
 				format.html   	
             end
@@ -24,8 +24,8 @@ class UsersController < ApplicationController
 end
 
 def download_file
-	@materials=[]
-	@orders = Order.where(:user_id=>@user.id).where(:status=>'Договор')
+	@materials = []
+	@orders = Order.where(:user_id => @user.id).where(:status => 'Договор')
 	@orders.each do |order|
 		next unless order.lic_keys.empty?
 		order.line_items.map{|item| @materials += item.material}.uniq.compact

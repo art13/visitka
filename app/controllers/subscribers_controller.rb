@@ -1,12 +1,11 @@
 class SubscribersController < ApplicationController
 	def create
-		@flag=false
-		@subscriber=Subscriber.new(params[:subscriber])
-		if !@subscriber.save
+		@flag = false
+		@subscriber = Subscriber.new(params[:subscriber])
+		unless @subscriber.save
 				flash["sub_errors"] = @subscriber.errors.full_messages
 		else
-				@flag=true
-				#SubscriberMailer.news_email(@subscriber).deliver
+				@flag = true
 		end
 		respond_to do |format|
 			format.js
@@ -15,17 +14,10 @@ class SubscribersController < ApplicationController
 	
 	private
 		def email_news
-			@posts=[]
-			@begin=Date.current
-			@end=@begin-7
-			Post.all.each do |post|
-				if post.created_at.to_date.between?(@end,@begin)
-					@posts<<post
-				end
-			end
-			return @posts	
-			unless @posts.empty?
-				SubscriberMailer.news_email(@posts)		
-			end		
+			@posts = []
+			@begin = Date.current
+			@end = @begin-7
+			Post.all.each.map{|post| @posts << post if post.created_at.to_date.between?(@end,@begin)}
+			SubscriberMailer.news_email(@posts) unless @posts.empty?		
  	    end
 end

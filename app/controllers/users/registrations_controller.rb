@@ -1,35 +1,35 @@
 # encoding: utf-8
  class Users::RegistrationsController < Devise::RegistrationsController
   def create
-    @data=DataContact.first
-    @flag2=false
-    @user=User.new(params[:user])
+    @data = DataContact.first
+    @flag2 = false
+    @user = User.new(params[:user])
     if request.xhr?
-      if !@user.save
-        flash['create_error']= resource.errors.full_messages
-        @flag2=true
+      unless @user.save
+        flash['create_error'] = resource.errors.full_messages
+        @flag2 = true
         respond_to do |format|
            format.js
         end
       else
-        @flag2=false
-        flash['create_error']= resource.errors.full_messages
+        @flag2 = false
+        flash['create_error'] = resource.errors.full_messages
         sign_up(@user, resource)
-        current_user=@user
+        current_user = @user
         respond_to do |format|
           UserMailer.registr_message(@user,@data).deliver
           format.js { render :js => "window.location.href = '#{account_path}'" }
-          @dog='question'
+          @dog = 'question'
         end
       end
     else 
-      if !@user.save
-        flash['create_error']= resource.errors.full_messages
-        @flag2=true
+      unless @user.save
+        flash['create_error'] = resource.errors.full_messages
+        @flag2 = true
         respond_with resource
       else
         sign_up(@user, resource)
-        current_user=@user
+        current_user = @user
         respond_to do |format|
           UserMailer.delay.registr_message(@user,@data)
           format.html{ redirect_to account_path}
@@ -64,6 +64,7 @@
   def after_sign_up_path_for(resource)
     after_sign_in_path_for(resource)
   end
+
   def after_sign_in_path_for(resource)
     '/account'
   end

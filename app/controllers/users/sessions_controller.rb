@@ -49,6 +49,7 @@ class Users::SessionsController < Devise::SessionsController
   def auth_options
     { :scope => resource_name, :recall => "#{controller_path}#new" }
   end
+  
   def after_sign_in_path_for(resource)
         '/account'
     end
