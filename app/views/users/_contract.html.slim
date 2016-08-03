@@ -1,0 +1,158 @@
+div class='contract'
+	javascript
+		$('.spoiler-body').hide();
+		$('.spoiler-head').on('click',function(){
+			$(this).toggleClass('folded').toggleClass('unfolded').next().slideToggle();	
+		});
+		$('.spoiler-info-body').hide();
+		$('.spoiler-info-head').on('click',function(){
+			$(this).toggleClass('folded').toggleClass('unfolded').next().slideToggle();	
+		});
+		$('.empty-li').each(function(){
+			if ($(this).html()==" " || $(this).html()=="")
+			{
+				$(this).parent().empty();
+			}
+		});
+		$('body').on('click','.on-install',function(){
+      	 	perl = 'installator';
+       	 	$('.button_tab a').removeClass('active_btn');
+       	 	$(document.getElementById(perl)).addClass('active_btn');
+       	 	$.post('/account',{perl:perl});
+    	});
+    h3 style='margin-left:20px' Заключённые договоры
+    - @orders=Order.where(:user_id=>current_user.id)
+    div class='row span8 '
+    	- if @orders.empty?
+    		label Договор не заключен
+    	- else
+    		- @orders.order("id desc").each do |order|
+    			div class="spoiler-wrap span8 row-marg"
+    				div class="spoiler-head folded lft no_#{order.id}" Заказ № 
+    					span 
+    						= order.id
+    				div class="spoiler-body span8"
+    					div
+    						a name="ord_#{order.id}"
+    						h4 Мои данные
+    						h5 Название компании или физического лица
+    						span class="input-xlarge uneditable-input span6"
+    							= order.name
+    						div class='spoiler-info span6 row-marg'
+    							div class='spoiler-info-head folded' Показать подробные данные
+    							div class='spoiler-info-body'
+    								li class='info-li'
+    									span Адрес: 
+    									span class='empty-li' 
+    										= order.address
+    								li class='info-li'
+    									span Реквизиты: 
+    									span class='empty-li' 
+    										= order.inn
+    								li class='info-li'
+    									span Субъект РФ: 
+    									span class='empty-li' 
+    										= order.region
+    								li class='info-li'
+    									span Телефон: 
+    									span class='empty-li' 
+    										= order.phone
+    								li class='info-li'
+    									span Email: 
+    									span class='empty-li' 
+    										= order.email
+    								li class='info-li'
+    									span Факс: 
+    									span class='empty-li'
+    										= order.faks
+    								li class='info-li'
+    									span Контактное лицо: 
+    									span class='empty-li'
+    										= order.contact
+    								li class='info-li'
+    									span ОГРН: 
+    									span class='empty-li'
+    										= order.ogrn
+    								li class='info-li'
+    									span Руководитель: 
+    									span class='empty-li'
+    										= order.manager
+    								li class='info-li'
+    									span Название банка: 
+    									span class='empty-li'
+    										= order.bank_name
+    								li class='info-li'
+    									span Расчётный счёт: 
+    									span class='empty-li'
+    										= order.ras_schet
+    								li class='info-li'
+    									span Корреспондентский стчёт:
+    									span class='empty-li'
+    										= order.kor_schet
+    								li class='info-li'
+    									span БИК: 
+    									span class='empty-li'
+    										= order.bik
+    								li class='info-li'
+    									span Дата создания: 
+    									span class='empty-li'
+    										= order.created_at.to_date
+    							div class='row row-marg span7'
+    								table class='table table-bordered table-condensed alg'
+    									caption Заказанные программные продукты
+    									- table_titles = ["№", "Программа", "Количество", "Стоимость(за ед.)", "Сумма"]
+    									thead
+    										tr
+    											- table_titles.each do |tt|
+    												th class="span1 row-marg" 
+    													= tt
+    									tbody
+											- order.line_items.each_with_index do |item, index |
+												tr
+													td
+														= index+1
+													td
+														= item.material.name
+													td	
+														= item.quantity
+													td 
+														= item.price.to_i
+													td
+														= item.amount.to_i
+										tr
+											td
+											td Итого:
+											td
+											td
+											td
+												= order.total
+								div class='row span7 row-marg'
+									h4 align='center' Лицензионные ключи
+									- if order.lic_keys.empty?
+										label align='center' empty
+									- else
+										table class='table table-bordered table-condensed'
+											thead
+												tr
+													th №
+													th Программа
+													th Ключ
+													th Статус ключа
+											tbody
+												- order.lic_keys.each_with_index do |key,index|
+													tr
+														td
+															= index+1
+														td
+															= key.material.name
+														td
+															= key.lic
+														td
+															= key.status
+										- order.line_items.each do |item|
+											- if item.material.installator
+												= link_to "Скачать установщик для программы #{item.material.name}", item.material.installator.installator.url, :class => 'btn btn-primary', :style => 'float:left; margin:1em 0'
+								div class='row span7 row-marg'
+									h4 align='center' История установок
+									label align='center' empty
+	a class='click-on-me' href="#ord_#{@orders.last.id}"

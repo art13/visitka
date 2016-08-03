@@ -1,0 +1,10 @@
+div class='container'
+	div class='row span4'
+		h3 Забыли пароль?
+		= form_for(resource, :as => resource_name, :url => '/users/passwords',:class=>"form-vertical", :html => { :method => :post }) do |f| 
+			= devise_error_messages!
+			div
+				= f.label "email, на который зарегестрирован аккаунт"
+				= f.email_field :email, :autofocus => true , :class=>'span3'
+			div
+				= f.submit "Отправить ссылку на восстановление пароля" , :class=>'btn clear_pass'

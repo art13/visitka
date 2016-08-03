@@ -1,0 +1,8 @@
+a name="install"
+	div class='installator'
+		h3 Как использовать установщик
+	- @post = InfoPost.find_by_title('Как использовать установщик')
+	- unless @post.nil?
+		div class='row row-marg' style='margin-bottom:10px;'
+			article
+				= raw @post.content

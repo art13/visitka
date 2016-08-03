@@ -1,0 +1,12 @@
+div class='free_download'
+	h3 Скачать бесплатно
+	- unless @demos.nil?
+		- @demos.each do |demo|
+			div class='row ' style='margin-bottom:10px;'
+				blockquote class="#{cycle('even', 'odd')}"
+					h4 
+						= link_to demo.name, "programms/#{demo.id}"
+					br
+					article
+						= raw demo.description
+					= link_to 'Скачать демо-версию', demo.installator.installator.url, :class => 'btn demo_btn btn-primar'

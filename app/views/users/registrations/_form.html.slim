@@ -1,0 +1,16 @@
+h3 Зарегистрируйтесь на сайте, чтобы заказать программу.
+=form_for user,:url=>'/users/registrations',:html => {:class => "form-vertical",:id => 'request-form', :remote => true} do |f|
+  div class="control-group"
+    label for="request-email"
+    = f.email_field :email ,:class => "span3",:id => 'request-email', :placeholder => 'email*'
+  div class='control-group'
+    = f.password_field :password, :class=>'span3',:placeholder=>'Пароль*'
+  div class='control-group'
+    = f.password_field :password_confirmation, :class => 'span3',:placeholder => 'Подтверждение пароля*'
+    = f.hidden_field :interes, :value => true
+  p class="help-inline err_reqq" style='display: block;'
+  div style='display:inline'
+    = f.submit "Зарегистрироваться", :class => 'btn btn-small',:id => 'create-user'
+      span  style='margin:0px 10px 0 7px; ' или
+      = link_to " Войти",'/login', :class => 'btn btn-small'
+     

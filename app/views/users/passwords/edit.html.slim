@@ -1,0 +1,14 @@
+div class='container'
+	div class='row span4'
+		h2>Изменить пароль
+		= form_for(resource, :as => resource_name, :url => '/users/passwords', :html => { :method => :put, :class=>"form-vertical" }) do |f|
+			= devise_error_messages!
+			= f.hidden_field :reset_password_token
+			div
+				= f.label :password, "Новый пароль"
+				= f.password_field :password, :autofocus => true
+			div
+				= f.label :password_confirmation, "Подтвердить пароль"
+				= f.password_field :password_confirmation
+			div
+				= f.submit "Изменить пароль", :class=>'btn btn-primary'

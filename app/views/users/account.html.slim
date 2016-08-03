@@ -1,0 +1,40 @@
+section class="section-content section-sidebar-content"
+  javascript
+    $('.button_tab a').removeClass('active_btn');
+    var att = $('#acc_block').children().attr('class')    
+    $('.button_tab #'+att ).addClass('active_btn')
+    $('body').on('click','.contr_btn',function(){
+      perl = 'question';
+      $('.button_tab a').removeClass('active_btn');
+      $(document.getElementById(perl)).addClass('active_btn');
+      $.post('/account',{perl:perl});
+    });
+  div class="container"
+    h2 class="section-title"> Вы вошли как: 
+      span style='margin-left:15px' 
+        = @user.email
+    div class="row"
+      div class="span3"
+        aside
+          div class="widget"
+            div class="widget-content"
+              ul class="unstyled button_tab"
+                li
+                  a class='btn active_btn'id='free_download' Скачать бесплатно
+                li
+                  a class='btn'id='prices' Цены
+                li
+                  a class='btn'id='how_to' Как купить и установить
+                li
+                  a class='btn'id='question' Заключить договор
+                li
+                  a class='btn'id='installator' Как использовать установщик
+                li
+                  a class='btn'id='contract' Мои договоры и программы
+      div class="span8 offset05"id='acc_block'
+        - if @user.interes?
+          = render :partial=>'question'
+        - else  
+          = render :partial=>'free_download'
+= content_for :footer do
+  span

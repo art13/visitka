@@ -1,0 +1,8 @@
+div class='how_to'
+	h3 Как купить и установить
+	- @post = InfoPost.find_by_title('Как купить и установить')
+	- unless @post.nil?
+		div class='row row-marg' style='margin-bottom:10px;'
+			article
+				= raw @post.content
+			a class='btn btn-primary contr_btn'id='contr_btn' Перейти к заключению договора
